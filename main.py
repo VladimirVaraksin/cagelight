@@ -1,114 +1,117 @@
 from ultralytics import YOLO
 import cv2
-import math
 from camera_list import list_camera_resolutions, choose_device
 
-def select_onecam():
-    devices = list_camera_resolutions()
-    selected_index = choose_device(devices)
-    # start webcam
-    cap = cv2.VideoCapture(selected_index)  # -> index of the first camera
-    cap.set(3, 1920)  # resolution
-    cap.set(4, 1080)
+
+# --- Model & Klassen ---
+model = YOLO("yolo-Weights/yolov8n.pt")
+
+classNames = [
+    "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
+    "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
+    "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
+    "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat",
+    "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup",
+    "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli",
+    "carrot", "hot dog", "pizza", "donut", "cake", "chair", "sofa", "pottedplant", "bed",
+    "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
+    "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
+    "teddy bear", "hair drier", "toothbrush", "ball"
+]
+
+
+# --- Detection ---
+def detect_obj(results, img):
+    for r in results:
+        for box in r.boxes:
+            x1, y1, x2, y2 = map(int, box.xyxy[0])
+            confidence = round(float(box.conf[0]), 2)
+            cls = int(box.cls[0])
+            label = classNames[cls] if cls < len(classNames) else "Unknown"
+
+            cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
+            cv2.putText(img, f'{label} {confidence}', (x1, y1 - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
+
+
+# --- Kamera Setup ---
+def setup_camera(index, width=1920, height=1080):
+    cap = cv2.VideoCapture(index, cv2.CAP_AVFOUNDATION)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    if not cap.isOpened():
+        print(f"Kamera {index} konnte nicht geöffnet werden.")
+        return None
     return cap
 
 
+# --- Modus: Einzelkamera ---
+def run_single_camera(index, name="Kamera"):
+    cap = setup_camera(index)
+    if not cap:
+        return
 
-# model
-model = YOLO("yolo-Weights/yolov8x.pt")
-
-# object classes
-classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
-              "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
-              "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
-              "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite", "baseball bat",
-              "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle", "wine glass", "cup",
-              "fork", "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange", "broccoli",
-              "carrot", "hot dog", "pizza", "donut", "cake", "chair", "sofa", "pottedplant", "bed",
-              "diningtable", "toilet", "tvmonitor", "laptop", "mouse", "remote", "keyboard", "cell phone",
-              "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
-              "teddy bear", "hair drier", "toothbrush", "ball"
-              ]
-
-def detect_obj(results, img):
-    # coordinates
-    for r in results:
-        boxes = r.boxes
-
-        for box in boxes:
-            # bounding box
-            x1, y1, x2, y2 = box.xyxy[0]
-            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)  # convert to int values
-
-            # put box in cam
-            cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
-
-            # confidence
-            confidence = math.ceil((box.conf[0] * 100)) / 100
-            print("Confidence --->", confidence)
-
-            # class name
-            cls = int(box.cls[0])
-
-            print("Class name -->", classNames[cls])
-
-            # object details
-            org = [x1, y1]
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            font_scale = 1
-            color = (255, 0, 0)
-            thickness = 2
-
-            cv2.putText(img, classNames[cls], org, font, font_scale, color, thickness)
-
-
-def run_single_camera(cap, name):
     while True:
         success, img = cap.read()
+        if not success:
+            break
         results = model(img, stream=True)
-
         detect_obj(results, img)
-
-        if success:
-            cv2.imshow(name, img)
+        cv2.imshow(name, img)
         if cv2.waitKey(1) == ord('q'):
             break
 
     cap.release()
     cv2.destroyAllWindows()
 
-def run_multiple_cams(cam1, cam2):
+
+# --- Modus: Zwei Kameras ---
+def run_multiple_cams(index1, index2):
+    cap1 = setup_camera(index1)
+    cap2 = setup_camera(index2)
+
+    if not cap1 or not cap2:
+        return
+
     while True:
-        ret1, frame1 = cam1.read()
-        ret2, frame2 = cam2.read()
+        ret1, frame1 = cap1.read()
+        ret2, frame2 = cap2.read()
 
         if ret1:
-            results = model(frame1, stream=True)
-            detect_obj(results, frame1)
+            results1 = model(frame1, stream=True)
+            detect_obj(results1, frame1)
             cv2.imshow("Kamera 1", frame1)
         if ret2:
-            results = model(frame2, stream=True)
-            detect_obj(results, frame2)
+            results2 = model(frame2, stream=True)
+            detect_obj(results2, frame2)
             cv2.imshow("Kamera 2", frame2)
 
-        # Warten auf 'q' zum Beenden
         if cv2.waitKey(1) == ord('q'):
             break
 
+    cap1.release()
+    cap2.release()
+    cv2.destroyAllWindows()
+
+
+# --- Hauptprogramm ---
 def main():
-    cam1 = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)
-    cam2 = cv2.VideoCapture(1, cv2.CAP_AVFOUNDATION)
+    devices = list_camera_resolutions()
+    print("\nMehrere Kameras auswählen? (y/n): ", end="")
+    multi = input().strip().lower() == 'y'
 
-    if not cam1.isOpened() or not cam2.isOpened():
-        print("Eine oder beide Kameras konnten nicht geöffnet werden.")
-        exit()
+    if multi:
+        print("Wähle zwei Kameras durch Komma getrennt (z. B. 0,1): ", end="")
+        selection = input()
+        try:
+            index1, index2 = map(int, selection.split(','))
+            run_multiple_cams(index1, index2)
+        except:
+            print("Ungültige Eingabe.")
+    else:
+        selected_index = choose_device(devices)
+        run_single_camera(selected_index, name=f"Kamera {selected_index}")
 
-    print("Drücke 'q' zum Beenden.")
-    #multiple
-    #run_multiple_cams(cam1, cam2)
-
-    #single
-    #run_single_camera(select_onecam(), 'Kamera1')
 
 if __name__ == "__main__":
     main()
