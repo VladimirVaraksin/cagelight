@@ -5,7 +5,7 @@ from object_detection import model, detect_obj
 
 
 #macOS solution
-#"""
+"""
 def get_cameras_with_resolutions():
     devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
     camera_data = []
@@ -31,9 +31,9 @@ def get_cameras_with_resolutions():
         })
 
     return camera_data
-#"""
-#Platform independent solution
 """
+#Platform independent solution
+#"""
 def get_cameras_with_resolutions(max_tested_devices=5):
     common_resolutions = [
         (1920, 1080), (1280, 720), (1024, 768),
@@ -46,7 +46,7 @@ def get_cameras_with_resolutions(max_tested_devices=5):
 
             cap = cv2.VideoCapture(index)
 
-            # If the camera couldn't be opened, it will raise an exception
+
             if not cap.isOpened():
                 print(f"Camera at index {index} could not be opened.")
                 return camera_data
@@ -74,7 +74,7 @@ def get_cameras_with_resolutions(max_tested_devices=5):
                     'resolutions': supported_res
                 })
     return camera_data
-"""
+#"""
 
 # --- Kamera-Setup ---
 def setup_camera(index, width, height):
