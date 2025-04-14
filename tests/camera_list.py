@@ -9,6 +9,7 @@ def list_video_devices():
         print(f"[{idx}] {device.localizedName()}")
         device_list.append(device)
     return device_list
+"""
 
 def list_camera_resolutions():
     devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
@@ -25,6 +26,11 @@ def list_camera_resolutions():
         for res in sorted(resolutions, key=lambda x: int(x.split('x')[0])):
             print(f"  - {res}")
     return devices
+"""
+
+def list_camera_resolutions():
+    devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
+    return [(i, device.localizedName()) for i, device in enumerate(devices)]
 
 def choose_device(devices):
     while True:
