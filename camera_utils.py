@@ -1,7 +1,7 @@
-import AVFoundation
+#import AVFoundation
 import cv2
 from object_detection import model, detect_obj
-
+import platform
 
 
 #macOS solution
@@ -32,6 +32,7 @@ def get_cameras_with_resolutions():
 
     return camera_data
 """
+
 #Platform independent solution
 #"""
 def get_cameras_with_resolutions(max_tested_devices=5):
@@ -50,6 +51,7 @@ def get_cameras_with_resolutions(max_tested_devices=5):
             if not cap.isOpened():
                 print(f"Camera at index {index} could not be opened.")
                 return camera_data
+
 
 
             name = f"Camera {index}"
@@ -77,10 +79,30 @@ def get_cameras_with_resolutions(max_tested_devices=5):
 #"""
 
 # --- Kamera-Setup ---
+"""
 def setup_camera(index, width, height):
     cap = cv2.VideoCapture(index, cv2.CAP_AVFOUNDATION)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    return cap if cap.isOpened() else None
+"""
+
+def setup_camera(index=0, width=1280, height=720):
+    system = platform.system()
+
+    if system == "Darwin":  # macOS
+        backend = cv2.CAP_AVFOUNDATION
+    elif system == "Windows":
+        backend = cv2.CAP_DSHOW
+    elif system == "Linux":
+        backend = cv2.CAP_V4L2
+    else:
+        backend = 0  # Default backend
+
+    cap = cv2.VideoCapture(index, backend)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+
     return cap if cap.isOpened() else None
 
 
@@ -109,3 +131,28 @@ def run_multiple_cams(cam_configs):
     for cap, _ in caps:
         cap.release()
     cv2.destroyAllWindows()
+
+#Test für Setup Camera
+def main():
+    cap = setup_camera(index=0, width=1280, height=720)
+    if not cap:
+        return
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Failed to grab frame.")
+            break
+
+        cv2.imshow("Live Camera", frame)
+
+        # q drücken zum Beenden
+        if cv2.waitKey(1) == ord('q'):
+            print("q gedrückt, beenden...")
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
