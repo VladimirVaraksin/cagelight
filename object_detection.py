@@ -4,7 +4,7 @@ from cv_draw import draw_ellipse, draw_traingle
 
 # YOLO-Modell laden
 PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/last1.pt')
-# Klassenliste (YOLOv8 COCO)
+# Klassenliste
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
 #print(PLAYER_DETECTION_MODEL.names.values())
 
