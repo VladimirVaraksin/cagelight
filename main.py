@@ -1,4 +1,11 @@
 from gui import start_gui
+from camera_utils import get_cameras_with_resolutions
+from run_camera import run_multiple_cams
+
+def main():
+    camera_data = get_cameras_with_resolutions()
+    configs = start_gui(camera_data)
+    run_multiple_cams(configs)
 
 if __name__ == "__main__":
-    start_gui()
+    main()

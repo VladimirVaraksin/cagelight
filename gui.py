@@ -1,15 +1,15 @@
 import tkinter as tk
 from tkinter import messagebox
-from camera_utils import get_cameras_with_resolutions, run_multiple_cams
 
-def start_gui():
-    camera_data = get_cameras_with_resolutions()
+def start_gui(camera_data):
+    #camera_data = get_cameras_with_resolutions()
 
     root = tk.Tk()
     root.title("Kamera & Auflösung wählen")
     root.geometry("550x700")
 
     selections = []
+    result = []
 
     tk.Label(root, text="Wähle Kamera(s) & Auflösung:", font=("Arial", 14, "bold")).pack(pady=10)
 
@@ -95,7 +95,7 @@ def start_gui():
             return
 
         root.destroy()
-        run_multiple_cams(configs)
+        result.extend(configs)
 
     tk.Button(
         root,
@@ -109,3 +109,4 @@ def start_gui():
     ).pack(pady=20)
 
     root.mainloop()
+    return result

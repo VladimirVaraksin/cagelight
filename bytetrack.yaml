@@ -1,0 +1,7 @@
+tracker_type: bytetrack
+track_high_thresh: 0.5       # erhöht, um nur gute Detections zuzulassen
+track_low_thresh: 0.3        # höher, damit "schwache" Detections nicht übernommen werden
+new_track_thresh: 0.7        # konservativer – neue Tracks nur bei starker Detektion
+track_buffer: 45             # etwas länger, falls Spieler kurz verdeckt sind
+match_thresh: 0.85           # höher für präzisere Zuordnung
+fuse_score: True
