@@ -2,11 +2,12 @@ import cv2
 from ultralytics import YOLO
 from cv_draw import draw_ellipse, draw_traingle
 
+
 # YOLO-Modell laden
 PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/last1.pt')
 # Klassenliste
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
-#print(PLAYER_DETECTION_MODEL.names.values())
+#print(PLAYER_DETECTION_MODEL.names)
 
 # --- Detection ---
 def annotate_objects(results, frame):
@@ -23,5 +24,5 @@ def annotate_objects(results, frame):
                 cv2.putText(frame, f'id: {l_id}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
             elif label == 'ball':
                 frame = draw_traingle(frame, box.xyxy[0], (128, 128, 128))
-            elif label == 'referee':
-                frame = draw_ellipse(frame, box.xyxy[0], (0, 0, 0))
+            # elif label == 'referee':
+            #     frame = draw_ellipse(frame, box.xyxy[0], (0, 0, 0))

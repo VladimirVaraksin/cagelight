@@ -19,7 +19,11 @@ def run_multiple_cams(cam_configs):
         for cap, name in caps:
             ret, frame = cap.read()
             if ret:
-                results = PLAYER_DETECTION_MODEL.track(source=frame, stream=True, persist=True, tracker='bytetrack.yaml')
+                #results = PLAYER_DETECTION_MODEL(frame, stream=True)
+                results = PLAYER_DETECTION_MODEL.track(source=frame, stream=True,
+                                                       verbose=False, persist=True, tracker='bytetrack.yaml'#, classes=[0, 1, 2]
+                )
+                #results = PLAYER_DETECTION_MODEL.predict(frame, verbose=False)
                 annotate_objects(results, frame)
                 cv2.imshow(name, frame)
         if cv2.waitKey(1) == ord('q'):
