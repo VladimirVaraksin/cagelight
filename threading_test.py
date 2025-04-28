@@ -13,7 +13,7 @@ def run_tracker_in_thread(camera, cam_name, cam_disp):
             #  annotate the frame
             annotate_objects(results, frame)
             cam_disp[cam_name] = frame.copy()  # Store the latest frame for main thread to display
-            print(results)
+            #print(results)
 
         if cam_disp.get('exit', False):
             break
