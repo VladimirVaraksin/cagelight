@@ -1,2 +1,1 @@
-# cagelight
 CageLight Projekt THA 
