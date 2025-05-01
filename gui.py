@@ -2,8 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 
 def start_gui(camera_data):
-    #camera_data = get_cameras_with_resolutions()
-
     root = tk.Tk()
     root.title("Kamera & Auflösung wählen")
     root.geometry("550x700")

@@ -20,8 +20,9 @@ def test_resolutions_for_camera(cap, resolutions):
 
 def get_cameras_with_resolutions(max_tested_devices=2):
     common_resolutions = [
-        (1920, 1080), (1280, 720), (1024, 768),
-        (800, 600), (640, 480), (320, 240)
+        (1920, 1080), (1280, 720)
+        #, (1024, 768),
+        #(800, 600), (640, 480), (320, 240)
     ]
 
     camera_data = []
@@ -46,8 +47,9 @@ def get_cameras_with_resolutions(max_tested_devices=2):
                     'name': dev,
                     'resolutions': supported_res
                 })
-                """
+
     elif current_platform == "Windows":
+        from pygrabber.dshow_graph import FilterGraph
         # Windows: Use FilterGraph to get camera name and OpenCV to test resolutions
         devices = FilterGraph().get_input_devices()
 
@@ -64,7 +66,7 @@ def get_cameras_with_resolutions(max_tested_devices=2):
                     'index': device_index,  # Add the index of the camera
                     'name': device_name,
                     'resolutions': supported_res
-                })"""
+                })
     elif current_platform == "Darwin":  # macOS
         # macOS: Use AVFoundation via pyobjc to list cameras and resolutions
         devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
