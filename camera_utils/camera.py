@@ -20,7 +20,7 @@ def setup_camera(index=0, width=1280, height=720):
 
     return cap if cap.isOpened() else None
 
-def release_cameras(cameras):
+def release_sources(cameras):
     """
     Release all camera streams.
     """

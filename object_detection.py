@@ -1,7 +1,6 @@
 from ultralytics import YOLO
-
 # YOLO-Modell laden
-MODEL_PATH = 'Models/last1.pt'
+MODEL_PATH = 'models/last1.pt'
 
 PLAYER_DETECTION_MODEL = YOLO(MODEL_PATH)
 BALL_MODEL = YOLO(MODEL_PATH)
@@ -47,5 +46,6 @@ def save_objects(results, frame, frame_num, camera_id=0):
             if label in {"player", "goalkeeper", "ball"}:
                 data.append(common_entry)
 
-            #save to DB
-            print(data)
+            #save entry to DB
+            #print(data)
+    return data
