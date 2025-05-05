@@ -1,4 +1,10 @@
-from main import PLAYER_DETECTION_MODEL
+from ultralytics import YOLO
+
+# YOLO-Modell laden
+MODEL_PATH = 'Models/last1.pt'
+
+PLAYER_DETECTION_MODEL = YOLO(MODEL_PATH)
+BALL_MODEL = YOLO(MODEL_PATH)
 
 # Klassenliste (YOLOv8)
 classNames = list(PLAYER_DETECTION_MODEL.names.values())

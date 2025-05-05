@@ -1,13 +1,7 @@
 from camera_utils import setup_camera, release_cameras
-from object_detection import save_objects
-from ultralytics import YOLO
+from object_detection import save_objects, PLAYER_DETECTION_MODEL, BALL_MODEL
 import time
 
-# YOLO-Modell laden
-MODEL_PATH = 'Models/last1.pt'
-
-PLAYER_DETECTION_MODEL = YOLO(MODEL_PATH)
-BALL_MODEL = YOLO(MODEL_PATH)
 
 DAUER_SPIEL = 5400  # Dauer des Spiels in Sekunden (90 Minuten)
 FPS = 30  # Frames pro Sekunde
