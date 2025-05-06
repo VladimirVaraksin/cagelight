@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🚀 Python 3.10, PyTorch & Ultralytics Installation auf Jetson"
+echo "🚀 Python 3.10 auf Jetson"
 
 # 1. Install Python 3.10 from source
 echo "📦 Installiere Abhängigkeiten..."
