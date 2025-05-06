@@ -29,6 +29,7 @@ def main(lcl_args=None):
         print("Ungültige Eingabewerte. Bitte überprüfen Sie die Argumente.")
         return
 
+
     time.sleep(start_after)
 
     os.makedirs(save_folder, exist_ok=True)
