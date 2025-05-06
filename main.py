@@ -15,6 +15,7 @@ def main(lcl_args=None):
     resolution = (1280, 720)  # Auflösung der Kamera
     save_folder = 'output'  # Ordner für die Ausgabedateien
     camera_id = kameranummer = 0  # Standard Kamera-ID
+    start_after = 0  # Wartezeit vor dem Start der Aufnahme
 
     if lcl_args is not None:
         dauer_spiel = lcl_args.spieldauer*60 if lcl_args.spieldauer else dauer_spiel
@@ -22,6 +23,13 @@ def main(lcl_args=None):
         fps = lcl_args.fps if lcl_args.fps else fps
         resolution = tuple(lcl_args.resolution) if lcl_args.resolution else resolution
         kameranummer = lcl_args.kameranummer if lcl_args.kameranummer else 0
+        start_after = lcl_args.start_after if lcl_args.start_after else 0
+
+    if dauer_spiel < 0 or halbzeit_dauer < 0 or fps <= 0 or resolution[0] <= 0 or resolution[1] <= 0 or kameranummer < 0 or start_after < 0:
+        print("Ungültige Eingabewerte. Bitte überprüfen Sie die Argumente.")
+        return
+
+    time.sleep(start_after)
 
     os.makedirs(save_folder, exist_ok=True)
     data = []
@@ -118,6 +126,12 @@ if __name__ == "__main__":
         help="Nummer der verwendeten Kamera z.B 0-3)."
     )
 
+    parser.add_argument(
+        "--start_after",
+        type=int,
+        help="Wartezeit in Sekunden, bevor die Aufnahme beginnt."
+    )
+
     args = parser.parse_args()
-    print(args)
+    #print(args)
     main(args)
