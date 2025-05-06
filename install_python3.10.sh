@@ -22,9 +22,3 @@ echo "🔨 Baue Python 3.10 (kann 5–10 Minuten dauern)..."
 ./configure --enable-optimizations
 make -j$(nproc)
 sudo make altinstall  # installiert als python3.10, ohne alte Version zu überschreiben
-
-cd ~ || exit
-cd RasberryPi || git clone https://github.com/VladimirVaraksin/RasberryPi.git
-python3.10 -m venv yolovenv
-source yolovenv/bin/activate
-pip install -r requirements.txt

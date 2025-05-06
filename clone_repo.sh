@@ -1,4 +1,5 @@
 cd ~ || exit
-git clone https://github.com/VladimirVaraksin/RasberryPi.git
-cd RasberryPi || exit
-pip install -r requirements.txt   # falls vorhanden
+cd RasberryPi || git clone https://github.com/VladimirVaraksin/RasberryPi.git
+python3.10 -m venv yolovenv
+source yolovenv/bin/activate
+pip install -r requirements.txt
