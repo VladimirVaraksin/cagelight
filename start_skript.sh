@@ -1,7 +1,7 @@
 #!/bin/bash
 #mit $ source start_skript.sh starten
 # Ins Verzeichnis ~/RasberryPi wechseln
-cd ~/RasberryPi || { echo "Verzeichnis nicht gefunden!"; exit 1; }
+cd ~/RaspberryPi || { echo "Verzeichnis nicht gefunden!"; exit 1; }
 
 # Python-Virtual-Environment "yolovenv" aktivieren
 source yolovenv/bin/activate || { echo "Konnte yolovenv nicht aktivieren!"; exit 1; }
