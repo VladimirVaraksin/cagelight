@@ -14,16 +14,16 @@ def main(lcl_args=None):
     halbzeit_dauer = 900  # Dauer der Halbzeitpause in Sekunden (15 Minuten)
     resolution = (1280, 720)  # Auflösung der Kamera
     save_folder = 'output'  # Ordner für die Ausgabedateien
-    camera_id = kameranummer = 0  # Standard Kamera-ID
+    kameranummer = 0  # Standard Kamera-ID
     start_after = 0  # Wartezeit vor dem Start der Aufnahme
 
     if lcl_args is not None:
-        dauer_spiel = lcl_args.spieldauer*60 if lcl_args.spieldauer else dauer_spiel
-        halbzeit_dauer = lcl_args.halbzeitdauer*60 if lcl_args.halbzeitdauer else halbzeit_dauer
+        dauer_spiel = lcl_args.spieldauer if lcl_args.spieldauer else dauer_spiel
+        halbzeit_dauer = lcl_args.halbzeitdauer if lcl_args.halbzeitdauer else halbzeit_dauer
         fps = lcl_args.fps if lcl_args.fps else fps
         resolution = tuple(lcl_args.resolution) if lcl_args.resolution else resolution
-        kameranummer = lcl_args.kameranummer if lcl_args.kameranummer else 0
-        start_after = lcl_args.start_after if lcl_args.start_after else 0
+        kameranummer = lcl_args.kameranummer if lcl_args.kameranummer else kameranummer
+        start_after = lcl_args.start_after if lcl_args.start_after else start_after
 
     if dauer_spiel < 0 or halbzeit_dauer < 0 or fps <= 0 or resolution[0] <= 0 or resolution[1] <= 0 or kameranummer < 0 or start_after < 0:
         print("Ungültige Eingabewerte. Bitte überprüfen Sie die Argumente.")
@@ -36,10 +36,10 @@ def main(lcl_args=None):
     data = []
 
     frame_num = 1
-    camera = setup_camera(camera_id, resolution[0], resolution[1])
+    camera = setup_camera(0, resolution[0], resolution[1])
 
     if not camera:
-        print(f"Failed to open camera with ID {camera_id}.")
+        print(f"Failed to open camera with ID {0}.")
         return
 
     out = cv2.VideoWriter(
@@ -55,13 +55,11 @@ def main(lcl_args=None):
             print("Failed to grab frame.")
             break
 
-        frame_num += 1  # Framezähler erhöhen
-
         if frame_num == (dauer_spiel / 2) * fps:
             print("Halbzeit")
-            time.sleep(halbzeit_dauer) # 15 Minuten Pause
+            time.sleep(halbzeit_dauer) # Pause
 
-        if frame_num == dauer_spiel* fps + halbzeit_dauer* fps:
+        if frame_num == dauer_spiel * fps + halbzeit_dauer * fps:
             print("Ende des Spiels")
             break
 
@@ -86,6 +84,7 @@ def main(lcl_args=None):
         data.append(save_objects(ball, frame, frame_num, kameranummer))
         # Write the frame to the video file
         out.write(frame)
+        frame_num += 1  # Framezähler erhöhen
 
     release_sources({camera, out})
     with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
@@ -98,13 +97,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--spieldauer",
         type=int,
-        help="Gesamtdauer des Spiels in Minuten."
+        help="Gesamtdauer des Spiels in Sekunden."
     )
 
     parser.add_argument(
         "--halbzeitdauer",
         type=int,
-        help="Dauer der Halbzeitpause in Minuten."
+        help="Dauer der Halbzeitpause in Sekunden."
     )
 
     parser.add_argument(
@@ -134,5 +133,4 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    #print(args)
     main(args)
