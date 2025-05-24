@@ -25,7 +25,7 @@ while True:
 
     non_zero_mask = ~np.all(frame_reference_points == 0, axis=1)
 
-    # Apply the mask to filter out unwanted points
+    # Apply the mask to filter out undetected points
     frame_reference_points = frame_reference_points[non_zero_mask]
     pitch_reference_points = pitch_reference_points[non_zero_mask]
 
