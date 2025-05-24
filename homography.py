@@ -58,7 +58,7 @@ while True:
                 pitch=annotated_frame)
 
             cv2.imshow('Frame', annotated_frame)
-            cv2.imwrite("output/pitch.jpg", annotated_frame)
+            #cv2.imwrite("output/pitch.jpg", annotated_frame)
         else:
             print("Insufficient keypoints in frame, skipping...")
     cv2.imshow('Frame2', frame)
