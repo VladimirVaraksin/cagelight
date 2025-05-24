@@ -36,7 +36,6 @@ while True:
     for detections in players_detections:
 
         detected_players = sv.Detections.from_ultralytics(detections)
-        print(detected_players)
 
         if len(frame_reference_points) >= 4:
             # Compute homography
