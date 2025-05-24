@@ -1,16 +1,15 @@
 import cv2
 from ultralytics import YOLO
-from cv_draw import draw_ellipse, draw_traingle
+from draw import draw_ellipse, draw_traingle
 from team_assigner import TeamAssigner
 
 team_assigner = TeamAssigner()
 
 # YOLO-Modell laden
-PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/last1.pt')
-BALL_MODEL = YOLO('yolo-Weights/last1.pt')
+PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/player_ball.pt')
+BALL_MODEL = YOLO('yolo-Weights/player_ball.pt')
 # Klassenliste
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
-#print(PLAYER_DETECTION_MODEL.names)
 
 # --- Detection ---
 def annotate_objects(results, frame):
