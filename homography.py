@@ -29,9 +29,9 @@ while True:
     frame_reference_points = frame_reference_points[non_zero_mask]
     pitch_reference_points = pitch_reference_points[non_zero_mask]
 
-    players_detections = PLAYER_DETECTION_MODEL.track(source=frame  # , stream=True
+    players_detections = PLAYER_DETECTION_MODEL.track(source=frame, stream=True
                                            , verbose=False, persist=True,
-                                           tracker='bytetrack.yaml'   , classes=[2]
+                                           tracker='bytetrack.yaml'   , classes=[1, 2]
                                            )
     for detections in players_detections:
 
