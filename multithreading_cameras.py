@@ -1,6 +1,6 @@
 import threading
 import cv2
-from object_detection import annotate_objects, PLAYER_DETECTION_MODEL
+from object_detection import annotate_objects, PLAYER_DETECTION_MODEL, BALL_MODEL
 from camera_utils import setup_camera
 import numpy as np
 
@@ -10,10 +10,14 @@ def run_tracker_in_thread(camera, cam_name, cam_disp):
         if ret:
             results = PLAYER_DETECTION_MODEL.track(source=frame, stream=True,
                                                     verbose=False, persist=True, tracker='bytetrack.yaml')
-            #  annotate the frame
+
+            ball = BALL_MODEL.track(source=frame, stream=True,
+                                              verbose=False, persist=True, tracker='bytetrack_ball.yaml', classes=[0])
+            #annotate the frame
             annotate_objects(results, frame)
+            annotate_objects(ball, frame)
             cam_disp[cam_name] = frame.copy()  # Store the latest frame for main thread to display
-            #print(results)
+
 
         if cam_disp.get('exit', False):
             break
@@ -69,5 +73,7 @@ def run_multiple_cams(cam_configs):
 
 if __name__ == '__main__':
     #configs = [{'index': 0, 'name': 'Phone Camera', 'width': 1920, 'height': 1080}, {'index': 1, 'name': 'Webcam', 'width': 1920, 'height': 1080}]
-    configs = [{'index': 'videos/test.mp4', 'name': 'video1', 'width': 1920, 'height': 1080}, {'index': 'videos/test.mp4', 'name': 'video2', 'width': 1920, 'height': 1080}]
+    configs = [{'index': 'videos/test.mp4', 'name': 'video1', 'width': 1920, 'height': 1080}
+        #, {'index': 'videos/test.mp4', 'name': 'video2', 'width': 1920, 'height': 1080}
+               ]
     run_multiple_cams(configs)

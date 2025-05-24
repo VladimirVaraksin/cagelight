@@ -19,6 +19,7 @@ def main():
     change_botsort(0.7)
     cap = cv2.VideoCapture('videos/test.mp4') #read video
     frames = []  # store frames
+    frame_num = 0
     while True:
         ret, frame = cap.read() #read frame
         if not ret:
@@ -32,6 +33,7 @@ def main():
             start = False
 
         annotate_objects(results, frame)
+        frame_num += 1
         cv2.imshow('Frame', frame)
         frames.append(frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):

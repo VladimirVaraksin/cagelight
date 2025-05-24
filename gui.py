@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import messagebox
+GUI_SIZE = "550x800"
 
 def start_gui(camera_data):
     root = tk.Tk()
     root.title("Kamera & Auflösung wählen")
-    root.geometry("550x700")
+    root.geometry(GUI_SIZE)
 
     selections = []
     result = []
@@ -108,3 +109,9 @@ def start_gui(camera_data):
 
     root.mainloop()
     return result
+
+if __name__ == "__main__":
+    start_gui([
+        {"index": 0, "name": "Kamera 1", "resolutions": [(640, 480), (1280, 720)]},
+        {"index": 1, "name": "Kamera 2", "resolutions": [(640, 480), (1280, 720)]}
+    ])

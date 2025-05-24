@@ -1,8 +1,5 @@
 import cv2
 import platform
-import pyudev
-import AVFoundation # macOS only
-#from pygrabber.dshow_graph import FilterGraph #windows
 
 def test_resolutions_for_camera(cap, resolutions):
     supported_res = []
@@ -18,7 +15,7 @@ def test_resolutions_for_camera(cap, resolutions):
     return supported_res
 
 
-def get_cameras_with_resolutions(max_tested_devices=2):
+def get_cameras_with_resolutions(max_tested_devices=4):
     common_resolutions = [
         (1920, 1080), (1280, 720)
         #, (1024, 768),
@@ -30,6 +27,7 @@ def get_cameras_with_resolutions(max_tested_devices=2):
 
     if current_platform == "Linux":
         # Linux: Use pyudev to get video devices
+        import pyudev
         context = pyudev.Context()
         video_devices = [device.device_node for device in context.list_devices(subsystem='video4linux')]
 
@@ -69,6 +67,7 @@ def get_cameras_with_resolutions(max_tested_devices=2):
                 })
     elif current_platform == "Darwin":  # macOS
         # macOS: Use AVFoundation via pyobjc to list cameras and resolutions
+        import AVFoundation  # macOS only
         devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
         for index, device in enumerate(devices):
             name = device.localizedName()
@@ -79,7 +78,8 @@ def get_cameras_with_resolutions(max_tested_devices=2):
                 desc = fmt.formatDescription()
                 dimensions = AVFoundation.CMVideoFormatDescriptionGetDimensions(desc)
                 resolution = (dimensions.width, dimensions.height)
-                resolutions.add(resolution)
+                if resolution in common_resolutions: # Filter for common resolutions
+                    resolutions.add(resolution)
 
             # Sortiere nach Breite (aufsteigend)
             sorted_res = sorted(list(resolutions), key=lambda r: r[0])
@@ -111,6 +111,13 @@ def setup_camera(index=0, width=1280, height=720):
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
     return cap if cap.isOpened() else None
+
+def release_cameras(cameras):
+    """
+    Release all camera streams.
+    """
+    for cam in cameras:
+        cam.release()
 
 if __name__ == "__main__":
     print(get_cameras_with_resolutions())
