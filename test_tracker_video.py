@@ -1,9 +1,9 @@
-from utils import save_video
+#from utils import save_video
 from ultralytics import YOLO
-from cv_draw import draw_ellipse, draw_traingle
+#from cv_draw import draw_ellipse, draw_traingle
 from object_detection import annotate_objects
 import cv2
-import numpy as np
+#import numpy as np
 import yaml
 
 VALID_IDS = set(range(1, 26))
