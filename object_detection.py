@@ -23,7 +23,7 @@ PITCH_REFERENCE_POINTS = np.array(CONFIG.vertices)
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
 
 def save_objects(results, frame, timestamp, camera_id=0):
-    #data = []
+    data = []
     height, width = frame.shape[:2]
 
     # --- Step 1: Keypoint detection and homography ---
@@ -101,6 +101,6 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 # Insert the entry into the database
                 insert_record(entry)
 
-                #data.append(entry)
+                data.append(entry)
 
-    #return data
+    return data

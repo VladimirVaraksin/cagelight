@@ -90,9 +90,9 @@ def main(lcl_args=None):
             tracker='bytetrack/bytetrack_ball.yaml', classes=[0]
         )
         # save the detected players and ball positions for debugging purposes
-        #frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
-
-        save_objects([*players, *ball], frame, time.time(), kameranummer)
+        frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
+        print(frame_data)
+        #save_objects([*players, *ball], frame, time.time(), kameranummer)
 
         #insert_many_players(frame_data)
         #data.append(frame_data)
