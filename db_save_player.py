@@ -1,3 +1,4 @@
+# This script is used to create a PostgreSQL table for storing player positions and insert records into it.
 import psycopg2
 
 
