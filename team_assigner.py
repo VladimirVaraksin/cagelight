@@ -1,3 +1,5 @@
+# This module contains the TeamAssigner class which is used to assign players to teams based on their jersey colors.
+
 import numpy as np
 from sklearn.cluster import KMeans
 
