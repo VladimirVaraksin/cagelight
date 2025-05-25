@@ -6,7 +6,7 @@ import numpy as np
 # initialize TeamAssigner
 team_assigner = TeamAssigner()
 
-# Load the YOLO models for pitch keypoints and player detection
+# Load the YOLO models for pitch keypoints, player and ball detection
 MODEL_PATH = 'models/player_ball.pt'
 PLAYER_DETECTION_MODEL = YOLO(MODEL_PATH)
 BALL_MODEL = YOLO(MODEL_PATH)
