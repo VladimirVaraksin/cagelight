@@ -35,7 +35,7 @@ def create_player_table():
             conn.commit() # Commit the transaction to save changes
 
 
-def insert_record(entry): # Insert a single player record into the database
+def insert_record(entry): # Insert a single entry into the database
     query = """
     INSERT INTO realtime_player_positions (
         tracking_id, object_type, team, pitch_position,
@@ -60,6 +60,6 @@ def insert_record(entry): # Insert a single player record into the database
             conn.commit() # Commit the transaction to save changes
 
 
-def insert_many_players(players): # Insert multiple player records
-    for player in players: # Iterate through each player record
-        insert_record(player) # Insert each player record into the database
+def insert_many_players(entries): # Insert multiple entry records
+    for obj in entries: # Iterate through each entry record
+        insert_record(obj) # Insert each entry record into the database
