@@ -5,8 +5,8 @@ from live_webcam_analysis import run_multiple_cams
 def main():
      camera_data = get_cameras_with_resolutions()
      configs = start_gui(camera_data)
-     # configs for phone camera
-     # configs = [{'index': 0, 'name': 'Phone Camera', 'width': 1920, 'height': 1080}]
+     # Optional: Hardcoded example for testing
+     # configs = [{'index': 0, 'name': 'Camera_0', 'width': 1920, 'height': 1080}]
      run_multiple_cams(configs)
 
 if __name__ == "__main__":

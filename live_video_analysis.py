@@ -1,5 +1,5 @@
 from ultralytics import YOLO
-from object_detection import annotate_objects
+from detection_utils import annotate_objects
 import cv2
 import yaml
 
