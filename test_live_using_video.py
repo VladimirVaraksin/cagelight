@@ -3,15 +3,11 @@ from object_detection import annotate_objects
 import cv2
 import yaml
 
-
-VALID_IDS = set(range(1, 26))
-
 # YOLO-Modell laden
 PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/player_ball.pt')
 PITCH_MODEL = YOLO('yolo-Weights/pitch_keypoints.pt')
 # Klassenliste
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
-
 
 def main():
     start = True
