@@ -18,46 +18,40 @@ def create_player_table():
     CREATE TABLE IF NOT EXISTS realtime_player_positions (
         id SERIAL PRIMARY KEY,
         tracking_id INTEGER,
-        object_type VARCHAR(20),
-        team VARCHAR(20),
-        object_position FLOAT[],
+        object_type VARCHAR(15),
+        team VARCHAR(10),
+        pitch_position FLOAT[],
         timestamp FLOAT,
         confidence FLOAT,
-        camera_id INTEGER,
-        action VARCHAR(20),
-        x_min FLOAT,
-        y_min FLOAT,
-        x_max FLOAT,
-        y_max FLOAT
+        camera_id SERIAL,
+        action VARCHAR(30),
+        bbox_xyxy FLOAT[],
     );
     """
     with get_connection() as conn: # Establish a connection to the database
         with conn.cursor() as cur: # Create a cursor to execute the query
-            cur.execute(query) # Execute the create table query
+            cur.execute(query) # Execute the creation table query
             conn.commit() # Commit the transaction to save changes
 
 
-def insert_player_record(player): # Insert a single player record into the database
+def insert_record(entry): # Insert a single player record into the database
     query = """
     INSERT INTO realtime_player_positions (
-        tracking_id, object_type, team, object_position,
+        tracking_id, object_type, team, pitch_position,
         timestamp, confidence, camera_id, action,
-        x_min, y_min, x_max, y_max
+        bbox_xyxy
     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s); 
     """
     values = (
-        player.get("tracking_id"),
-        player.get("object_type"),
-        player.get("team"),
-        player.get("object_position", [0.0, 0.0, 0.0, 0.0]),
-        player.get("timestamp", 0.0),
-        player.get("confidence", 0.0),
-        player.get("camera_id", 0),
-        player.get("action", "unknown"),
-        player.get("x_min", 0.0),
-        player.get("y_min", 0.0),
-        player.get("x_max", 0.0),
-        player.get("y_max", 0.0)
+        entry.get("tracking_id"),
+        entry.get("object_type"),
+        entry.get("team"),
+        entry.get("pitch_position", [0.0, 0.0]),
+        entry.get("timestamp", 0.0),
+        entry.get("confidence", 0.0),
+        entry.get("camera_id", 0),
+        entry.get("action", "unknown"),
+        entry.get("bbox_xyxy", [0.0, 0.0, 0.0, 0.0])
     )
     with get_connection() as conn: # Establish a connection to the database
         with conn.cursor() as cur: # Create a cursor to execute the query
@@ -67,4 +61,4 @@ def insert_player_record(player): # Insert a single player record into the datab
 
 def insert_many_players(players): # Insert multiple player records
     for player in players: # Iterate through each player record
-        insert_player_record(player) # Insert each player record into the database
+        insert_record(player) # Insert each player record into the database

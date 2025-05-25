@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 from team_assigner import TeamAssigner
 from utils import ViewTransformer, SoccerPitchConfiguration
+from db_save_player import insert_record
 import numpy as np
 
 # initialize TeamAssigner
@@ -22,7 +23,7 @@ PITCH_REFERENCE_POINTS = np.array(CONFIG.vertices)
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
 
 def save_objects(results, frame, timestamp, camera_id=0):
-    data = []
+    #data = []
     height, width = frame.shape[:2]
 
     # --- Step 1: Keypoint detection and homography ---
@@ -97,7 +98,9 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "action": "unknown",
                     "bbox_xyxy": norm_bbox,
                 }
+                # Insert the entry into the database
+                insert_record(entry)
 
-                data.append(entry)
+                #data.append(entry)
 
-    return data
+    #return data

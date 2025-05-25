@@ -1,11 +1,11 @@
 # main.py
 from camera_utils import setup_camera, release_sources
 from object_detection import save_objects, PLAYER_DETECTION_MODEL, BALL_MODEL
-from db_save_player import create_player_table, insert_many_players
+#from db_save_player import create_player_table, insert_many_players
 import time
 import cv2
 import os
-import json
+#import json
 import argparse
 
 def main(lcl_args=None):
@@ -39,7 +39,7 @@ def main(lcl_args=None):
     start_time = time.time()
 
     os.makedirs(save_folder, exist_ok=True)
-    data = []
+    #data = []
 
     camera = setup_camera(0, resolution[0], resolution[1])
 
@@ -89,21 +89,27 @@ def main(lcl_args=None):
             source=frame, stream=True, verbose=False, persist=True,
             tracker='bytetrack/bytetrack_ball.yaml', classes=[0]
         )
+        # save the detected players and ball positions for debugging purposes
+        #frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
 
-        frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
+        save_objects([*players, *ball], frame, time.time(), kameranummer)
+
         #insert_many_players(frame_data)
-        data.append(frame_data)
+        #data.append(frame_data)
 
         out.write(frame)
-        cv2.imshow('Frame', frame)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # Display the frame for debugging purposes
+        # cv2.imshow('Frame', frame)
+        #
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     break
 
     release_sources((camera, out))
     cv2.destroyAllWindows()
+    """   Save the collected data to a local JSON file for debugging purposes
     with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
+    """
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Konfiguriere die Spielaufnahme.")
