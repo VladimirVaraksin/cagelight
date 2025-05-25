@@ -25,10 +25,10 @@ def create_player_table():
         confidence FLOAT,
         camera_id INTEGER,
         action VARCHAR(20),
-        x_center FLOAT,
-        y_center FLOAT,
-        width FLOAT,
-        height FLOAT
+        x_min FLOAT,
+        y_min FLOAT,
+        x_max FLOAT,
+        y_max FLOAT
     );
     """
     with get_connection() as conn: # Establish a connection to the database
@@ -42,7 +42,7 @@ def insert_player_record(player): # Insert a single player record into the datab
     INSERT INTO realtime_player_positions (
         tracking_id, object_type, team, object_position,
         timestamp, confidence, camera_id, action,
-        x_center, y_center, width, height
+        x_min, y_min, x_max, y_max
     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s); 
     """
     values = (
@@ -54,10 +54,10 @@ def insert_player_record(player): # Insert a single player record into the datab
         player.get("confidence", 0.0),
         player.get("camera_id", 0),
         player.get("action", "unknown"),
-        player.get("x_center", 0.0),
-        player.get("y_center", 0.0),
-        player.get("width", 0.0),
-        player.get("height", 0.0)
+        player.get("x_min", 0.0),
+        player.get("y_min", 0.0),
+        player.get("x_max", 0.0),
+        player.get("y_max", 0.0)
     )
     with get_connection() as conn: # Establish a connection to the database
         with conn.cursor() as cur: # Create a cursor to execute the query

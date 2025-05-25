@@ -45,11 +45,10 @@ def main(lcl_args=None):
 
 
     if not camera:
-        print(f"Kamera mit Index {0} konnte nicht geöffnet werden.")
+        print(f"Kamera mit Index 0 konnte nicht geöffnet werden.")
         return
 
     fps = camera.get(cv2.CAP_PROP_FPS)
-    print(fps)
     width = int(camera.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
