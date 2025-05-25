@@ -1,3 +1,5 @@
+# This script performs homography transformation to map detected players from a video frame onto a soccer pitch.
+
 import cv2
 import numpy as np
 import supervision as sv
@@ -6,48 +8,59 @@ from ultralytics import YOLO
 from utils import ViewTransformer, SoccerPitchConfiguration
 from draw import draw_pitch, draw_points_on_pitch
 
+# Load the YOLO models for pitch keypoints and player detection
 PITCH_MODEL = YOLO('yolo-Weights/pitch_keypoints.pt')
 PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/player_ball.pt')
 
 # Initialize pitch config and video
 CONFIG = SoccerPitchConfiguration()
+# Convert pitch vertices to a numpy array for homography transformation
 pitch_reference_points = np.array(CONFIG.vertices)
+# Open the video file videos/test.mp4
 cap = cv2.VideoCapture('videos/test.mp4')
 
+
 while True:
+    # Read a frame from the video
     ret, frame = cap.read()
     if not ret:
+        print("End of video or error reading frame.")
         break
-
+    # Draw the pitch on the frame
+    annotated_frame = draw_pitch(CONFIG)
     # Run keypoint model
     results = PITCH_MODEL.predict(frame, verbose=False)
+    # Extract the coordinates of keypoints from the results
     frame_reference_points = np.array(results[0].keypoints.xy[0])
 
-    non_zero_mask = ~np.all(frame_reference_points == 0, axis=1)
-
     # Apply the mask to filter out undetected points
-    frame_reference_points = frame_reference_points[non_zero_mask]
-    pitch_reference_points = pitch_reference_points[non_zero_mask]
+    non_zero_mask = ~np.all(frame_reference_points == 0, axis=1)
+    frame_reference_points = frame_reference_points[non_zero_mask] #remove undetected points from frame_reference_points
+    pitch_reference_points = pitch_reference_points[non_zero_mask] #remove undetected points from pitch_reference_points
 
+    # Run player (class 2) and goalkeeper (class 1) detection model
     players_detections = PLAYER_DETECTION_MODEL.track(source=frame, stream=True
                                            , verbose=False, persist=True,
                                            tracker='bytetrack.yaml'   , classes=[1, 2]
                                            )
     for detections in players_detections:
-
+        # Convert detections to Supervision format
         detected_players = sv.Detections.from_ultralytics(detections)
 
+        # 4 keypoints are required to compute the homography
         if len(frame_reference_points) >= 4:
-            # Compute homography
+
+            # Initialize the ViewTransformer with the source and target points
             transformer = ViewTransformer(
                 source=frame_reference_points,
                 target=pitch_reference_points
             )
 
+            # Get the bottom center coordinates of the detected players
             players_xy = detected_players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
+            # Compute homography
             pitch_players_xy = transformer.transform_points(points=players_xy)
-
-            annotated_frame = draw_pitch(CONFIG)
+            # Draw the players
             annotated_frame = draw_points_on_pitch(
                 config=CONFIG,
                 xy=pitch_players_xy,
@@ -55,15 +68,21 @@ while True:
                 edge_color=sv.Color.BLACK,
                 radius=16,
                 pitch=annotated_frame)
-
-            cv2.imshow('Frame', annotated_frame)
-            #cv2.imwrite("output/pitch.jpg", annotated_frame)
         else:
+            # Less than 4 keypoints detected, skip homography transformation
             print("Insufficient keypoints in frame, skipping...")
+
+    # Optional saving of the annotated frame for debugging
+    # cv2.imwrite("output/pitch.jpg", annotated_frame)
+
+    # Show the video
     cv2.imshow('Frame2', frame)
+    # Show the annotated frame with pitch and players
+    cv2.imshow('Frame', annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+    # Reset the pitch reference points for the next frame
     pitch_reference_points = np.array(CONFIG.vertices)
 
 
