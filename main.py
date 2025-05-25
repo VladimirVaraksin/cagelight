@@ -1,6 +1,6 @@
 from gui import start_gui
 from camera_utils import get_cameras_with_resolutions
-from live_webcam_analysis_multithreading import run_multiple_cams
+from live_webcam_analysis import run_multiple_cams
 
 def main():
      camera_data = get_cameras_with_resolutions()

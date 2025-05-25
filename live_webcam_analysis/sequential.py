@@ -1,5 +1,5 @@
 import cv2
-from object_detection import annotate_objects, PLAYER_DETECTION_MODEL
+from detection_utils import annotate_objects, PLAYER_DETECTION_MODEL
 from camera_utils import setup_camera
 
 # --- Mehrere Kameras (eine oder mehrere) ---
