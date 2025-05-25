@@ -99,7 +99,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "bbox_xyxy": norm_bbox,
                 }
                 # Insert the entry into the database
-                insert_record(entry)
+                #insert_record(entry)
 
                 data.append(entry)
 

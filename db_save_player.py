@@ -71,5 +71,8 @@ def insert_record(entry):
             conn.commit()
 
 def insert_many_players(entries):
-    for obj in entries:
-        insert_record(obj)
+    for objects in entries:
+        for player in objects:
+            #print player for debugging
+            #print(player)
+            insert_record(player)
