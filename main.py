@@ -1,7 +1,7 @@
 # main.py
 from camera_utils import setup_camera, release_sources
 from object_detection import save_objects, PLAYER_DETECTION_MODEL, BALL_MODEL
-#from db_save_player import create_player_table, insert_many_players
+from db_save_player import create_player_table#, insert_many_players
 import time
 import cv2
 import os
@@ -60,7 +60,7 @@ def main(lcl_args=None):
     )
 
     halbzeit_gedruckt = False
-    #create_player_table()
+    create_player_table()
 
     #test for debugging using a video file
     #camera = cv2.VideoCapture("videos/test.mp4")
