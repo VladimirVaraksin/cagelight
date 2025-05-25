@@ -1,59 +1,103 @@
 from ultralytics import YOLO
 from team_assigner import TeamAssigner
+from utils import ViewTransformer, SoccerPitchConfiguration
+import numpy as np
 
+# initialize TeamAssigner
 team_assigner = TeamAssigner()
 
-# YOLO-Modell laden
-MODEL_PATH = 'models/last1.pt'
+# Load the YOLO models for pitch keypoints and player detection
+MODEL_PATH = 'models/player_ball.pt'
 PLAYER_DETECTION_MODEL = YOLO(MODEL_PATH)
 BALL_MODEL = YOLO(MODEL_PATH)
+PITCH_MODEL = YOLO('models/pitch_keypoints.pt')
+
+# Initialize standard pitch dimensions and vertices
+CONFIG = SoccerPitchConfiguration()
+# Convert pitch vertices to a numpy array for homography transformation
+PITCH_REFERENCE_POINTS = np.array(CONFIG.vertices)
+
 
 # Klassenliste
 classNames = list(PLAYER_DETECTION_MODEL.names.values())
 
-# --- Detection ---
 def save_objects(results, frame, timestamp, camera_id=0):
     data = []
     height, width = frame.shape[:2]
 
-    for model_results in results:
-        for r in model_results:
-            for box in r.boxes:
-                # Extract bounding box coordinates
-                x1, y1, x2, y2 = map(int, box.xyxy[0])
+    # --- Step 1: Keypoint detection and homography ---
+    pitch_detections = PITCH_MODEL.predict(frame, verbose=False)
 
-                # Normalize bounding box coordinates
-                norm = lambda val, dim: round(val / dim, 4)
-                norm_x1, norm_y1 = norm(x1, width), norm(y1, height)
-                norm_x2, norm_y2 = norm(x2, width), norm(y2, height)
+    try:
+        keypoints_xy = np.array(pitch_detections[0].keypoints.xy[0])
+    except (IndexError, AttributeError):
+        print("No keypoints detected.")
+        keypoints_xy = np.zeros((0, 2))
 
-                cls = int(box.cls[0])
-                label = classNames[cls] if cls < len(classNames) else "Unknown"
-                confidence = round(float(box.conf[0]), 2)
-                l_id = int(box.id[0]) if box.id is not None else -1
-                team = "unknown"
+    non_zero_mask = ~np.all(keypoints_xy == 0, axis=1)
 
-                if label in {"player", "goalkeeper", "ball"} and l_id != -1:
-                    # Assign team based on player color for players and goalkeepers
-                    if label in {"player", "goalkeeper"}:
-                        bbox = (x1, y1, x2, y2)
-                        player_color = team_assigner.get_player_color(frame, bbox)
-                        team = team_assigner.assign_team(player_color)
-                    # Common entry for all detected objects
-                    common_entry = {
-                        "tracking_id": l_id if label != "ball" else 0,
-                        "object_type": label,
-                        "team": team,
-                        "object_position": [[norm_x1, norm_y1, norm_x2, norm_y2]],
-                        "timestamp": timestamp,
-                        "confidence": confidence,
-                        "camera_id": camera_id,
-                        "action": "unknown",
-                        "x_min": norm_x1,
-                        "y_min": norm_y1,
-                        "x_max": norm_x2,
-                        "y_max": norm_y2
-                    }
+    frame_reference_points = keypoints_xy[non_zero_mask]
 
-                    data.append(common_entry)
+    if len(PITCH_REFERENCE_POINTS) != len(non_zero_mask):
+        print("Mismatch in reference points. Skipping transformation.")
+        transformer = None
+    elif len(frame_reference_points) >= 4:
+        pitch_reference_points = PITCH_REFERENCE_POINTS[non_zero_mask]
+        transformer = ViewTransformer(
+            source=frame_reference_points,
+            target=pitch_reference_points
+        )
+    else:
+        print("Insufficient keypoints in frame, skipping homography...")
+        transformer = None
+
+    # --- Step 2: Object processing ---
+    for detections in results:
+        for box in detections.boxes:
+            x1, y1, x2, y2 = map(int, box.xyxy[0])
+            bbox = [x1, y1, x2, y2]
+            norm_bbox = [round(b / dim, 4) for b, dim in zip(bbox, [width, height, width, height])]
+
+            cls = int(box.cls[0])
+            label = classNames[cls] if cls < len(classNames) else "Unknown"
+            confidence = round(float(box.conf[0]), 2)
+
+            # Handle ID safely
+            box_id = getattr(box, 'id', None)
+            if box_id is not None:
+                tracking_id = int(box_id[0]) if hasattr(box_id, '__getitem__') else int(box_id)
+            else:
+                tracking_id = -1
+
+            if label in {"player", "goalkeeper", "ball"} and tracking_id != -1:
+                # Determine team
+                if label in {"player", "goalkeeper"}:
+                    player_color = team_assigner.get_player_color(frame, bbox)
+                    team = team_assigner.assign_team(player_color)
+                else:
+                    team = "none"
+
+                # Transform position on the pitch
+                if transformer is not None:
+                    player_point = np.array([[(x1 + x2) / 2, y2]])
+                    pitch_xy = transformer.transform_points(points=player_point)
+                    pitch_x, pitch_y = float(pitch_xy[0][0]), float(pitch_xy[0][1])
+                else:
+                    pitch_x, pitch_y = 0.0, 0.0
+
+                # Build and append entry
+                entry = {
+                    "tracking_id": tracking_id if label != "ball" else 0,
+                    "object_type": label,
+                    "team": team,
+                    "pitch_position": [pitch_x, pitch_y],
+                    "timestamp": timestamp,
+                    "confidence": confidence,
+                    "camera_id": camera_id,
+                    "action": "unknown",
+                    "bbox_xyxy": norm_bbox,
+                }
+
+                data.append(entry)
+
     return data

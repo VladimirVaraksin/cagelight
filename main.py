@@ -60,7 +60,10 @@ def main(lcl_args=None):
     )
 
     halbzeit_gedruckt = False
-    create_player_table()
+    #create_player_table()
+
+    #test for debugging using a video file
+    #camera = cv2.VideoCapture("videos/test.mp4")
 
     while True:
         ret, frame = camera.read()
@@ -87,8 +90,8 @@ def main(lcl_args=None):
             tracker='bytetrack/bytetrack_ball.yaml', classes=[0]
         )
 
-        frame_data = save_objects((players, ball), frame, time.time(), kameranummer)
-        insert_many_players(frame_data)
+        frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
+        #insert_many_players(frame_data)
         data.append(frame_data)
 
         out.write(frame)
