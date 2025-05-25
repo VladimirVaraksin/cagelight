@@ -81,6 +81,7 @@ while True:
     cv2.imshow('Frame', annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        # Exit the loop if 'q' is pressed
         break
     # Reset the pitch reference points for the next frame
     pitch_reference_points = np.array(CONFIG.vertices)
