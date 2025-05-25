@@ -63,7 +63,7 @@ def main(lcl_args=None):
     create_player_table()
 
     #test for debugging using a video file
-    #camera = cv2.VideoCapture("videos/test.mp4")
+    camera = cv2.VideoCapture("videos/test.mp4")
 
     while True:
         ret, frame = camera.read()
@@ -121,3 +121,4 @@ if __name__ == "__main__":
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
     args = parser.parse_args()
     main(args)
+
