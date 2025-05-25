@@ -105,7 +105,7 @@ def main(lcl_args=None):
         #     break
 
     release_sources((camera, out))
-    cv2.destroyAllWindows()
+    #cv2.destroyAllWindows()
     """   Save the collected data to a local JSON file for debugging purposes
     with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
