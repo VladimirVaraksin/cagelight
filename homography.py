@@ -36,7 +36,7 @@ while True:
     # Apply the mask to filter out undetected points
     non_zero_mask = ~np.all(frame_reference_points == 0, axis=1)
     frame_reference_points = frame_reference_points[non_zero_mask] #remove undetected points from frame_reference_points
-    pitch_reference_points = pitch_reference_points[non_zero_mask] #remove undetected points from pitch_reference_points
+    pitch_reference_points = pitch_reference_points[non_zero_mask] #remove respective points from pitch_reference_points
 
     # Run player (class 2) and goalkeeper (class 1) detection model
     players_detections = PLAYER_DETECTION_MODEL.track(source=frame, stream=True
@@ -56,7 +56,7 @@ while True:
                 target=pitch_reference_points
             )
 
-            # Get the bottom center coordinates of the detected players
+            # Get the bottom center coordinates of the detected players: x = (x_min + x_max) / 2; y = y_max;
             players_xy = detected_players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
             # Compute homography
             pitch_players_xy = transformer.transform_points(points=players_xy)
