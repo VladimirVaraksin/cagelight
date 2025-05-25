@@ -38,39 +38,41 @@ while True:
     frame_reference_points = frame_reference_points[non_zero_mask] #remove undetected points from frame_reference_points
     pitch_reference_points = pitch_reference_points[non_zero_mask] #remove respective unwanted points from pitch_reference_points
 
+    if len(frame_reference_points) >= 4:
+        # Initialize the ViewTransformer with the source and target points
+        transformer = ViewTransformer(
+            source=frame_reference_points,
+            target=pitch_reference_points
+        )
+    else:
+        # Less than 4 keypoints detected, skip homography transformation
+        print("Insufficient keypoints in frame, skipping...")
+        continue
+
     # Run player (class 2) and goalkeeper (class 1) detection model
     players_detections = PLAYER_DETECTION_MODEL.track(source=frame, stream=True
-                                           , verbose=False, persist=True,
-                                           tracker='bytetrack.yaml'   , classes=[1, 2]
-                                           )
+                                                      , verbose=False, persist=True,
+                                                      tracker='bytetrack.yaml', classes=[1, 2]
+                                                      )
+
     for detections in players_detections:
+        #print(detections.boxes)
         # Convert detections to Supervision format
         detected_players = sv.Detections.from_ultralytics(detections)
 
-        # 4 keypoints are required to compute the homography
-        if len(frame_reference_points) >= 4:
+        # Get the bottom center coordinates of the detected players: x = (x_min + x_max) / 2; y = y_max;
+        players_xy = detected_players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
+        # Compute homography
+        pitch_players_xy = transformer.transform_points(points=players_xy)
+        # Draw the players
+        annotated_frame = draw_points_on_pitch(
+            config=CONFIG,
+            xy=pitch_players_xy,
+            face_color=sv.Color.from_hex('00BFFF'),
+            edge_color=sv.Color.BLACK,
+            radius=16,
+            pitch=annotated_frame)
 
-            # Initialize the ViewTransformer with the source and target points
-            transformer = ViewTransformer(
-                source=frame_reference_points,
-                target=pitch_reference_points
-            )
-
-            # Get the bottom center coordinates of the detected players: x = (x_min + x_max) / 2; y = y_max;
-            players_xy = detected_players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
-            # Compute homography
-            pitch_players_xy = transformer.transform_points(points=players_xy)
-            # Draw the players
-            annotated_frame = draw_points_on_pitch(
-                config=CONFIG,
-                xy=pitch_players_xy,
-                face_color=sv.Color.from_hex('00BFFF'),
-                edge_color=sv.Color.BLACK,
-                radius=16,
-                pitch=annotated_frame)
-        else:
-            # Less than 4 keypoints detected, skip homography transformation
-            print("Insufficient keypoints in frame, skipping...")
 
     # Optional saving of the annotated frame for debugging
     # cv2.imwrite("output/pitch.jpg", annotated_frame)
