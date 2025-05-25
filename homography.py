@@ -64,6 +64,7 @@ while True:
         players_xy = detected_players.get_anchors_coordinates(sv.Position.BOTTOM_CENTER)
         # Compute homography
         pitch_players_xy = transformer.transform_points(points=players_xy)
+        #print(pitch_players_xy)
         # Draw the players
         annotated_frame = draw_points_on_pitch(
             config=CONFIG,
