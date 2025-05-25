@@ -12,7 +12,7 @@ from draw import draw_pitch, draw_points_on_pitch
 PITCH_MODEL = YOLO('yolo-Weights/pitch_keypoints.pt')
 PLAYER_DETECTION_MODEL = YOLO('yolo-Weights/player_ball.pt')
 
-# Initialize pitch config and video
+# Initialize standard pitch dimensions and vertices
 CONFIG = SoccerPitchConfiguration()
 # Convert pitch vertices to a numpy array for homography transformation
 pitch_reference_points = np.array(CONFIG.vertices)
