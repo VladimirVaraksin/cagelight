@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="cagelight@dpg-d0pi8f6uk2gs739m9c40-a.frankfurt-postgres.render.com" uuid="0a11629d-0979-4a4e-a167-2e21dea8432c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-d0pi8f6uk2gs739m9c40-a.frankfurt-postgres.render.com:5432/cagelight</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
