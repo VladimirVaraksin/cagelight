@@ -4,6 +4,8 @@ from typing import List, Tuple
 
 @dataclass
 class SoccerPitchConfiguration:
+
+
     width: int = 7000  # [cm]
     length: int = 12000  # [cm]
     penalty_box_width: int = 4100  # [cm]
@@ -12,6 +14,15 @@ class SoccerPitchConfiguration:
     goal_box_length: int = 550  # [cm]
     centre_circle_radius: int = 915  # [cm]
     penalty_spot_distance: int = 1100  # [cm]
+
+    # Real-world cage dimensions landsberg (in meters) # since there is no penalty area and center cirle in the cage, decide to ignore these values
+    # PITCH_LENGTH_METERS: float = 20.0
+    # PITCH_WIDTH_METERS: float = 13.0 #
+    # GOAL_WIDTH_METERS: float = 3.0
+    # GOAL_HEIGHT_METERS: float = 2.0
+    # WALL_HEIGHT_METERS: float = 1.0
+    #  NET_HEIGHT_METERS: float = 5.0
+
 
     @property
     def vertices(self) -> List[Tuple[int, int]]:

@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>2252</IntrospectionStateNumber>
+      <IntrospectionStateNumber>22750</IntrospectionStateNumber>
       <ServerVersion>16.9</ServerVersion>
       <StartupTime>1748182103</StartupTime>
       <TimeZones>true ACDT
@@ -1409,7 +1401,7 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>2252</IntrospectionStateNumber>
+      <IntrospectionStateNumber>22750</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>cagelight</OwnerName>
     </database>
@@ -4906,8 +4898,8 @@ true posixrules
 16434||16385|D|G
 16434||10|w|G
 16434||16385|w|G</Grants>
-      <IntrospectionStateNumber>2252</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-25.20:06:34</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>22750</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-05-31.12:16:31</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>737</StateNumber>
       <OwnerName>cagelight</OwnerName>
@@ -4960,7 +4952,7 @@ true posixrules
     </sequence>
     <table id="274" parent="268" name="realtime_player_positions">
       <ObjectId>16401</ObjectId>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>22749</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>cagelight</OwnerName>
     </table>
@@ -5273,9 +5265,9 @@ true posixrules
     </column>
     <column id="335" parent="274" name="timestamp">
       <Position>7</Position>
-      <StateNumber>1335</StateNumber>
-      <StoredType>double precision|0s</StoredType>
-      <TypeId>701</TypeId>
+      <StateNumber>22749</StateNumber>
+      <StoredType>varchar(20)|0s</StoredType>
+      <TypeId>1043</TypeId>
     </column>
     <column id="336" parent="274" name="confidence">
       <Position>8</Position>
@@ -5327,7 +5319,7 @@ true posixrules
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16406</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1335</StateNumber>
+      <StateNumber>22749</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>

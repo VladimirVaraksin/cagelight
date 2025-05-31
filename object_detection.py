@@ -83,23 +83,39 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     player_point = np.array([[(x1 + x2) / 2, y2]])
                     pitch_xy = transformer.transform_points(points=player_point)
                     pitch_x, pitch_y = float(pitch_xy[0][0]), float(pitch_xy[0][1])
+
+
+                    # This is a workaround to ensure pitch_x and pitch_y are in meters
+                    #config = SoccerPitchConfiguration() # Initialize the configuration
+                    #frame_width = frame.shape[1] # Get the width of the frame
+                    #frame_height = frame.shape[0] # Get the height of the frame
+
+                    #pitch_x_meters = (pitch_x / frame_width) * config.PITCH_LENGTH_METERS # Convert pitch_x to meters
+                    #pitch_y_meters = (pitch_y / frame_height) * config.PITCH_WIDTH_METERS # Convert pitch_y to meters
+
+
+
+
+
                 else:
                     pitch_x, pitch_y = 0.0, 0.0
 
                 # Build and append entry
+                match_time_formatted = f"{int(timestamp // 60):02d}:{int(timestamp % 60):02d}"
                 entry = {
                     "tracking_id": tracking_id if label != "ball" else 0,
                     "object_type": label,
                     "team": team,
-                    "pitch_position": [pitch_x, pitch_y],
-                    "timestamp": timestamp,
+                    "pitch_position": [pitch_x, pitch_y], # "pitch_position": [pitch_x_meters, pitch_y_meters], here is where to uncomment when real time.
+                    "timestamp": match_time_formatted,
+                    #"timestamp": timestamp,
                     "confidence": confidence,
                     "camera_id": camera_id,
                     "action": "unknown",
                     "bbox_xyxy": norm_bbox,
                 }
                 # Insert the entry into the database
-                insert_record(entry)
+                #insert_record(entry)
 
                 data.append(entry)
 

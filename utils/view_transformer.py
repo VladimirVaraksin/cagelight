@@ -2,7 +2,7 @@ from typing import Tuple
 import cv2
 import numpy as np
 import numpy.typing as npt
-
+#from soccer_pitch_config import SoccerPitchConfiguration
 
 class ViewTransformer:
     def __init__(
@@ -56,6 +56,16 @@ class ViewTransformer:
 
         reshaped_points = points.reshape(-1, 1, 2).astype(np.float32)
         transformed_points = cv2.perspectiveTransform(reshaped_points, self.m)
+        #REAL-WORLD SCALING
+        # If you want to convert transformed pitch positions into real-world meters
+        # (e.g., for a 20m x 13m cage field), base on the soccer pitch configuration
+        #config = SoccerPitchConfiguration()
+        #image_width, image_height = 1280, 720 # this has to be replaced with the actual image dimensions
+        # x_meters = (x_pixel / image_width) * config.PITCH_LENGTH_METERS
+        # y_meters = (y_pixel / image_height) * config.PITCH_WIDTH_METERS
+
+
+
         return transformed_points.reshape(-1, 2).astype(np.float32)
 
     def transform_image(
