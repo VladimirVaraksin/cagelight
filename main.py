@@ -2,11 +2,13 @@
 from camera_utils import setup_camera, release_sources
 from object_detection import save_objects, player_model, ball_model
 from db_save_player import create_player_table, insert_many_players
+from utils import annotate_frame
 import time
 import cv2
 import os
 import json
 import argparse
+
 
 def main(lcl_args=None):
     dauer_spiel = 5400
@@ -68,7 +70,7 @@ def main(lcl_args=None):
     while True:
         ret, frame = camera.read()
         # read a frame for debugging purposes
-        frame = cv2.imread('images/pitch_blender.png')
+        frame = cv2.imread('images/multiple_people.png')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -99,10 +101,16 @@ def main(lcl_args=None):
 
         out.write(frame)
         # Display the frame for debugging purposes
+        frame = annotate_frame(frame, data)  # Annotate the frame with the entry
+        cv2.imwrite("output/blender_test.jpg", frame)
+
         cv2.imshow('Frame', frame)
+
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+
+        #comment out then not debugging with a picture file
         break
 
     release_sources((camera, out))
