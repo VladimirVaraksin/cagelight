@@ -1,11 +1,11 @@
 # main.py
 from camera_utils import setup_camera, release_sources
-from object_detection import save_objects, PLAYER_DETECTION_MODEL, BALL_MODEL
+from object_detection import save_objects, player_model, ball_model
 from db_save_player import create_player_table, insert_many_players
 import time
 import cv2
 import os
-#import json
+import json
 import argparse
 
 def main(lcl_args=None):
@@ -67,6 +67,8 @@ def main(lcl_args=None):
 
     while True:
         ret, frame = camera.read()
+        # read a frame for debugging purposes
+        frame = cv2.imread('images/pitch_blender.png')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -81,19 +83,17 @@ def main(lcl_args=None):
             print("Spiel beendet.")
             break
 
-        players = PLAYER_DETECTION_MODEL.track(
+        players = player_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack.yaml', classes=[1, 2]
+            tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv8
         )
-        ball = BALL_MODEL.track(
+        ball = ball_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack_ball.yaml', classes=[0]
+            tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv8
         )
         # save the detected players and ball positions for debugging purposes
         match_time = time.time() - start_time
         frame_data = save_objects([*players, *ball], frame, match_time, kameranummer) # save_objects function collects player and ball data with exact timestamp
-        #frame_data = save_objects([*players, *ball], frame, time.time(), kameranummer)
-        print(frame_data)
 
         data.append(frame_data)
 
@@ -103,17 +103,19 @@ def main(lcl_args=None):
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+        break
 
     release_sources((camera, out))
     cv2.destroyAllWindows()
     # Save the collected data to the database
-    print("\nSaving collected data to database...This may take a while.\n")
-    insert_many_players(data)
-#since there is a database connection we do not need to save the data to a local file
-    """   Save the collected data to a local JSON file for debugging purposes
+    #print("\nSaving collected data to database...This may take a while.\n")
+    #insert_many_players(data)
+
+    #since there is a database connection we do not need to save the data to a local file
+    #  Save the collected data to a local JSON file for debugging purposes
     with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
-    """
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Konfiguriere die Spielaufnahme.") # ArgumentParser erstellt ein Argumentenparser-Objekt

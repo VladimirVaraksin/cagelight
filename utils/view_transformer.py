@@ -1,91 +1,68 @@
-from typing import Tuple
-import cv2
 import numpy as np
-import numpy.typing as npt
-#from soccer_pitch_config import SoccerPitchConfiguration
+import cv2
+
 
 class ViewTransformer:
-    def __init__(
-            self,
-            source: npt.NDArray[np.float32],
-            target: npt.NDArray[np.float32]
-    ) -> None:
+    """
+    A class to transform image coordinates (pixel) to real-world coordinates (meters)
+    using perspective transformation, based on known court dimensions and corner mappings.
+    """
+
+    def __init__(self):
         """
-        Initialize the ViewTransformer with source and target points.
-
-        Args:
-            source (npt.NDArray[np.float32]): Source points for homography calculation.
-            target (npt.NDArray[np.float32]): Target points for homography calculation.
-
-        Raises:
-            ValueError: If source and target do not have the same shape or if they are
-                not 2D coordinates.
+        Initializes the ViewTransformer by defining real-world dimensions, pixel coordinates,
+        and computing the perspective transformation matrix.
         """
-        if source.shape != target.shape:
-            raise ValueError("Source and target must have the same shape.")
-        if source.shape[1] != 2:
-            raise ValueError("Source and target points must be 2D coordinates.")
+        # Real-world dimensions of the court in meters
+        court_width = 13.0  # Width of the court (meters)
+        court_length = 20.0  # Length of the court (meters)
 
-        source = source.astype(np.float32)
-        target = target.astype(np.float32)
-        self.m, _ = cv2.findHomography(source, target)
-        if self.m is None:
-            raise ValueError("Homography matrix could not be calculated.")
+        # Pixel coordinates of the court corners in the input image
+        self.pixel_vertices = np.array([
+            [489, 149],  # Top-left corner in image
+            [794, 148],  # Top-middle/right
+            [1167, 659],  # Bottom-right
+            [125, 658]  # Bottom-left
+        ], dtype=np.float32)
 
-    def transform_points(
-            self,
-            points: npt.NDArray[np.float32]
-    ) -> npt.NDArray[np.float32]:
+        # Corresponding real-world coordinates (in meters)
+        self.target_vertices = np.array([
+            [0, 0],  # Top-left in real world
+            [court_length / 2, 0],  # Top-middle
+            [court_length / 2, court_width / 2],  # Bottom-middle
+            [0, court_width]  # Bottom-left
+        ], dtype=np.float32)
+
+        # Compute the perspective transformation matrix
+        self.perspective_transformer = cv2.getPerspectiveTransform(
+            self.pixel_vertices,
+            self.target_vertices
+        )
+
+    def transform_point(self, point):
         """
-        Transform the given points using the homography matrix.
+        Transforms a point from pixel coordinates to real-world coordinates.
 
-        Args:
-            points (npt.NDArray[np.float32]): Points to be transformed.
+        Parameters:
+        - point: A NumPy array of shape (1, 2), representing the (x, y) pixel coordinates.
 
         Returns:
-            npt.NDArray[np.float32]: Transformed points.
-
-        Raises:
-            ValueError: If points are not 2D coordinates.
+        - A NumPy array of shape (1, 2) with the transformed real-world coordinates,
+          or None if the point lies outside the defined court polygon.
         """
-        if points.size == 0:
-            return points
+        # Convert to integer coordinates for point-in-polygon test
+        p = (int(point[0]), int(point[1]))
 
-        if points.shape[1] != 2:
-            raise ValueError("Points must be 2D coordinates.")
+        # Check if the point lies within the defined court polygon
+        is_inside = cv2.pointPolygonTest(self.pixel_vertices, p, False) >= 0
+        if not is_inside:
+            return None  # Return None if point is outside
 
-        reshaped_points = points.reshape(-1, 1, 2).astype(np.float32)
-        transformed_points = cv2.perspectiveTransform(reshaped_points, self.m)
-        #REAL-WORLD SCALING
-        # If you want to convert transformed pitch positions into real-world meters
-        # (e.g., for a 20m x 13m cage field), base on the soccer pitch configuration
-        #config = SoccerPitchConfiguration()
-        #image_width, image_height = 1280, 720 # this has to be replaced with the actual image dimensions
-        # x_meters = (x_pixel / image_width) * config.PITCH_LENGTH_METERS
-        # y_meters = (y_pixel / image_height) * config.PITCH_WIDTH_METERS
+        # Reshape point to required format for cv2.perspectiveTransform and convert to float32
+        reshaped_point = point.reshape(-1, 1, 2).astype(np.float32)
 
+        # Apply the perspective transformation
+        transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
 
-
-        return transformed_points.reshape(-1, 2).astype(np.float32)
-
-    def transform_image(
-            self,
-            image: npt.NDArray[np.uint8],
-            resolution_wh: Tuple[int, int]
-    ) -> npt.NDArray[np.uint8]:
-        """
-        Transform the given image using the homography matrix.
-
-        Args:
-            image (npt.NDArray[np.uint8]): Image to be transformed.
-            resolution_wh (Tuple[int, int]): Width and height of the output image.
-
-        Returns:
-            npt.NDArray[np.uint8]: Transformed image.
-
-        Raises:
-            ValueError: If the image is not either grayscale or color.
-        """
-        if len(image.shape) not in {2, 3}:
-            raise ValueError("Image must be either grayscale or color.")
-        return cv2.warpPerspective(image, self.m, resolution_wh)
+        # Reshape result back to (1, 2) and return
+        return transformed_point.reshape(-1, 2)
