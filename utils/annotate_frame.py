@@ -25,10 +25,10 @@ def annotate_frame(frame, entries):
             # Choose color based on object type and team
             if entry["object_type"] == "ball":
                 color = (0, 255, 255)  # Yellow
-            elif entry["team"] == "team1":
-                color = (255, 0, 0)    # Blue
-            elif entry["team"] == "team2":
-                color = (0, 0, 255)    # Red
+            elif entry["team"] == "Team 1":
+                color = (255, 255, 255)    # White
+            elif entry["team"] == "Team 2":
+                color = (0, 0, 0)    # Black
             else:
                 color = (200, 200, 200)  # Gray for unknown
 
