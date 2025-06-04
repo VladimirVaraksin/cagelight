@@ -66,12 +66,12 @@ def main(lcl_args=None):
     create_player_table()
 
     #test for debugging using a video file
-    camera = cv2.VideoCapture("videos/test.mp4")
+    camera = cv2.VideoCapture("videos/test_video_blender.mp4")
 
     while True:
         ret, frame = camera.read()
         # read a frame for debugging purposes
-        frame = cv2.imread('images/multiple_people.png')
+        #frame = cv2.imread('images/multiple_people.png')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -98,13 +98,15 @@ def main(lcl_args=None):
         match_time = time.time() - start_time
         frame_data = save_objects([*players, *ball], frame, match_time, kameranummer) # save_objects function collects player and ball data with exact timestamp
 
-        data.append(frame_data)
+        #optionally annotate the frame with the detected objects
+        frame = annotate_frame(frame, frame_data)  # Annotate the frame with the entry
 
+        if frame_data:
+            data.append(frame_data)
+
+        #cv2.imwrite("output/blender_test.jpg", frame)
         out.write(frame)
         # Display the frame for debugging purposes
-        frame = annotate_frame(frame, data)  # Annotate the frame with the entry
-        cv2.imwrite("output/blender_test.jpg", frame)
-
         cv2.imshow('Frame', frame)
 
 
@@ -112,7 +114,7 @@ def main(lcl_args=None):
             break
 
         #comment out then not debugging with a picture file
-        break
+        #break
 
     release_sources((camera, out))
     cv2.destroyAllWindows()
