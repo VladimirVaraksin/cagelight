@@ -1,4 +1,5 @@
 # main.py
+# This script is used to record a soccer match, detect players and the ball using YOLOv8, and save the data to a database or a local file.
 from camera_utils import setup_camera, release_sources
 from object_detection import save_objects, player_model, ball_model
 from db_save_player import create_player_table, insert_many_players
