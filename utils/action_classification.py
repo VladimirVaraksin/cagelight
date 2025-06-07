@@ -1,10 +1,10 @@
 from ultralytics import YOLO
 
-# Modell laden
+# load the action classification model
 action_model = YOLO('models/action.pt')
 class_names = list(action_model.names.values())
 
-# Mappings für bessere Wartbarkeit
+# Mappings for action labels
 LABEL_MAP = {
     "running": "running",
     "person_running": "running",
