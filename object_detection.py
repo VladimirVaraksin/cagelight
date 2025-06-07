@@ -28,9 +28,9 @@ def save_objects(results, frame, timestamp, camera_id=0):
 
     data = []
     height, width = frame.shape[:2]
-    # Extract bounding box coordinates (x1, y1, x2, y2)
     for detections in results:
         for box in detections.boxes:
+            # Extract bounding box coordinates (x1, y1, x2, y2)
             x1, y1, x2, y2 = map(int, box.xyxy[0])
             # Compute the bottom-center point of the bounding box
             point = np.array([(x1 + x2) / 2, y2], dtype=np.float32)
@@ -94,5 +94,3 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 data.append(entry)
 
     return data
-
-
