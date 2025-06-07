@@ -8,7 +8,7 @@
                 7.43,
                 6.18
             ],
-            "timestamp": "00:02:366",
+            "timestamp": "00:03:789",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -29,7 +29,7 @@
                 7.42,
                 6.23
             ],
-            "timestamp": "00:02:458",
+            "timestamp": "00:03:875",
             "confidence": 0.71,
             "camera_id": 0,
             "action": "unknown",
@@ -50,7 +50,7 @@
                 7.41,
                 6.27
             ],
-            "timestamp": "00:02:548",
+            "timestamp": "00:03:959",
             "confidence": 0.75,
             "camera_id": 0,
             "action": "unknown",
@@ -71,7 +71,7 @@
                 7.4,
                 6.32
             ],
-            "timestamp": "00:02:635",
+            "timestamp": "00:04:044",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -92,7 +92,7 @@
                 7.39,
                 6.37
             ],
-            "timestamp": "00:02:722",
+            "timestamp": "00:04:129",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -113,7 +113,7 @@
                 7.37,
                 6.43
             ],
-            "timestamp": "00:02:807",
+            "timestamp": "00:04:213",
             "confidence": 0.69,
             "camera_id": 0,
             "action": "unknown",
@@ -134,7 +134,7 @@
                 7.36,
                 6.49
             ],
-            "timestamp": "00:02:891",
+            "timestamp": "00:04:295",
             "confidence": 0.62,
             "camera_id": 0,
             "action": "unknown",
@@ -155,7 +155,7 @@
                 7.34,
                 6.56
             ],
-            "timestamp": "00:02:975",
+            "timestamp": "00:04:378",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -176,7 +176,7 @@
                 7.33,
                 6.63
             ],
-            "timestamp": "00:03:059",
+            "timestamp": "00:04:458",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -197,7 +197,7 @@
                 7.31,
                 6.68
             ],
-            "timestamp": "00:03:141",
+            "timestamp": "00:04:540",
             "confidence": 0.67,
             "camera_id": 0,
             "action": "unknown",
@@ -218,7 +218,7 @@
                 7.29,
                 6.74
             ],
-            "timestamp": "00:03:224",
+            "timestamp": "00:04:624",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -239,7 +239,7 @@
                 7.27,
                 6.82
             ],
-            "timestamp": "00:03:306",
+            "timestamp": "00:04:708",
             "confidence": 0.73,
             "camera_id": 0,
             "action": "unknown",
@@ -260,7 +260,7 @@
                 7.25,
                 6.9
             ],
-            "timestamp": "00:03:389",
+            "timestamp": "00:04:792",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -281,7 +281,7 @@
                 7.23,
                 6.98
             ],
-            "timestamp": "00:03:475",
+            "timestamp": "00:04:876",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -302,7 +302,7 @@
                 7.22,
                 7.05
             ],
-            "timestamp": "00:03:559",
+            "timestamp": "00:04:959",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -323,7 +323,7 @@
                 7.2,
                 7.12
             ],
-            "timestamp": "00:03:644",
+            "timestamp": "00:05:042",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -344,7 +344,7 @@
                 7.19,
                 7.19
             ],
-            "timestamp": "00:03:729",
+            "timestamp": "00:05:125",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -365,7 +365,7 @@
                 7.16,
                 7.28
             ],
-            "timestamp": "00:03:815",
+            "timestamp": "00:05:208",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -386,7 +386,7 @@
                 7.14,
                 7.35
             ],
-            "timestamp": "00:03:899",
+            "timestamp": "00:05:291",
             "confidence": 0.69,
             "camera_id": 0,
             "action": "unknown",
@@ -407,7 +407,7 @@
                 7.12,
                 7.44
             ],
-            "timestamp": "00:03:982",
+            "timestamp": "00:05:376",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -428,7 +428,7 @@
                 7.1,
                 7.52
             ],
-            "timestamp": "00:04:069",
+            "timestamp": "00:05:459",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -449,7 +449,7 @@
                 7.07,
                 7.58
             ],
-            "timestamp": "00:04:160",
+            "timestamp": "00:05:544",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -470,7 +470,7 @@
                 7.05,
                 7.67
             ],
-            "timestamp": "00:04:250",
+            "timestamp": "00:05:629",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -491,7 +491,7 @@
                 7.03,
                 7.75
             ],
-            "timestamp": "00:04:335",
+            "timestamp": "00:05:714",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -512,7 +512,7 @@
                 7.0,
                 7.82
             ],
-            "timestamp": "00:04:421",
+            "timestamp": "00:05:799",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -533,7 +533,7 @@
                 6.98,
                 7.89
             ],
-            "timestamp": "00:04:507",
+            "timestamp": "00:05:882",
             "confidence": 0.7,
             "camera_id": 0,
             "action": "unknown",
@@ -554,7 +554,7 @@
                 6.96,
                 7.97
             ],
-            "timestamp": "00:04:593",
+            "timestamp": "00:05:965",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -575,7 +575,7 @@
                 6.93,
                 8.05
             ],
-            "timestamp": "00:04:679",
+            "timestamp": "00:06:048",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -596,7 +596,7 @@
                 6.91,
                 8.12
             ],
-            "timestamp": "00:04:764",
+            "timestamp": "00:06:132",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -617,7 +617,7 @@
                 6.89,
                 8.19
             ],
-            "timestamp": "00:04:847",
+            "timestamp": "00:06:216",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -638,7 +638,7 @@
                 6.86,
                 8.26
             ],
-            "timestamp": "00:04:930",
+            "timestamp": "00:06:300",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -659,7 +659,7 @@
                 6.85,
                 8.31
             ],
-            "timestamp": "00:05:015",
+            "timestamp": "00:06:384",
             "confidence": 0.88,
             "camera_id": 0,
             "action": "unknown",
@@ -680,7 +680,7 @@
                 6.83,
                 8.37
             ],
-            "timestamp": "00:05:099",
+            "timestamp": "00:06:468",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -701,7 +701,7 @@
                 6.8,
                 8.42
             ],
-            "timestamp": "00:05:183",
+            "timestamp": "00:06:552",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -722,7 +722,7 @@
                 6.77,
                 8.48
             ],
-            "timestamp": "00:05:265",
+            "timestamp": "00:06:636",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -743,7 +743,7 @@
                 6.75,
                 8.52
             ],
-            "timestamp": "00:05:349",
+            "timestamp": "00:06:721",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -764,7 +764,7 @@
                 6.73,
                 8.56
             ],
-            "timestamp": "00:05:433",
+            "timestamp": "00:06:805",
             "confidence": 0.46,
             "camera_id": 0,
             "action": "unknown",
@@ -785,7 +785,7 @@
                 6.71,
                 8.6
             ],
-            "timestamp": "00:05:516",
+            "timestamp": "00:06:890",
             "confidence": 0.61,
             "camera_id": 0,
             "action": "unknown",
@@ -806,7 +806,7 @@
                 6.69,
                 8.64
             ],
-            "timestamp": "00:05:599",
+            "timestamp": "00:06:975",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -827,7 +827,7 @@
                 7.14,
                 6.0
             ],
-            "timestamp": "00:05:936",
+            "timestamp": "00:07:315",
             "confidence": 0.53,
             "camera_id": 0,
             "action": "unknown",
@@ -846,7 +846,7 @@
                 7.5,
                 3.81
             ],
-            "timestamp": "00:05:936",
+            "timestamp": "00:07:315",
             "confidence": 0.6,
             "camera_id": 0,
             "action": "unknown",
@@ -867,10 +867,10 @@
                 7.16,
                 5.96
             ],
-            "timestamp": "00:06:408",
+            "timestamp": "00:07:511",
             "confidence": 0.52,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4891,
                 0.2264,
@@ -886,7 +886,7 @@
                 7.46,
                 3.84
             ],
-            "timestamp": "00:06:408",
+            "timestamp": "00:07:511",
             "confidence": 0.49,
             "camera_id": 0,
             "action": "unknown",
@@ -907,7 +907,7 @@
                 7.17,
                 5.94
             ],
-            "timestamp": "00:06:555",
+            "timestamp": "00:07:656",
             "confidence": 0.38,
             "camera_id": 0,
             "action": "running",
@@ -926,7 +926,7 @@
                 7.45,
                 3.67
             ],
-            "timestamp": "00:06:555",
+            "timestamp": "00:07:656",
             "confidence": 0.55,
             "camera_id": 0,
             "action": "unknown",
@@ -947,10 +947,10 @@
                 7.14,
                 5.97
             ],
-            "timestamp": "00:06:703",
+            "timestamp": "00:07:801",
             "confidence": 0.48,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4828,
                 0.1833,
@@ -966,7 +966,7 @@
                 6.57,
                 8.73
             ],
-            "timestamp": "00:06:703",
+            "timestamp": "00:07:801",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "unknown",
@@ -987,7 +987,7 @@
                 7.1,
                 6.02
             ],
-            "timestamp": "00:06:816",
+            "timestamp": "00:07:918",
             "confidence": 0.6,
             "camera_id": 0,
             "action": "running",
@@ -1006,7 +1006,7 @@
                 7.38,
                 3.74
             ],
-            "timestamp": "00:06:816",
+            "timestamp": "00:07:918",
             "confidence": 0.58,
             "camera_id": 0,
             "action": "unknown",
@@ -1025,7 +1025,7 @@
                 6.55,
                 8.74
             ],
-            "timestamp": "00:06:816",
+            "timestamp": "00:07:918",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -1046,10 +1046,10 @@
                 7.06,
                 6.05
             ],
-            "timestamp": "00:06:961",
+            "timestamp": "00:08:063",
             "confidence": 0.78,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4938,
                 0.2972,
@@ -1065,7 +1065,7 @@
                 7.32,
                 3.91
             ],
-            "timestamp": "00:06:961",
+            "timestamp": "00:08:063",
             "confidence": 0.67,
             "camera_id": 0,
             "action": "unknown",
@@ -1084,7 +1084,7 @@
                 6.54,
                 8.73
             ],
-            "timestamp": "00:06:961",
+            "timestamp": "00:08:063",
             "confidence": 0.71,
             "camera_id": 0,
             "action": "unknown",
@@ -1105,10 +1105,10 @@
                 7.03,
                 6.08
             ],
-            "timestamp": "00:07:104",
+            "timestamp": "00:08:420",
             "confidence": 0.82,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4938,
                 0.3097,
@@ -1124,7 +1124,7 @@
                 7.27,
                 4.0
             ],
-            "timestamp": "00:07:104",
+            "timestamp": "00:08:420",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -1143,7 +1143,7 @@
                 6.52,
                 8.72
             ],
-            "timestamp": "00:07:104",
+            "timestamp": "00:08:420",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -1164,7 +1164,7 @@
                 7.02,
                 6.1
             ],
-            "timestamp": "00:07:248",
+            "timestamp": "00:08:565",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -1183,7 +1183,7 @@
                 7.24,
                 3.98
             ],
-            "timestamp": "00:07:248",
+            "timestamp": "00:08:565",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -1202,7 +1202,7 @@
                 6.51,
                 8.71
             ],
-            "timestamp": "00:07:248",
+            "timestamp": "00:08:565",
             "confidence": 0.75,
             "camera_id": 0,
             "action": "unknown",
@@ -1223,7 +1223,7 @@
                 7.0,
                 6.11
             ],
-            "timestamp": "00:07:393",
+            "timestamp": "00:08:710",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -1242,7 +1242,7 @@
                 7.21,
                 3.99
             ],
-            "timestamp": "00:07:393",
+            "timestamp": "00:08:710",
             "confidence": 0.68,
             "camera_id": 0,
             "action": "unknown",
@@ -1261,7 +1261,7 @@
                 6.49,
                 8.7
             ],
-            "timestamp": "00:07:393",
+            "timestamp": "00:08:710",
             "confidence": 0.75,
             "camera_id": 0,
             "action": "unknown",
@@ -1282,7 +1282,7 @@
                 6.97,
                 6.11
             ],
-            "timestamp": "00:07:537",
+            "timestamp": "00:08:853",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -1301,7 +1301,7 @@
                 7.17,
                 4.0
             ],
-            "timestamp": "00:07:537",
+            "timestamp": "00:08:853",
             "confidence": 0.69,
             "camera_id": 0,
             "action": "unknown",
@@ -1320,7 +1320,7 @@
                 6.48,
                 8.69
             ],
-            "timestamp": "00:07:537",
+            "timestamp": "00:08:853",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -1341,7 +1341,7 @@
                 6.95,
                 6.12
             ],
-            "timestamp": "00:07:682",
+            "timestamp": "00:08:995",
             "confidence": 0.7,
             "camera_id": 0,
             "action": "unknown",
@@ -1360,7 +1360,7 @@
                 7.13,
                 4.04
             ],
-            "timestamp": "00:07:682",
+            "timestamp": "00:08:995",
             "confidence": 0.67,
             "camera_id": 0,
             "action": "unknown",
@@ -1379,7 +1379,7 @@
                 6.47,
                 8.67
             ],
-            "timestamp": "00:07:682",
+            "timestamp": "00:08:995",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -1400,7 +1400,7 @@
                 6.93,
                 6.14
             ],
-            "timestamp": "00:07:825",
+            "timestamp": "00:09:138",
             "confidence": 0.48,
             "camera_id": 0,
             "action": "unknown",
@@ -1419,7 +1419,7 @@
                 6.45,
                 8.66
             ],
-            "timestamp": "00:07:825",
+            "timestamp": "00:09:138",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -1440,10 +1440,10 @@
                 6.91,
                 6.16
             ],
-            "timestamp": "00:07:937",
+            "timestamp": "00:09:251",
             "confidence": 0.67,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4773,
                 0.2347,
@@ -1459,7 +1459,7 @@
                 6.44,
                 8.64
             ],
-            "timestamp": "00:07:937",
+            "timestamp": "00:09:251",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -1480,10 +1480,10 @@
                 6.89,
                 6.17
             ],
-            "timestamp": "00:08:050",
+            "timestamp": "00:09:364",
             "confidence": 0.61,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4734,
                 0.2097,
@@ -1499,7 +1499,7 @@
                 6.43,
                 8.62
             ],
-            "timestamp": "00:08:050",
+            "timestamp": "00:09:364",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -1520,10 +1520,10 @@
                 6.88,
                 6.16
             ],
-            "timestamp": "00:08:164",
+            "timestamp": "00:09:478",
             "confidence": 0.69,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4813,
                 0.2681,
@@ -1539,7 +1539,7 @@
                 6.97,
                 3.99
             ],
-            "timestamp": "00:08:164",
+            "timestamp": "00:09:478",
             "confidence": 0.7,
             "camera_id": 0,
             "action": "unknown",
@@ -1558,7 +1558,7 @@
                 6.42,
                 8.6
             ],
-            "timestamp": "00:08:164",
+            "timestamp": "00:09:478",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -1579,7 +1579,7 @@
                 6.86,
                 6.17
             ],
-            "timestamp": "00:08:308",
+            "timestamp": "00:09:626",
             "confidence": 0.59,
             "camera_id": 0,
             "action": "unknown",
@@ -1598,7 +1598,7 @@
                 6.95,
                 4.0
             ],
-            "timestamp": "00:08:308",
+            "timestamp": "00:09:626",
             "confidence": 0.71,
             "camera_id": 0,
             "action": "unknown",
@@ -1617,7 +1617,7 @@
                 6.41,
                 8.57
             ],
-            "timestamp": "00:08:308",
+            "timestamp": "00:09:626",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -1638,7 +1638,7 @@
                 6.84,
                 6.16
             ],
-            "timestamp": "00:08:452",
+            "timestamp": "00:09:770",
             "confidence": 0.49,
             "camera_id": 0,
             "action": "unknown",
@@ -1657,7 +1657,7 @@
                 6.91,
                 4.01
             ],
-            "timestamp": "00:08:452",
+            "timestamp": "00:09:770",
             "confidence": 0.57,
             "camera_id": 0,
             "action": "unknown",
@@ -1676,7 +1676,7 @@
                 6.4,
                 8.53
             ],
-            "timestamp": "00:08:452",
+            "timestamp": "00:09:770",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -1697,7 +1697,7 @@
                 6.82,
                 6.19
             ],
-            "timestamp": "00:08:595",
+            "timestamp": "00:09:914",
             "confidence": 0.6,
             "camera_id": 0,
             "action": "unknown",
@@ -1716,7 +1716,7 @@
                 6.87,
                 4.1
             ],
-            "timestamp": "00:08:595",
+            "timestamp": "00:09:914",
             "confidence": 0.71,
             "camera_id": 0,
             "action": "unknown",
@@ -1735,7 +1735,7 @@
                 6.39,
                 8.5
             ],
-            "timestamp": "00:08:595",
+            "timestamp": "00:09:914",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -1756,7 +1756,7 @@
                 6.8,
                 6.2
             ],
-            "timestamp": "00:08:738",
+            "timestamp": "00:10:057",
             "confidence": 0.61,
             "camera_id": 0,
             "action": "unknown",
@@ -1775,7 +1775,7 @@
                 6.82,
                 4.01
             ],
-            "timestamp": "00:08:738",
+            "timestamp": "00:10:057",
             "confidence": 0.67,
             "camera_id": 0,
             "action": "unknown",
@@ -1794,7 +1794,7 @@
                 6.38,
                 8.48
             ],
-            "timestamp": "00:08:738",
+            "timestamp": "00:10:057",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -1815,7 +1815,7 @@
                 6.79,
                 6.22
             ],
-            "timestamp": "00:08:882",
+            "timestamp": "00:10:201",
             "confidence": 0.63,
             "camera_id": 0,
             "action": "unknown",
@@ -1834,7 +1834,7 @@
                 6.78,
                 4.12
             ],
-            "timestamp": "00:08:882",
+            "timestamp": "00:10:201",
             "confidence": 0.69,
             "camera_id": 0,
             "action": "unknown",
@@ -1853,7 +1853,7 @@
                 6.37,
                 8.44
             ],
-            "timestamp": "00:08:882",
+            "timestamp": "00:10:201",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -1874,7 +1874,7 @@
                 6.77,
                 6.24
             ],
-            "timestamp": "00:09:024",
+            "timestamp": "00:10:346",
             "confidence": 0.71,
             "camera_id": 0,
             "action": "unknown",
@@ -1893,7 +1893,7 @@
                 6.73,
                 4.17
             ],
-            "timestamp": "00:09:024",
+            "timestamp": "00:10:346",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -1912,7 +1912,7 @@
                 6.37,
                 8.4
             ],
-            "timestamp": "00:09:024",
+            "timestamp": "00:10:346",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -1933,7 +1933,7 @@
                 6.74,
                 6.27
             ],
-            "timestamp": "00:09:166",
+            "timestamp": "00:10:490",
             "confidence": 0.73,
             "camera_id": 0,
             "action": "unknown",
@@ -1952,7 +1952,7 @@
                 6.69,
                 4.18
             ],
-            "timestamp": "00:09:166",
+            "timestamp": "00:10:490",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -1971,7 +1971,7 @@
                 6.36,
                 8.37
             ],
-            "timestamp": "00:09:166",
+            "timestamp": "00:10:490",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -1992,7 +1992,7 @@
                 6.72,
                 6.28
             ],
-            "timestamp": "00:09:309",
+            "timestamp": "00:10:632",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -2011,7 +2011,7 @@
                 6.65,
                 4.19
             ],
-            "timestamp": "00:09:309",
+            "timestamp": "00:10:632",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -2030,7 +2030,7 @@
                 6.35,
                 8.33
             ],
-            "timestamp": "00:09:309",
+            "timestamp": "00:10:632",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -2051,7 +2051,7 @@
                 6.7,
                 6.28
             ],
-            "timestamp": "00:09:456",
+            "timestamp": "00:10:775",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -2070,7 +2070,7 @@
                 6.6,
                 4.21
             ],
-            "timestamp": "00:09:456",
+            "timestamp": "00:10:775",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -2089,10 +2089,10 @@
                 4.13,
                 7.26
             ],
-            "timestamp": "00:09:456",
+            "timestamp": "00:10:775",
             "confidence": 0.62,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "jumping",
             "bbox_xyxy": [
                 0.3578,
                 0.3014,
@@ -2108,7 +2108,7 @@
                 6.34,
                 8.28
             ],
-            "timestamp": "00:09:456",
+            "timestamp": "00:10:775",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -2129,7 +2129,7 @@
                 6.68,
                 6.28
             ],
-            "timestamp": "00:09:632",
+            "timestamp": "00:10:950",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -2148,7 +2148,7 @@
                 6.57,
                 4.41
             ],
-            "timestamp": "00:09:632",
+            "timestamp": "00:10:950",
             "confidence": 0.65,
             "camera_id": 0,
             "action": "unknown",
@@ -2167,10 +2167,10 @@
                 4.16,
                 7.25
             ],
-            "timestamp": "00:09:632",
+            "timestamp": "00:10:950",
             "confidence": 0.48,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "jumping",
             "bbox_xyxy": [
                 0.3586,
                 0.3,
@@ -2186,7 +2186,7 @@
                 6.34,
                 8.24
             ],
-            "timestamp": "00:09:632",
+            "timestamp": "00:10:950",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -2207,7 +2207,7 @@
                 6.68,
                 6.28
             ],
-            "timestamp": "00:09:808",
+            "timestamp": "00:11:125",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -2226,7 +2226,7 @@
                 6.52,
                 4.41
             ],
-            "timestamp": "00:09:808",
+            "timestamp": "00:11:125",
             "confidence": 0.7,
             "camera_id": 0,
             "action": "unknown",
@@ -2245,7 +2245,7 @@
                 6.33,
                 8.2
             ],
-            "timestamp": "00:09:808",
+            "timestamp": "00:11:125",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -2266,7 +2266,7 @@
                 6.65,
                 6.29
             ],
-            "timestamp": "00:09:950",
+            "timestamp": "00:11:269",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -2285,10 +2285,10 @@
                 6.49,
                 4.54
             ],
-            "timestamp": "00:09:950",
+            "timestamp": "00:11:269",
             "confidence": 0.75,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4695,
                 0.1986,
@@ -2304,10 +2304,10 @@
                 4.23,
                 7.2
             ],
-            "timestamp": "00:09:950",
+            "timestamp": "00:11:269",
             "confidence": 0.58,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "jumping",
             "bbox_xyxy": [
                 0.3617,
                 0.3,
@@ -2323,7 +2323,7 @@
                 6.32,
                 8.15
             ],
-            "timestamp": "00:09:950",
+            "timestamp": "00:11:269",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -2344,7 +2344,7 @@
                 6.63,
                 6.32
             ],
-            "timestamp": "00:10:124",
+            "timestamp": "00:11:444",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -2363,10 +2363,10 @@
                 6.44,
                 4.6
             ],
-            "timestamp": "00:10:124",
+            "timestamp": "00:11:444",
             "confidence": 0.79,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "running",
             "bbox_xyxy": [
                 0.4672,
                 0.1986,
@@ -2382,7 +2382,7 @@
                 4.25,
                 7.17
             ],
-            "timestamp": "00:10:124",
+            "timestamp": "00:11:444",
             "confidence": 0.7,
             "camera_id": 0,
             "action": "unknown",
@@ -2401,7 +2401,7 @@
                 6.31,
                 8.11
             ],
-            "timestamp": "00:10:124",
+            "timestamp": "00:11:444",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -2422,7 +2422,7 @@
                 6.6,
                 6.33
             ],
-            "timestamp": "00:10:298",
+            "timestamp": "00:11:617",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -2441,7 +2441,7 @@
                 6.38,
                 4.52
             ],
-            "timestamp": "00:10:298",
+            "timestamp": "00:11:617",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -2460,10 +2460,10 @@
                 4.26,
                 7.17
             ],
-            "timestamp": "00:10:298",
+            "timestamp": "00:11:617",
             "confidence": 0.57,
             "camera_id": 0,
-            "action": "unknown",
+            "action": "jumping",
             "bbox_xyxy": [
                 0.3633,
                 0.3,
@@ -2479,7 +2479,7 @@
                 6.31,
                 8.06
             ],
-            "timestamp": "00:10:298",
+            "timestamp": "00:11:617",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -2500,7 +2500,7 @@
                 6.58,
                 6.36
             ],
-            "timestamp": "00:10:471",
+            "timestamp": "00:11:794",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -2519,7 +2519,7 @@
                 6.35,
                 4.44
             ],
-            "timestamp": "00:10:471",
+            "timestamp": "00:11:794",
             "confidence": 0.88,
             "camera_id": 0,
             "action": "unknown",
@@ -2538,7 +2538,7 @@
                 4.3,
                 7.17
             ],
-            "timestamp": "00:10:471",
+            "timestamp": "00:11:794",
             "confidence": 0.47,
             "camera_id": 0,
             "action": "unknown",
@@ -2557,7 +2557,7 @@
                 6.3,
                 8.01
             ],
-            "timestamp": "00:10:471",
+            "timestamp": "00:11:794",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -2566,2557 +2566,6 @@
                 0.6681,
                 0.4891,
                 0.7194
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.55,
-                6.35
-            ],
-            "timestamp": "00:10:645",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4688,
-                0.3167,
-                0.5227,
-                0.5167
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.31,
-                4.4
-            ],
-            "timestamp": "00:10:645",
-            "confidence": 0.88,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4641,
-                0.1986,
-                0.5102,
-                0.3639
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.35,
-                7.16
-            ],
-            "timestamp": "00:10:645",
-            "confidence": 0.54,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3656,
-                0.2986,
-                0.4273,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.29,
-                7.96
-            ],
-            "timestamp": "00:10:645",
-            "confidence": 0.78,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6597,
-                0.4883,
-                0.7097
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.53,
-                6.38
-            ],
-            "timestamp": "00:10:819",
-            "confidence": 0.69,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4672,
-                0.3167,
-                0.5219,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.26,
-                4.36
-            ],
-            "timestamp": "00:10:819",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4625,
-                0.1986,
-                0.5078,
-                0.3611
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.39,
-                7.14
-            ],
-            "timestamp": "00:10:819",
-            "confidence": 0.51,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3672,
-                0.2986,
-                0.4289,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.29,
-                7.92
-            ],
-            "timestamp": "00:10:819",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6514,
-                0.4883,
-                0.7014
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.49,
-                6.4
-            ],
-            "timestamp": "00:10:994",
-            "confidence": 0.74,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4648,
-                0.3181,
-                0.5195,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.23,
-                4.35
-            ],
-            "timestamp": "00:10:994",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4617,
-                0.1986,
-                0.5062,
-                0.3597
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.42,
-                7.13
-            ],
-            "timestamp": "00:10:994",
-            "confidence": 0.69,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.368,
-                0.3,
-                0.4305,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.28,
-                7.86
-            ],
-            "timestamp": "00:10:994",
-            "confidence": 0.8,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6431,
-                0.4883,
-                0.6917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.45,
-                6.4
-            ],
-            "timestamp": "00:11:169",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.3194,
-                0.5172,
-                0.5167
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.19,
-                4.33
-            ],
-            "timestamp": "00:11:169",
-            "confidence": 0.85,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4609,
-                0.1986,
-                0.5047,
-                0.3583
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.44,
-                7.13
-            ],
-            "timestamp": "00:11:169",
-            "confidence": 0.59,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3688,
-                0.2986,
-                0.4313,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.28,
-                7.81
-            ],
-            "timestamp": "00:11:169",
-            "confidence": 0.71,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6347,
-                0.4883,
-                0.6833
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.44,
-                6.41
-            ],
-            "timestamp": "00:11:345",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4625,
-                0.3208,
-                0.5164,
-                0.5167
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.14,
-                4.35
-            ],
-            "timestamp": "00:11:345",
-            "confidence": 0.85,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4586,
-                0.1986,
-                0.5031,
-                0.3583
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.47,
-                7.12
-            ],
-            "timestamp": "00:11:345",
-            "confidence": 0.74,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3703,
-                0.2986,
-                0.432,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.27,
-                7.76
-            ],
-            "timestamp": "00:11:345",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6278,
-                0.4875,
-                0.675
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.42,
-                6.43
-            ],
-            "timestamp": "00:11:517",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4617,
-                0.3222,
-                0.5156,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.07,
-                4.37
-            ],
-            "timestamp": "00:11:517",
-            "confidence": 0.86,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4562,
-                0.1986,
-                0.5,
-                0.3583
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.51,
-                7.09
-            ],
-            "timestamp": "00:11:517",
-            "confidence": 0.7,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3719,
-                0.2986,
-                0.4336,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.26,
-                7.71
-            ],
-            "timestamp": "00:11:517",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6194,
-                0.4867,
-                0.6653
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.41,
-                6.44
-            ],
-            "timestamp": "00:11:691",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4609,
-                0.3222,
-                0.5148,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.02,
-                4.41
-            ],
-            "timestamp": "00:11:691",
-            "confidence": 0.87,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4539,
-                0.2,
-                0.4984,
-                0.3597
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.56,
-                7.08
-            ],
-            "timestamp": "00:11:691",
-            "confidence": 0.77,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3734,
-                0.2986,
-                0.4359,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.25,
-                7.65
-            ],
-            "timestamp": "00:11:691",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.6111,
-                0.4867,
-                0.6569
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.39,
-                6.45
-            ],
-            "timestamp": "00:11:867",
-            "confidence": 0.81,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4594,
-                0.3222,
-                0.5141,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.0,
-                4.45
-            ],
-            "timestamp": "00:11:867",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4531,
-                0.2,
-                0.4977,
-                0.3611
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.59,
-                7.05
-            ],
-            "timestamp": "00:11:867",
-            "confidence": 0.74,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.375,
-                0.2986,
-                0.4367,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.25,
-                7.59
-            ],
-            "timestamp": "00:11:867",
-            "confidence": 0.81,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4641,
-                0.6042,
-                0.4867,
-                0.6472
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.37,
-                6.46
-            ],
-            "timestamp": "00:12:041",
-            "confidence": 0.8,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4586,
-                0.3208,
-                0.5125,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.96,
-                4.48
-            ],
-            "timestamp": "00:12:041",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4516,
-                0.2,
-                0.4961,
-                0.3625
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.62,
-                7.04
-            ],
-            "timestamp": "00:12:041",
-            "confidence": 0.65,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3766,
-                0.2986,
-                0.4375,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.24,
-                7.54
-            ],
-            "timestamp": "00:12:041",
-            "confidence": 0.71,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5944,
-                0.4867,
-                0.6403
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.34,
-                6.47
-            ],
-            "timestamp": "00:12:213",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.457,
-                0.3208,
-                0.5109,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.94,
-                4.62
-            ],
-            "timestamp": "00:12:213",
-            "confidence": 0.77,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4492,
-                0.1986,
-                0.4961,
-                0.3694
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.65,
-                7.04
-            ],
-            "timestamp": "00:12:213",
-            "confidence": 0.66,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3773,
-                0.3,
-                0.4391,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.24,
-                7.49
-            ],
-            "timestamp": "00:12:213",
-            "confidence": 0.8,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5889,
-                0.4867,
-                0.6319
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.31,
-                6.48
-            ],
-            "timestamp": "00:12:388",
-            "confidence": 0.78,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4555,
-                0.3208,
-                0.5102,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.9,
-                4.66
-            ],
-            "timestamp": "00:12:388",
-            "confidence": 0.66,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4477,
-                0.1986,
-                0.4945,
-                0.3708
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.7,
-                7.04
-            ],
-            "timestamp": "00:12:388",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3789,
-                0.2986,
-                0.4406,
-                0.5
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.23,
-                7.43
-            ],
-            "timestamp": "00:12:388",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5806,
-                0.4859,
-                0.6236
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.3,
-                6.49
-            ],
-            "timestamp": "00:12:562",
-            "confidence": 0.78,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4547,
-                0.3194,
-                0.5094,
-                0.5181
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.88,
-                4.76
-            ],
-            "timestamp": "00:12:562",
-            "confidence": 0.68,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4461,
-                0.1986,
-                0.4938,
-                0.3764
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.73,
-                7.02
-            ],
-            "timestamp": "00:12:562",
-            "confidence": 0.81,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3805,
-                0.2986,
-                0.4422,
-                0.5
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.23,
-                7.38
-            ],
-            "timestamp": "00:12:562",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5722,
-                0.4867,
-                0.6167
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.27,
-                6.52
-            ],
-            "timestamp": "00:12:735",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4531,
-                0.3194,
-                0.5078,
-                0.5194
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.82,
-                4.66
-            ],
-            "timestamp": "00:12:735",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4453,
-                0.1986,
-                0.4914,
-                0.3694
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.76,
-                7.01
-            ],
-            "timestamp": "00:12:735",
-            "confidence": 0.85,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.382,
-                0.3,
-                0.443,
-                0.5
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.22,
-                7.33
-            ],
-            "timestamp": "00:12:735",
-            "confidence": 0.86,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5653,
-                0.4859,
-                0.6097
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.26,
-                6.54
-            ],
-            "timestamp": "00:12:908",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4523,
-                0.3208,
-                0.507,
-                0.5208
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.78,
-                4.72
-            ],
-            "timestamp": "00:12:908",
-            "confidence": 0.74,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.443,
-                0.1986,
-                0.4898,
-                0.3722
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.78,
-                6.98
-            ],
-            "timestamp": "00:12:908",
-            "confidence": 0.86,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3828,
-                0.3,
-                0.4437,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.21,
-                7.26
-            ],
-            "timestamp": "00:12:908",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5583,
-                0.4859,
-                0.6
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.23,
-                6.55
-            ],
-            "timestamp": "00:13:081",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4516,
-                0.3208,
-                0.5055,
-                0.5208
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.73,
-                4.84
-            ],
-            "timestamp": "00:13:081",
-            "confidence": 0.78,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4406,
-                0.1986,
-                0.4883,
-                0.3778
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.8,
-                6.97
-            ],
-            "timestamp": "00:13:081",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3836,
-                0.3,
-                0.4445,
-                0.4986
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.21,
-                7.2
-            ],
-            "timestamp": "00:13:081",
-            "confidence": 0.78,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.55,
-                0.4859,
-                0.5917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.21,
-                6.56
-            ],
-            "timestamp": "00:13:250",
-            "confidence": 0.81,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.45,
-                0.3208,
-                0.5047,
-                0.5208
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.7,
-                4.8
-            ],
-            "timestamp": "00:13:250",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4398,
-                0.2,
-                0.4867,
-                0.375
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.82,
-                6.95
-            ],
-            "timestamp": "00:13:250",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3852,
-                0.3014,
-                0.4453,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.2,
-                7.14
-            ],
-            "timestamp": "00:13:250",
-            "confidence": 0.73,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5431,
-                0.4859,
-                0.5847
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.18,
-                6.59
-            ],
-            "timestamp": "00:13:423",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4484,
-                0.3194,
-                0.5031,
-                0.5222
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.63,
-                4.72
-            ],
-            "timestamp": "00:13:423",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4391,
-                0.1986,
-                0.4836,
-                0.3694
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.85,
-                6.92
-            ],
-            "timestamp": "00:13:423",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3867,
-                0.3,
-                0.4469,
-                0.4958
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.19,
-                7.09
-            ],
-            "timestamp": "00:13:423",
-            "confidence": 0.68,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5361,
-                0.4852,
-                0.5778
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                6.15,
-                6.61
-            ],
-            "timestamp": "00:13:594",
-            "confidence": 0.59,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4469,
-                0.3194,
-                0.5016,
-                0.5236
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.57,
-                4.63
-            ],
-            "timestamp": "00:13:594",
-            "confidence": 0.58,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4383,
-                0.1986,
-                0.4813,
-                0.3639
-            ]
-        },
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.87,
-                6.91
-            ],
-            "timestamp": "00:13:594",
-            "confidence": 0.65,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3875,
-                0.3,
-                0.4477,
-                0.4958
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.18,
-                7.04
-            ],
-            "timestamp": "00:13:594",
-            "confidence": 0.75,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4625,
-                0.5292,
-                0.4852,
-                0.5708
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.89,
-                6.9
-            ],
-            "timestamp": "00:13:769",
-            "confidence": 0.49,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3883,
-                0.3,
-                0.4484,
-                0.4958
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.18,
-                6.98
-            ],
-            "timestamp": "00:13:769",
-            "confidence": 0.89,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4633,
-                0.5236,
-                0.4844,
-                0.5639
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.9,
-                6.91
-            ],
-            "timestamp": "00:13:884",
-            "confidence": 0.41,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3891,
-                0.3,
-                0.4484,
-                0.4972
-            ]
-        },
-        {
-            "tracking_id": 0,
-            "object_type": "ball",
-            "team": "none",
-            "pitch_position": [
-                6.16,
-                6.93
-            ],
-            "timestamp": "00:13:884",
-            "confidence": 0.71,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4625,
-                0.5167,
-                0.4836,
-                0.5569
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.92,
-                6.89
-            ],
-            "timestamp": "00:13:999",
-            "confidence": 0.47,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3898,
-                0.3,
-                0.4492,
-                0.4958
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.94,
-                6.86
-            ],
-            "timestamp": "00:14:114",
-            "confidence": 0.69,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3914,
-                0.3,
-                0.45,
-                0.4944
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.96,
-                6.83
-            ],
-            "timestamp": "00:14:230",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "jumping",
-            "bbox_xyxy": [
-                0.3922,
-                0.3,
-                0.4508,
-                0.4931
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.97,
-                6.81
-            ],
-            "timestamp": "00:14:343",
-            "confidence": 0.77,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3937,
-                0.3,
-                0.4508,
-                0.4917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                4.99,
-                6.8
-            ],
-            "timestamp": "00:14:457",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3945,
-                0.3,
-                0.4516,
-                0.4917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.02,
-                6.79
-            ],
-            "timestamp": "00:14:573",
-            "confidence": 0.73,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3961,
-                0.3,
-                0.4523,
-                0.4917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.04,
-                6.78
-            ],
-            "timestamp": "00:14:688",
-            "confidence": 0.67,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3969,
-                0.3,
-                0.4531,
-                0.4917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.04,
-                6.78
-            ],
-            "timestamp": "00:14:802",
-            "confidence": 0.71,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3969,
-                0.3,
-                0.4531,
-                0.4917
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.01,
-                6.78
-            ],
-            "timestamp": "00:14:918",
-            "confidence": 0.54,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3969,
-                0.3,
-                0.4516,
-                0.4903
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.75,
-                6.79
-            ],
-            "timestamp": "00:15:288",
-            "confidence": 0.55,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4273,
-                0.3222,
-                0.4813,
-                0.5222
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.76,
-                6.82
-            ],
-            "timestamp": "00:15:401",
-            "confidence": 0.62,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4273,
-                0.3222,
-                0.4813,
-                0.525
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.74,
-                6.87
-            ],
-            "timestamp": "00:15:514",
-            "confidence": 0.34,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4258,
-                0.3222,
-                0.4805,
-                0.5292
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.06,
-                6.11
-            ],
-            "timestamp": "00:15:514",
-            "confidence": 0.56,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4023,
-                0.2,
-                0.4625,
-                0.4417
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.73,
-                6.86
-            ],
-            "timestamp": "00:15:655",
-            "confidence": 0.53,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4258,
-                0.3222,
-                0.4797,
-                0.5278
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.04,
-                6.14
-            ],
-            "timestamp": "00:15:655",
-            "confidence": 0.56,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4023,
-                0.2,
-                0.4609,
-                0.4431
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.03,
-                6.1
-            ],
-            "timestamp": "00:15:795",
-            "confidence": 0.34,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4039,
-                0.1986,
-                0.4594,
-                0.4403
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.59,
-                6.93
-            ],
-            "timestamp": "00:16:292",
-            "confidence": 0.53,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4164,
-                0.3056,
-                0.475,
-                0.5278
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.79,
-                6.41
-            ],
-            "timestamp": "00:17:160",
-            "confidence": 0.73,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.432,
-                0.3,
-                0.4852,
-                0.4889
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.82,
-                6.4
-            ],
-            "timestamp": "00:17:273",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4328,
-                0.3,
-                0.4867,
-                0.4889
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.29,
-                7.11
-            ],
-            "timestamp": "00:17:273",
-            "confidence": 0.6,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4,
-                0.2875,
-                0.4625,
-                0.5319
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.84,
-                6.4
-            ],
-            "timestamp": "00:17:419",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4336,
-                0.3,
-                0.4875,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.25,
-                7.13
-            ],
-            "timestamp": "00:17:419",
-            "confidence": 0.69,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3945,
-                0.2472,
-                0.4641,
-                0.5319
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.88,
-                6.43
-            ],
-            "timestamp": "00:17:562",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4344,
-                0.3,
-                0.4898,
-                0.4944
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.22,
-                7.16
-            ],
-            "timestamp": "00:17:562",
-            "confidence": 0.71,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3906,
-                0.2153,
-                0.4648,
-                0.5333
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.9,
-                6.42
-            ],
-            "timestamp": "00:17:703",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4359,
-                0.3,
-                0.4906,
-                0.4944
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.2,
-                7.17
-            ],
-            "timestamp": "00:17:703",
-            "confidence": 0.68,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3898,
-                0.2028,
-                0.4641,
-                0.5333
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.92,
-                6.43
-            ],
-            "timestamp": "00:17:842",
-            "confidence": 0.8,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4367,
-                0.3,
-                0.4914,
-                0.4958
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.18,
-                7.18
-            ],
-            "timestamp": "00:17:842",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3898,
-                0.1986,
-                0.4625,
-                0.5333
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.91,
-                6.4
-            ],
-            "timestamp": "00:17:982",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4367,
-                0.3,
-                0.4914,
-                0.4931
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.17,
-                7.17
-            ],
-            "timestamp": "00:17:982",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.393,
-                0.2264,
-                0.4586,
-                0.5319
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.91,
-                6.37
-            ],
-            "timestamp": "00:18:125",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4367,
-                0.3,
-                0.4914,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.17,
-                7.17
-            ],
-            "timestamp": "00:18:125",
-            "confidence": 0.68,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3992,
-                0.2889,
-                0.4523,
-                0.5319
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.93,
-                6.36
-            ],
-            "timestamp": "00:18:267",
-            "confidence": 0.83,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4375,
-                0.3,
-                0.4922,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.14,
-                7.18
-            ],
-            "timestamp": "00:18:267",
-            "confidence": 0.76,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4008,
-                0.3181,
-                0.4484,
-                0.5319
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.36,
-                5.19
-            ],
-            "timestamp": "00:18:267",
-            "confidence": 0.55,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3992,
-                0.2014,
-                0.4391,
-                0.3722
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.95,
-                6.35
-            ],
-            "timestamp": "00:18:433",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4383,
-                0.3,
-                0.4938,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.11,
-                7.2
-            ],
-            "timestamp": "00:18:433",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4,
-                0.3278,
-                0.4461,
-                0.5319
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.33,
-                5.17
-            ],
-            "timestamp": "00:18:433",
-            "confidence": 0.52,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3984,
-                0.2014,
-                0.4383,
-                0.3708
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                5.99,
-                6.34
-            ],
-            "timestamp": "00:18:601",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4398,
-                0.3,
-                0.4953,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.09,
-                7.21
-            ],
-            "timestamp": "00:18:601",
-            "confidence": 0.77,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3992,
-                0.3319,
-                0.4453,
-                0.5319
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.34,
-                5.2
-            ],
-            "timestamp": "00:18:601",
-            "confidence": 0.49,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3984,
-                0.2014,
-                0.4383,
-                0.3722
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                6.0,
-                6.34
-            ],
-            "timestamp": "00:18:768",
-            "confidence": 0.86,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4406,
-                0.3,
-                0.4961,
-                0.4917
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.06,
-                7.21
-            ],
-            "timestamp": "00:18:768",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3977,
-                0.3319,
-                0.4445,
-                0.5306
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.33,
-                5.23
-            ],
-            "timestamp": "00:18:768",
-            "confidence": 0.45,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3977,
-                0.2028,
-                0.4383,
-                0.3736
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                6.01,
-                6.34
-            ],
-            "timestamp": "00:18:936",
-            "confidence": 0.85,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4406,
-                0.3014,
-                0.4969,
-                0.4917
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.04,
-                7.22
-            ],
-            "timestamp": "00:18:936",
-            "confidence": 0.79,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3969,
-                0.3306,
-                0.4437,
-                0.5306
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.32,
-                5.23
-            ],
-            "timestamp": "00:18:936",
-            "confidence": 0.43,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3969,
-                0.2028,
-                0.4383,
-                0.3736
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                6.03,
-                6.33
-            ],
-            "timestamp": "00:19:102",
-            "confidence": 0.85,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4414,
-                0.3014,
-                0.4977,
-                0.4917
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.04,
-                7.22
-            ],
-            "timestamp": "00:19:102",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3961,
-                0.3306,
-                0.4437,
-                0.5306
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.32,
-                5.26
-            ],
-            "timestamp": "00:19:102",
-            "confidence": 0.48,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3961,
-                0.2028,
-                0.4383,
-                0.375
-            ]
-        }
-    ],
-    [
-        {
-            "tracking_id": 4,
-            "object_type": "player",
-            "team": "Team 2",
-            "pitch_position": [
-                6.05,
-                6.31
-            ],
-            "timestamp": "00:19:268",
-            "confidence": 0.84,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.4422,
-                0.3,
-                0.4992,
-                0.4903
-            ]
-        },
-        {
-            "tracking_id": 2,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                5.0,
-                7.24
-            ],
-            "timestamp": "00:19:268",
-            "confidence": 0.82,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3945,
-                0.3292,
-                0.4422,
-                0.5306
-            ]
-        },
-        {
-            "tracking_id": 3,
-            "object_type": "player",
-            "team": "Team 1",
-            "pitch_position": [
-                4.32,
-                5.28
-            ],
-            "timestamp": "00:19:268",
-            "confidence": 0.49,
-            "camera_id": 0,
-            "action": "unknown",
-            "bbox_xyxy": [
-                0.3961,
-                0.2028,
-                0.4383,
-                0.3764
             ]
         }
     ]
