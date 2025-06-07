@@ -17,7 +17,7 @@ LABEL_MAP = {
 def classify_action(frame, bbox):
     x1, y1, x2, y2 = map(int, bbox)
     image = frame[y1:y2, x1:x2]
-    results = action_model.predict(image, verbose=False)
+    results = action_model.predict(image, conf=0.3, verbose=False)
 
     if not results:
         return None
@@ -29,6 +29,6 @@ def classify_action(frame, bbox):
     for box in detections.boxes:
         cls_id = int(box.cls[0])
         label = class_names[cls_id] if cls_id < len(class_names) else "Unknown"
-        return LABEL_MAP.get(label)  # gibt "running", "standing", etc. zurück
+        return LABEL_MAP.get(label, "unknown") # running, standing, walking, jumping, or unknown
 
     return None
