@@ -54,11 +54,10 @@ def save_objects(results, frame, timestamp, camera_id=0):
             # Get tracking ID (if available), else use -1
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
+
             # Only continue if the object is of interest and has a valid tracking ID
-
-            entry_action = "unknown"  # Initialize action as unknown
-
             if label in {"player", "ball"} and tracking_id != -1:
+                entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
                     player_color = team_assigner.get_player_color(frame, bbox)
                     team = team_assigner.assign_team(player_color)
