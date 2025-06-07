@@ -73,7 +73,6 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 # print(pitch_x, pitch_y)
 
                 # Format timestamp as MM:SS:MS
-
                 minutes = int(timestamp // 60)
                 seconds = int(timestamp % 60)
                 milliseconds = int((timestamp % 1) * 1000)

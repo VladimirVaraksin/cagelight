@@ -16,7 +16,9 @@ LABEL_MAP = {
 
 def classify_action(frame, bbox):
     x1, y1, x2, y2 = map(int, bbox)
+    # crop the image to the bounding box
     image = frame[y1:y2, x1:x2]
+    # run the action classification model
     results = action_model.predict(image, conf=0.3, verbose=False)
 
     if not results:
