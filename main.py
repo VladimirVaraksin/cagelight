@@ -111,7 +111,7 @@ def main(lcl_args=None):
     print("\nSaving collected data to database...This may take a while.\n")
     insert_many_players(data)
 
-    with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
+    with open(os.path.join(save_folder, 'live_output.json1'), 'w') as jf:
         json.dump(data, jf, indent=4)
 
 

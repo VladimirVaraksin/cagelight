@@ -38,10 +38,6 @@ def create_player_table():
 def insert_record(entry):
     object_type = entry.get("object_type", "").lower()
 
-    # Only skip players with unknown or missing action
-    if object_type != "ball" and entry.get("action") in [None, "unknown"]:
-        return
-
     query = """
     INSERT INTO realtime_player_positions (
         tracking_id, object_type, team, pitch_x, pitch_y,
@@ -60,7 +56,7 @@ def insert_record(entry):
         entry.get("timestamp", "00:00:000"),
         entry.get("confidence", 0.0),
         entry.get("camera_id", 0),
-        entry.get("action", ""),
+        entry.get("action", ""),  # This can be "unknown", "", or actual label
         x_min,
         y_min,
         x_max,
