@@ -1,7 +1,6 @@
 from ultralytics import YOLO
-from utils import TeamAssigner, ViewTransformer
+from utils import TeamAssigner, ViewTransformer, classify_action
 import numpy as np
-from utils.annotate_frame import annotate_frame
 
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
@@ -55,10 +54,17 @@ def save_objects(results, frame, timestamp, camera_id=0):
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
             # Only continue if the object is of interest and has a valid tracking ID
+
+            entry_action = "unknown"  # Initialize action as None
+
             if label in {"player", "ball"} and tracking_id != -1:
                 if label == "player":
                     player_color = team_assigner.get_player_color(frame, bbox)
                     team = team_assigner.assign_team(player_color)
+                    # Action classification
+                    action = classify_action(frame, bbox)
+                    if action:
+                        entry_action = action
                 else:
                     team = "none"
                 # Extract pitch coordinates
@@ -72,6 +78,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 seconds = int(timestamp % 60)
                 milliseconds = int((timestamp % 1) * 1000)
                 match_time_formatted = f"{minutes:02d}:{seconds:02d}:{milliseconds:03d}"
+
                 # Build the data entry
                 entry = {
                     "tracking_id": tracking_id if label != "ball" else 0,
@@ -81,11 +88,12 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "timestamp": match_time_formatted,
                     "confidence": confidence,
                     "camera_id": camera_id,
-                    "action": "unknown",
+                    "action": entry_action,
                     "bbox_xyxy": norm_bbox,
                 }
 
                 data.append(entry)
 
     return data
+
 

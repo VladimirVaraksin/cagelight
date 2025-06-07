@@ -63,7 +63,7 @@ def main(lcl_args=None):
     )
 
     halbzeit_gedruckt = False
-    create_player_table()
+    #create_player_table()
 
     #test for debugging using a video file
     camera = cv2.VideoCapture("videos/test_video_blender.mp4")
@@ -120,7 +120,7 @@ def main(lcl_args=None):
     cv2.destroyAllWindows()
     # Save the collected data to the database
     #print("\nSaving collected data to database...This may take a while.\n")
-    insert_many_players(data)
+    #insert_many_players(data)
 
     #since there is a database connection we do not need to save the data to a local file
     #  Save the collected data to a local JSON file for debugging purposes
