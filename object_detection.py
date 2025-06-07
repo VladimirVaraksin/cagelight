@@ -1,3 +1,4 @@
+# this script processes YOLO detection results and returns structured data for each object (player or ball)
 from ultralytics import YOLO
 from utils import TeamAssigner, ViewTransformer, classify_action
 import numpy as np
