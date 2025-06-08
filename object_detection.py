@@ -63,6 +63,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     team = team_assigner.assign_team(player_color)
                     # Action classification
                     action = classify_action(frame, bbox)
+                    print(action)
                     if action:
                         entry_action = action
                 else:
