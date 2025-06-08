@@ -1,10 +1,11 @@
 # this script processes YOLO detection results and returns structured data for each object (player or ball)
 from ultralytics import YOLO
-from utils import TeamAssigner, ViewTransformer, classify_pose
+from utils import TeamAssigner, ViewTransformer, PoseClassifier
 import numpy as np
 
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
+pose_classifier = PoseClassifier()
 
 MODEL_PATH = 'models/yolov11n.pt'
 player_model = YOLO(MODEL_PATH)
@@ -66,7 +67,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                         player_color = team_assigner.get_player_color(frame, bbox)
                         team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
-                    entry_action = classify_pose(x1, y1, x2, y2)
+                    entry_action = pose_classifier.classify_pose(bbox)
                 else:
                     team = "none"
                 # Extract pitch coordinates
