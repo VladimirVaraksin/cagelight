@@ -10,7 +10,6 @@ import os
 import json
 import argparse
 
-
 def main(lcl_args=None):
     dauer_spiel = 5400
     fps = 30
@@ -90,6 +89,7 @@ def main(lcl_args=None):
             source=frame, stream=True, verbose=False, persist=True,
             tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv11
         )
+
         ball = ball_model.track(
             source=frame, stream=True, verbose=False, persist=True,
             tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv11

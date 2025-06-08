@@ -59,8 +59,12 @@ def save_objects(results, frame, timestamp, camera_id=0):
             if label in {"player", "ball"} and tracking_id != -1:
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
-                    player_color = team_assigner.get_player_color(frame, bbox)
-                    team = team_assigner.assign_team(player_color)
+                    # Assign team based on player color
+                    team = team_assigner.get_player_team(tracking_id)
+                    if team is None:
+                        # If the player is not assigned to a team, get the player color and assign a team
+                        player_color = team_assigner.get_player_color(frame, bbox)
+                        team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
                     entry_action = classify_pose(x1, y1, x2, y2)
                 else:
