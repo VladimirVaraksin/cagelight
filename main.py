@@ -66,7 +66,7 @@ def main(lcl_args=None):
     #create_player_table()
 
     #test for debugging using a video file
-    camera = cv2.VideoCapture("videos/test_video_blender.mp4")
+    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
 
     while True:
         ret, frame = camera.read()
@@ -88,11 +88,11 @@ def main(lcl_args=None):
 
         players = player_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv8
+            tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv11
         )
         ball = ball_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv8
+            tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv11
         )
         # save the detected players and ball positions for debugging purposes
         match_time = time.time() - start_time
