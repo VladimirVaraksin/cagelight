@@ -80,8 +80,7 @@ def main(lcl_args=None):
 
     while True:
         ret, frame = camera.read()
-        pitch_frame = draw_pitch(SoccerPitchConfiguration())
-
+        pitch_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break

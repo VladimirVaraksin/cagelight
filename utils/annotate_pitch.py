@@ -14,7 +14,7 @@ def draw_pitch(
     padding: int = 50,
     line_thickness: int = 4,
     point_radius: int = 8,
-    scale: float = 0.5
+    scale: float = 0.1
 ) -> np.ndarray:
     """
     Draws a soccer pitch with specified dimensions, colors, and scale.
@@ -104,7 +104,7 @@ def draw_points_on_pitch(
     radius: int = 10,
     thickness: int = 2,
     padding: int = 50,
-    scale: float = 0.5,
+    scale: float = 0.1,
     pitch: Optional[np.ndarray] = None
 ) -> np.ndarray:
     """

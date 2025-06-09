@@ -45,7 +45,9 @@ def create_pitch_frame(pitch_frame, entries):
         face_color=sv.Color.from_hex('00BFFF'),
         edge_color=sv.Color.BLACK,
         radius=16,
-        pitch=pitch_frame)
+        pitch=pitch_frame,
+        scale=0.5
+    )
 
     pitch_frame = draw_points_on_pitch(
         config=CONFIG,
@@ -53,5 +55,7 @@ def create_pitch_frame(pitch_frame, entries):
         face_color=sv.Color.from_hex('FF4500'),
         edge_color=sv.Color.BLACK,
         radius=16,
-        pitch=pitch_frame)
+        pitch=pitch_frame,
+        scale=0.5
+    )
     return pitch_frame
