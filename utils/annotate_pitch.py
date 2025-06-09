@@ -152,25 +152,6 @@ def draw_points_on_pitch(
 
         # ID auslesen (als Text)
         id_text = str(point[2])
-        # if id_text == "0":
-        #     # Draw filled ball
-        #     cv2.circle(
-        #         img=pitch,
-        #         center=scaled_point,
-        #         radius=radius,
-        #         color=face_color.as_bgr(),
-        #         thickness=-1,
-        #     )
-        #
-        #     # Draw edge
-        #     cv2.circle(
-        #         img=pitch,
-        #         center=scaled_point,
-        #         radius=radius,
-        #         color=edge_color.as_bgr(),
-        #         thickness=thickness,
-        #     )
-        #     continue
 
         # Kreis zeichnen (gefüllt)
         cv2.circle(
