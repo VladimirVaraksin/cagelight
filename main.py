@@ -1,4 +1,5 @@
 # this script is used to record a soccer match, detect players and the ball using YOLOv11, and save the data to a database or a local file.
+# cagelight project
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
