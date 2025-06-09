@@ -13,6 +13,7 @@ class PoseClassifier:
         self.model = YOLO('models/best.pt')
         self.classnames = self.model.names
 
+
     def classify_pose(self, frame, bbox):
         """
         Classify the pose based on bounding box aspect ratio and model prediction.

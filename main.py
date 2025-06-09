@@ -1,9 +1,9 @@
 # main.py
 # This script is used to record a soccer match, detect players and the ball using YOLOv8, and save the data to a database or a local file.
 from camera_utils import setup_camera, release_sources
-from object_detection import save_objects, player_model, ball_model
+from object_detection import save_objects, player_model, ball_model, player_actions
 from db_save_player import create_player_table, insert_many_players
-from utils import annotate_frame
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning
 import time
 import cv2
 import os
@@ -65,10 +65,11 @@ def main(lcl_args=None):
     #create_player_table()
 
     #test for debugging using a video file
-    camera = cv2.VideoCapture("videos/action_test_2.mp4")
+    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
 
     while True:
         ret, frame = camera.read()
+        pitch_frame = draw_pitch(SoccerPitchConfiguration())
         # read a frame for debugging purposes
         #frame = cv2.imread('images/action_test.jpg')
         if not ret:
@@ -100,15 +101,21 @@ def main(lcl_args=None):
 
         #optionally annotate the frame with the detected objects
         frame = annotate_frame(frame, frame_data)  # Annotate the frame with the entry
-
+        pitch_frame = create_pitch_frame(pitch_frame, frame_data)
         if frame_data:
             data.append(frame_data)
+
+
 
         #cv2.imwrite("output/blender_test.jpg", frame)
         out.write(frame)
         # Display the frame for debugging purposes
         cv2.imshow('Frame', frame)
+        cv2.imshow('Pitch', pitch_frame)
+        #cv2.waitKey(0)
 
+        # injury prevention
+        injury_warning(player_actions, match_time)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

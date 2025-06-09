@@ -12,6 +12,7 @@ player_model = YOLO(MODEL_PATH)
 ball_model = YOLO(MODEL_PATH)
 
 class_names = list(player_model.names.values())
+player_actions = {}
 
 def save_objects(results, frame, timestamp, camera_id=0):
     """
@@ -37,6 +38,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             point = np.array([(x1 + x2) / 2, y2], dtype=np.float32)
             # Compute the pitch coordinates using the view transformer
             pitch_point = view_transformer.transform_point(point)
+
             # Skip detections outside the defined field area
             if pitch_point is None:
                 continue
@@ -58,6 +60,10 @@ def save_objects(results, frame, timestamp, camera_id=0):
 
             # Only continue if the object is of interest and has a valid tracking ID
             if label in {"player", "ball"} and tracking_id != -1:
+                # Extract pitch coordinates
+                pitch_x, pitch_y = pitch_point[0]
+                # print pitch coordinates for debugging
+                # print(pitch_x, pitch_y)
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
                     # Assign team based on player color
@@ -68,13 +74,17 @@ def save_objects(results, frame, timestamp, camera_id=0):
                         team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
                     entry_action = pose_classifier.classify_pose(frame, bbox)
-
+                    # Store the action for the player
+                    if entry_action == "lying" or entry_action == "sitting":
+                        if tracking_id not in player_actions or player_actions[tracking_id][0] != entry_action:
+                            # Update the action if it has changed
+                            player_actions[tracking_id] = (entry_action, timestamp)
+                    else:
+                        if tracking_id in player_actions:
+                            del player_actions[tracking_id]  # Remove if action is not lying or sitting
                 else:
                     team = "none"
-                # Extract pitch coordinates
-                pitch_x, pitch_y = pitch_point[0]
-                # print pitch coordinates for debugging
-                #print(pitch_x, pitch_y)
+
 
                 # Format timestamp as MM:SS:MS
                 minutes = int(timestamp // 60)
