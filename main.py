@@ -1,7 +1,7 @@
 # this script is used to record a soccer match, detect players and the ball using YOLOv11, and save the data to a database or a local file.
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
-from db_save_player import create_player_table, insert_many_players
+#from db_save_player import create_player_table, insert_many_players
 from camera_utils import setup_camera, release_sources
 from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
 import time
@@ -23,6 +23,9 @@ def main(lcl_args=None):
     standard_resolution = ((1280, 720), (1920, 1080))
     halbzeit_gedruckt = False
     data = []
+    # create directory for saving output locally if it doesn't exist
+    os.makedirs(save_folder, exist_ok=True)
+    # create_player_table()  # Uncomment if you want to create the player table in the database
 
     if lcl_args is not None:
         dauer_spiel = lcl_args.spieldauer if lcl_args.spieldauer else dauer_spiel
@@ -43,45 +46,41 @@ def main(lcl_args=None):
 
     time.sleep(start_after)
 
-    camera = setup_camera(0, resolution[0], resolution[1])
+    # uncomment the following lines to use a camera instead of a video file
+    # video_stream = setup_camera(0, resolution[0], resolution[1])
+    #
+    # if not video_stream:
+    #     print(f"Kamera mit Index 0 konnte nicht geöffnet werden.")
+    #     return
+    #
+    # fps = video_stream.get(cv2.CAP_PROP_FPS)
+    # width = int(video_stream.get(cv2.CAP_PROP_FRAME_WIDTH))
+    # height = int(video_stream.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    #
+    # out = cv2.VideoWriter(
+    #     os.path.join(save_folder, 'output_video.mp4'),
+    #     cv2.VideoWriter_fourcc(*'mp4v'),
+    #     fps,
+    #     (width, height)
+    # )
 
-    if not camera:
-        print(f"Kamera mit Index 0 konnte nicht geöffnet werden.")
+    # test for debugging using a video file
+    video_stream = cv2.VideoCapture("videos/action_test_blender.mp4")
+    if not video_stream.isOpened():
+        print("Video could not be opened.")
         return
 
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
-    time.sleep(1)
+    time.sleep(2)
     webbrowser.open("http://localhost:5000")
 
-    os.makedirs(save_folder, exist_ok=True)
-
-
-    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
-    if not camera.isOpened():
-        print("Video could not be opened.")
-        return
-
-    fps = camera.get(cv2.CAP_PROP_FPS)
-    width = int(camera.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
-
-    out = cv2.VideoWriter(
-        os.path.join(save_folder, 'output_video.mp4'),
-        cv2.VideoWriter_fourcc(*'mp4v'),
-        fps,
-        (width, height)
-    )
-
-
     start_time = time.time()  # Startzeitpunkt der Aufnahme
-    # test for debugging using a video file
-    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
-
     while True:
-        ret, frame = camera.read()
+        ret, frame = video_stream.read()
         pitch_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
         voronoi_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
+
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -123,17 +122,19 @@ def main(lcl_args=None):
 
         update_dashboard(pitch_frame, warning_lines)
 
-        out.write(frame)
+        #out.write(frame)
+        # Display the frames
         cv2.imshow('Frame', frame)
         cv2.imshow('Pitch', pitch_frame)
         cv2.imshow('Voronoi', voronoi_frame)
 
-        #time.sleep(0.001)
+        time.sleep(0.001)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    release_sources((camera, out))
+    release_sources((video_stream#, out
+                     ))
     cv2.destroyAllWindows()
     # Save the collected data to the database
     # print("\nSaving collected data to database...This may take a while.\n")
