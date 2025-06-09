@@ -1,3 +1,4 @@
+# this script is used to record a soccer match, detect players and the ball using YOLOv11, and save the data to a database or a local file.
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 from db_save_player import create_player_table, insert_many_players
@@ -105,11 +106,11 @@ def main(lcl_args=None):
         )
 
         frame_data = save_objects([*players, *ball], frame, match_time, kameranummer)
-        frame = annotate_frame(frame, frame_data)
-        pitch_frame = create_pitch_frame(pitch_frame, frame_data)
 
         if frame_data:
             data.append(frame_data)
+            frame = annotate_frame(frame, frame_data)
+            pitch_frame = create_pitch_frame(pitch_frame, frame_data)
 
         warnings = injury_warning(player_actions, match_time, threshold=5)
         warning_lines = []
