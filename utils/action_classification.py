@@ -33,8 +33,8 @@ class PoseClassifier:
         elif ratio > self.standing_ratio_threshold:
             action = self._predict_action(frame, (x1, y1, x2, y2))
             if not action:
-                action = self._predict_action(frame, (x1, y1, x2, y2), rotate=True)
-                if action == "fall":
+                # action = self._predict_action(frame, (x1, y1, x2, y2), rotate=True)
+                # if action == "fall":
                     return "lying"
             return "standing"
         else:
@@ -54,10 +54,11 @@ class PoseClassifier:
             image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
         image = cv2.resize(image, (640, 640))
 
-        results = self.model.predict(image, verbose=False)
+        results = self.model.predict(image, verbose=False, conf = 0.25)
         for result in results:
             for box in result.boxes:
                 cls_id = int(box.cls[0])
+                #print(self.classnames.get(cls_id, "Unknown"), bbox, box.conf[0])
                 return self.classnames.get(cls_id, "Unknown")
         return None
 
