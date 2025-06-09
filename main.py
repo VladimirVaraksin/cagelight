@@ -3,7 +3,7 @@ from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 from db_save_player import create_player_table, insert_many_players
 from camera_utils import setup_camera, release_sources
-from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
 import time
 import cv2
 import os
@@ -81,6 +81,7 @@ def main(lcl_args=None):
     while True:
         ret, frame = camera.read()
         pitch_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
+        voronoi_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -110,6 +111,7 @@ def main(lcl_args=None):
             data.append(frame_data)
             frame = annotate_frame(frame, frame_data)
             pitch_frame = create_pitch_frame(pitch_frame, frame_data)
+            voronoi_frame = create_voronoi_frame(voronoi_frame, frame_data)
 
         warnings = injury_warning(player_actions, match_time, threshold=5)
         warning_lines = []
@@ -124,6 +126,7 @@ def main(lcl_args=None):
         out.write(frame)
         cv2.imshow('Frame', frame)
         cv2.imshow('Pitch', pitch_frame)
+        cv2.imshow('Voronoi', voronoi_frame)
 
         #time.sleep(0.001)
 
