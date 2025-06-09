@@ -15,7 +15,7 @@ def injury_warning(player_actions, match_time, threshold=10):
         time_diff = match_time - action_time
 
         if time_diff > threshold:
-            inactive_players.append(player_id)
-            print(f"Warning: Player {player_id} has been {action_desc} for {time_diff:.2f} seconds.")
+            inactive_players.append((player_id, action_desc, time_diff))
+            #print(f"Warning: Player {player_id} has been {action_desc} for {time_diff:.2f} seconds.")
 
     return inactive_players

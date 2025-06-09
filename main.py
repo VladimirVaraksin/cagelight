@@ -112,10 +112,15 @@ def main(lcl_args=None):
         # Display the frame for debugging purposes
         cv2.imshow('Frame', frame)
         cv2.imshow('Pitch', pitch_frame)
-        #cv2.waitKey(0)
+        # cv2.waitKey(0)
 
         # injury prevention
-        injury_warning(player_actions, match_time)
+        warnings = injury_warning(player_actions, match_time)
+
+        #print the warnings to the console for debugging purposes
+        if warnings:
+            for warning in warnings:
+                print(f"Warning: Player {warning[0]} has been {warning[1]} for {warning[2]:.2f} seconds.")
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
