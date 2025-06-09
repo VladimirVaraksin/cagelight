@@ -67,8 +67,8 @@ def save_objects(results, frame, timestamp, camera_id=0):
                         player_color = team_assigner.get_player_color(frame, bbox)
                         team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
-                    entry_action = pose_classifier.classify_pose(bbox)
-                    #pose_classifier.predict_action(frame, bbox)
+                    entry_action = pose_classifier.classify_pose(frame, bbox)
+
                 else:
                     team = "none"
                 # Extract pitch coordinates

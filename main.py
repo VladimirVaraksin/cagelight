@@ -65,12 +65,12 @@ def main(lcl_args=None):
     #create_player_table()
 
     #test for debugging using a video file
-    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
+    camera = cv2.VideoCapture("videos/action_test_2.mp4")
 
     while True:
         ret, frame = camera.read()
         # read a frame for debugging purposes
-        frame = cv2.imread('images/action_test0.jpg')
+        #frame = cv2.imread('images/action_test.jpg')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break

@@ -1,24 +1,26 @@
 from ultralytics import YOLO
 import cv2
+
 class PoseClassifier:
     def __init__(self, lying_ratio_threshold=0.5, standing_ratio_threshold=1.3):
         """
-        :param lying_ratio_threshold: Breiter als hoch = liegend
-        :param standing_ratio_threshold: Deutlich höher als breit = stehend
+        :param lying_ratio_threshold: Ratio below which a person is considered lying.
+        :param standing_ratio_threshold: Ratio above which a person is considered standing.
         """
         self.lying_ratio_threshold = lying_ratio_threshold
         self.standing_ratio_threshold = standing_ratio_threshold
-        self.model = YOLO('models/action.pt')
-        self.classnames = list(self.model.names.values())
+        self.model = YOLO('models/best.pt')
+        self.classnames = self.model.names
 
-    def classify_pose(self, bbox):
+    def classify_pose(self, frame, bbox):
         """
-        :param bbox: (x1, y1, x2, y2)
-        :return: "lying", "standing", "sitting"
+        Classify the pose based on bounding box aspect ratio and model prediction.
+        :param frame: Full frame (numpy array)
+        :param bbox: Tuple (x1, y1, x2, y2)
+        :return: "lying", "standing", "sitting", or "unknown"
         """
-        x1, y1, x2, y2 = map(int, bbox)
-        width = x2 - x1
-        height = y2 - y1
+        x1, y1, x2, y2 = self._sanitize_bbox(bbox)
+        width, height = x2 - x1, y2 - y1
 
         if width == 0 or height == 0:
             return "unknown"
@@ -28,30 +30,42 @@ class PoseClassifier:
         if ratio < self.lying_ratio_threshold:
             return "lying"
         elif ratio > self.standing_ratio_threshold:
+            action = self._predict_action(frame, (x1, y1, x2, y2))
+            if not action:
+                action = self._predict_action(frame, (x1, y1, x2, y2), rotate=True)
+                if action == "fall":
+                    return "lying"
             return "standing"
         else:
             return "sitting"
 
-    def predict_action(self, frame, bbox):
+    def _predict_action(self, frame, bbox, rotate=False):
         """
-        Predicts the action in the given frame using the YOLO model.
-
-        :param frame: The input image frame (numpy array).
-        :return: A list of predicted actions for each detected object.
+        Predicts the action for a cropped person region.
+        :param frame: Full frame (numpy array)
+        :param bbox: Tuple (x1, y1, x2, y2)
+        :param rotate: Whether to rotate the cropped image
+        :return: Predicted label or None
         """
-        x1, y1, x2, y2 = map(int, bbox)
+        x1, y1, x2, y2 = bbox
         image = frame[y1:y2, x1:x2]
-        #image = cv2.resize(image, (640, 640))
-        results = self.model.predict(image, verbose=False)
+        if rotate:
+            image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
+        image = cv2.resize(image, (640, 640))
 
+        results = self.model.predict(image, verbose=False)
         for result in results:
             for box in result.boxes:
-                cls = int(box.cls[0])
-                label = self.classnames[cls] if cls < len(self.classnames) else "Unknown"
-                return label
-            return None
+                cls_id = int(box.cls[0])
+                return self.classnames.get(cls_id, "Unknown")
         return None
 
+    @staticmethod
+    def _sanitize_bbox(bbox):
+        """
+        Ensures bounding box values are integers.
+        """
+        return tuple(map(int, bbox))
 
 import math
 
@@ -77,7 +91,7 @@ def compute_real_object_size(object_size_px, image_size_px, view_angle_deg, dist
     # Umrechnung des Sichtwinkels von Grad in Bogenmaß
     half_angle_rad = math.radians(view_angle_deg / 2)
 
-    # r entspricht nun tan(halber Winkel unter dem das Objekt erscheint)
+    # r entspricht nun tan (halber Winkel unter dem das Objekt erscheint)
     r *= math.tan(half_angle_rad)
 
     # Wenn Abstand bekannt ist, reale Größe berechnen
