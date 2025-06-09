@@ -1,3 +1,7 @@
+# This script is used to configure the soccer pitch for visualization purposes.
+# Credits to Roboflow Sports repository for the original code
+# Link: https://github.com/roboflow/sports.git
+
 from dataclasses import dataclass, field
 from typing import List, Tuple
 

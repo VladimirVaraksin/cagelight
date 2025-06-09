@@ -1,5 +1,8 @@
-from typing import Optional, List
+# This script is used to create a soccer pitch image and voronoi diagram
+# Credits to Roboflow Sports repository for the original code
+# Link: https://github.com/roboflow/sports.git
 
+from typing import Optional, List
 import cv2
 import supervision as sv
 import numpy as np
