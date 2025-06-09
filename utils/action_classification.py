@@ -1,3 +1,4 @@
+# this file contains functions for action classification
 from ultralytics import YOLO
 import cv2
 
