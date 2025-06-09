@@ -76,11 +76,14 @@ def main(lcl_args=None):
     time.sleep(2)
     webbrowser.open("http://localhost:5000")
 
+    pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
+    voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
+
     start_time = time.time()  # Startzeitpunkt der Aufnahme
     while True:
         ret, frame = video_stream.read()
-        pitch_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
-        voronoi_frame = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
+        pitch_frame = pitch_frame_base.copy()
+        voronoi_frame = voronoi_frame_base.copy()
 
         if not ret:
             print("Frame konnte nicht gelesen werden.")
