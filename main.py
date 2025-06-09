@@ -20,6 +20,8 @@ def main(lcl_args=None):
     kameranummer = 0
     start_after = 0
     standard_resolution = ((1280, 720), (1920, 1080))
+    halbzeit_gedruckt = False
+    data = []
 
     if lcl_args is not None:
         dauer_spiel = lcl_args.spieldauer if lcl_args.spieldauer else dauer_spiel
@@ -39,10 +41,6 @@ def main(lcl_args=None):
         return
 
     time.sleep(start_after)
-    start_time = time.time()  # Startzeitpunkt der Aufnahme
-
-    os.makedirs(save_folder, exist_ok=True)
-    data = []
 
     camera = setup_camera(0, resolution[0], resolution[1])
 
@@ -50,17 +48,13 @@ def main(lcl_args=None):
         print(f"Kamera mit Index 0 konnte nicht geöffnet werden.")
         return
 
-    fps = camera.get(cv2.CAP_PROP_FPS)
-    width = int(camera.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
-
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
     time.sleep(1)
     webbrowser.open("http://localhost:5000")
 
     os.makedirs(save_folder, exist_ok=True)
-    data = []
+
 
     camera = cv2.VideoCapture("videos/action_test_blender.mp4")
     if not camera.isOpened():
@@ -78,8 +72,8 @@ def main(lcl_args=None):
         (width, height)
     )
 
-    halbzeit_gedruckt = False
-    start_time = time.time()
+
+    start_time = time.time()  # Startzeitpunkt der Aufnahme
     # test for debugging using a video file
     camera = cv2.VideoCapture("videos/action_test_blender.mp4")
 
@@ -122,7 +116,7 @@ def main(lcl_args=None):
 
         for w in warnings:
             msg = f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds."
-            print(msg)
+            #print(msg)
             warning_lines.append(msg)
 
         update_dashboard(pitch_frame, warning_lines)
@@ -131,13 +125,12 @@ def main(lcl_args=None):
         cv2.imshow('Frame', frame)
         cv2.imshow('Pitch', pitch_frame)
 
-        time.sleep(0.001)
+        #time.sleep(0.001)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    camera.release()
-    out.release()
+    release_sources((camera, out))
     cv2.destroyAllWindows()
     # Save the collected data to the database
     # print("\nSaving collected data to database...This may take a while.\n")
