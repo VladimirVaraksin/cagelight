@@ -15,7 +15,7 @@ def create_pitch_frame(pitch_frame, entries):
         pitch_frame: Annotated frame.
     """
     # Listen für beide Teams
-    pitch_points_team1, pitch_points_team2 = get_team_arrays(entries, with_id=True)
+    pitch_points_team1, pitch_points_team2, ball_points = get_team_arrays(entries, with_id=True)
     #print(pitch_points_team1, pitch_points_team2)
 
     if len(pitch_points_team1) == 0 and len(pitch_points_team2) == 0:
@@ -40,6 +40,17 @@ def create_pitch_frame(pitch_frame, entries):
         pitch=pitch_frame,
         scale=0.5
     )
+
+    pitch_frame = draw_points_on_pitch(
+        config=CONFIG,
+        xy=ball_points,
+        face_color=sv.Color.BLACK,
+        edge_color=sv.Color.BLACK,
+        radius=10,
+        pitch=pitch_frame,
+        scale=0.5
+    )
+
     return pitch_frame
 
 def create_voronoi_frame(pitch_frame, entries):
@@ -54,7 +65,7 @@ def create_voronoi_frame(pitch_frame, entries):
         np.ndarray: Annotated frame with Voronoi regions.
     """
     # Get team points
-    pitch_points_team1, pitch_points_team2 = get_team_arrays(entries)
+    pitch_points_team1, pitch_points_team2, _ = get_team_arrays(entries)
     #print("voronoi", pitch_points_team1, pitch_points_team2)
 
     if len(pitch_points_team1) == 0 or len(pitch_points_team2) == 0:
@@ -87,9 +98,10 @@ def get_team_arrays(entries, with_id=False):
     """
     team1_points = []
     team2_points = []
+    ball_points = []
 
     for entry in entries:
-        if entry.get("object_type") == "ball":
+        if not with_id and entry.get("object_type") == "ball":
             continue
 
         pitch_pos = np.array(entry.get("pitch_position"), dtype=np.float32) * 100
@@ -105,13 +117,16 @@ def get_team_arrays(entries, with_id=False):
             team1_points.append(point)
         elif team == "Team 2":
             team2_points.append(point)
+        elif entry.get("object_type") == "ball":
+            ball_points.append(point)
 
     # Convert to regular ndarray
     if with_id:
         pitch_points_team1 = np.array(team1_points, dtype=object)
         pitch_points_team2 = np.array(team2_points, dtype=object)
+        ball_points = np.array(ball_points, dtype=object)
     else:
         pitch_points_team1 = np.array(team1_points, dtype=np.float32).reshape(-1, 2)
         pitch_points_team2 = np.array(team2_points, dtype=np.float32).reshape(-1, 2)
 
-    return pitch_points_team1, pitch_points_team2
+    return pitch_points_team1, pitch_points_team2, ball_points

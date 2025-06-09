@@ -1,5 +1,5 @@
 # this script is used to record a soccer match, detect players and the ball using YOLOv11, and save the data to a database or a local file.
-# cagelight project
+# CageLight project
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
@@ -134,8 +134,8 @@ def main(lcl_args=None):
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    release_sources((video_stream#, out
-                     ))
+    #release_sources((video_stream, out))
+    video_stream.release()
     cv2.destroyAllWindows()
     # Save the collected data to the database
     # print("\nSaving collected data to database...This may take a while.\n")
