@@ -132,7 +132,7 @@ def main(lcl_args=None):
         cv2.imshow('Pitch', pitch_frame)
         cv2.imshow('Voronoi', voronoi_frame)
 
-        time.sleep(0.001)
+        #time.sleep(0.001)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

@@ -152,25 +152,25 @@ def draw_points_on_pitch(
 
         # ID auslesen (als Text)
         id_text = str(point[2])
-        if id_text == "0":
-            # Draw filled ball
-            cv2.circle(
-                img=pitch,
-                center=scaled_point,
-                radius=radius,
-                color=face_color.as_bgr(),
-                thickness=-1,
-            )
-
-            # Draw edge
-            cv2.circle(
-                img=pitch,
-                center=scaled_point,
-                radius=radius,
-                color=edge_color.as_bgr(),
-                thickness=thickness,
-            )
-            continue
+        # if id_text == "0":
+        #     # Draw filled ball
+        #     cv2.circle(
+        #         img=pitch,
+        #         center=scaled_point,
+        #         radius=radius,
+        #         color=face_color.as_bgr(),
+        #         thickness=-1,
+        #     )
+        #
+        #     # Draw edge
+        #     cv2.circle(
+        #         img=pitch,
+        #         center=scaled_point,
+        #         radius=radius,
+        #         color=edge_color.as_bgr(),
+        #         thickness=thickness,
+        #     )
+        #     continue
 
         # Kreis zeichnen (gefüllt)
         cv2.circle(
@@ -189,44 +189,44 @@ def draw_points_on_pitch(
             color=edge_color.as_bgr(),
             thickness=thickness
         )
+        if id_text != "0":
+            # Textgröße berechnen (für exakte Zentrierung)
+            (text_width, text_height), baseline = cv2.getTextSize(
+                id_text,
+                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                fontScale=1.0,
+                thickness=1
+            )
 
-        # Textgröße berechnen (für exakte Zentrierung)
-        (text_width, text_height), baseline = cv2.getTextSize(
-            id_text,
-            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            fontScale=1.0,
-            thickness=1
-        )
+            # Text-Zentrum berechnen
+            text_org = (
+                scaled_point[0] - text_width // 2,
+                scaled_point[1] + text_height // 2
+            )
 
-        # Text-Zentrum berechnen
-        text_org = (
-            scaled_point[0] - text_width // 2,
-            scaled_point[1] + text_height // 2
-        )
+            # Schwarzer Schatten (Textumriss)
+            cv2.putText(
+                img=pitch,
+                text=id_text,
+                org=(text_org[0] + 1, text_org[1] + 1),
+                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                fontScale=1.0,
+                color=(0, 0, 0),  # Schwarz
+                thickness=2,
+                lineType=cv2.LINE_AA
+            )
 
-        # Schwarzer Schatten (Textumriss)
-        cv2.putText(
-            img=pitch,
-            text=id_text,
-            org=(text_org[0] + 1, text_org[1] + 1),
-            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            fontScale=1.0,
-            color=(0, 0, 0),  # Schwarz
-            thickness=2,
-            lineType=cv2.LINE_AA
-        )
-
-        # Weißer Text oben drauf
-        cv2.putText(
-            img=pitch,
-            text=id_text,
-            org=text_org,
-            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            fontScale=1.0,
-            color=(255, 255, 255),  # Weiß
-            thickness=1,
-            lineType=cv2.LINE_AA
-        )
+            # Weißer Text oben drauf
+            cv2.putText(
+                img=pitch,
+                text=id_text,
+                org=text_org,
+                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                fontScale=1.0,
+                color=(255, 255, 255),  # Weiß
+                thickness=1,
+                lineType=cv2.LINE_AA
+            )
 
     return pitch
 
