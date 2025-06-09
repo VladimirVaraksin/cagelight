@@ -8,7 +8,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:01:984",
+            "timestamp": "00:01:855",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -27,7 +27,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:01:984",
+            "timestamp": "00:01:855",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -46,7 +46,7 @@
                 2.89,
                 5.67
             ],
-            "timestamp": "00:01:984",
+            "timestamp": "00:01:855",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -60,12 +60,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:01:984",
+            "timestamp": "00:01:855",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -84,7 +84,7 @@
                 7.47,
                 6.01
             ],
-            "timestamp": "00:01:984",
+            "timestamp": "00:01:855",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -105,7 +105,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:03:173",
+            "timestamp": "00:02:967",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -124,7 +124,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:03:173",
+            "timestamp": "00:02:967",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -143,7 +143,7 @@
                 2.89,
                 5.67
             ],
-            "timestamp": "00:03:173",
+            "timestamp": "00:02:967",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -157,12 +157,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:03:173",
+            "timestamp": "00:02:967",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -181,7 +181,7 @@
                 7.47,
                 6.01
             ],
-            "timestamp": "00:03:173",
+            "timestamp": "00:02:967",
             "confidence": 0.76,
             "camera_id": 0,
             "action": "unknown",
@@ -202,7 +202,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:03:428",
+            "timestamp": "00:03:240",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -221,7 +221,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:03:428",
+            "timestamp": "00:03:240",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -240,7 +240,7 @@
                 2.93,
                 5.69
             ],
-            "timestamp": "00:03:428",
+            "timestamp": "00:03:240",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -254,12 +254,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:03:428",
+            "timestamp": "00:03:240",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -278,7 +278,7 @@
                 7.47,
                 6.01
             ],
-            "timestamp": "00:03:428",
+            "timestamp": "00:03:240",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -299,7 +299,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:03:670",
+            "timestamp": "00:03:480",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -318,7 +318,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:03:670",
+            "timestamp": "00:03:480",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -337,7 +337,7 @@
                 3.01,
                 5.66
             ],
-            "timestamp": "00:03:670",
+            "timestamp": "00:03:480",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -351,12 +351,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:03:670",
+            "timestamp": "00:03:480",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -375,7 +375,7 @@
                 7.47,
                 6.01
             ],
-            "timestamp": "00:03:670",
+            "timestamp": "00:03:480",
             "confidence": 0.75,
             "camera_id": 0,
             "action": "unknown",
@@ -396,7 +396,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:03:921",
+            "timestamp": "00:03:719",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -415,7 +415,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:03:921",
+            "timestamp": "00:03:719",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -434,7 +434,7 @@
                 3.08,
                 5.61
             ],
-            "timestamp": "00:03:921",
+            "timestamp": "00:03:719",
             "confidence": 0.9,
             "camera_id": 0,
             "action": "standing",
@@ -448,12 +448,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:03:921",
+            "timestamp": "00:03:719",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -472,7 +472,7 @@
                 7.47,
                 6.04
             ],
-            "timestamp": "00:03:921",
+            "timestamp": "00:03:719",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -493,7 +493,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:04:164",
+            "timestamp": "00:03:965",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -512,7 +512,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:04:164",
+            "timestamp": "00:03:965",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -531,7 +531,7 @@
                 3.25,
                 5.52
             ],
-            "timestamp": "00:04:164",
+            "timestamp": "00:03:965",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -545,12 +545,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.91
             ],
-            "timestamp": "00:04:164",
+            "timestamp": "00:03:965",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -569,7 +569,7 @@
                 7.46,
                 6.07
             ],
-            "timestamp": "00:04:164",
+            "timestamp": "00:03:965",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -590,7 +590,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:04:397",
+            "timestamp": "00:04:206",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -609,7 +609,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:04:397",
+            "timestamp": "00:04:206",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -628,7 +628,7 @@
                 3.37,
                 5.49
             ],
-            "timestamp": "00:04:397",
+            "timestamp": "00:04:206",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -642,12 +642,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.44,
                 5.89
             ],
-            "timestamp": "00:04:397",
+            "timestamp": "00:04:206",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -666,7 +666,7 @@
                 7.45,
                 6.1
             ],
-            "timestamp": "00:04:397",
+            "timestamp": "00:04:206",
             "confidence": 0.74,
             "camera_id": 0,
             "action": "unknown",
@@ -687,7 +687,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:04:631",
+            "timestamp": "00:04:446",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -706,7 +706,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:04:631",
+            "timestamp": "00:04:446",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -725,7 +725,7 @@
                 3.54,
                 5.49
             ],
-            "timestamp": "00:04:631",
+            "timestamp": "00:04:446",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -739,12 +739,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:04:631",
+            "timestamp": "00:04:446",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -763,7 +763,7 @@
                 7.45,
                 6.12
             ],
-            "timestamp": "00:04:631",
+            "timestamp": "00:04:446",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -784,7 +784,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:04:867",
+            "timestamp": "00:04:682",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -803,7 +803,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:04:867",
+            "timestamp": "00:04:682",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -822,7 +822,7 @@
                 3.68,
                 5.41
             ],
-            "timestamp": "00:04:867",
+            "timestamp": "00:04:682",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -836,12 +836,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:04:867",
+            "timestamp": "00:04:682",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -860,7 +860,7 @@
                 7.43,
                 6.17
             ],
-            "timestamp": "00:04:867",
+            "timestamp": "00:04:682",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -881,7 +881,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:05:101",
+            "timestamp": "00:04:917",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -900,7 +900,7 @@
                 4.53,
                 8.55
             ],
-            "timestamp": "00:05:101",
+            "timestamp": "00:04:917",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -919,7 +919,7 @@
                 3.9,
                 5.34
             ],
-            "timestamp": "00:05:101",
+            "timestamp": "00:04:917",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -933,12 +933,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:05:101",
+            "timestamp": "00:04:917",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -957,7 +957,7 @@
                 7.42,
                 6.2
             ],
-            "timestamp": "00:05:101",
+            "timestamp": "00:04:917",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -978,7 +978,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:05:337",
+            "timestamp": "00:05:153",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -997,7 +997,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:05:337",
+            "timestamp": "00:05:153",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1016,7 +1016,7 @@
                 4.12,
                 5.27
             ],
-            "timestamp": "00:05:337",
+            "timestamp": "00:05:153",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -1030,12 +1030,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:05:337",
+            "timestamp": "00:05:153",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1054,7 +1054,7 @@
                 7.42,
                 6.25
             ],
-            "timestamp": "00:05:337",
+            "timestamp": "00:05:153",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -1075,7 +1075,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:05:574",
+            "timestamp": "00:05:389",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1094,7 +1094,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:05:574",
+            "timestamp": "00:05:389",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1113,7 +1113,7 @@
                 4.32,
                 5.2
             ],
-            "timestamp": "00:05:574",
+            "timestamp": "00:05:389",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -1127,12 +1127,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:05:574",
+            "timestamp": "00:05:389",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -1151,7 +1151,7 @@
                 7.4,
                 6.3
             ],
-            "timestamp": "00:05:574",
+            "timestamp": "00:05:389",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -1172,7 +1172,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:05:807",
+            "timestamp": "00:05:630",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1191,7 +1191,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:05:807",
+            "timestamp": "00:05:630",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1210,7 +1210,7 @@
                 4.57,
                 5.09
             ],
-            "timestamp": "00:05:807",
+            "timestamp": "00:05:630",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1224,12 +1224,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:05:807",
+            "timestamp": "00:05:630",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1248,7 +1248,7 @@
                 7.39,
                 6.36
             ],
-            "timestamp": "00:05:807",
+            "timestamp": "00:05:630",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "unknown",
@@ -1269,7 +1269,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:06:035",
+            "timestamp": "00:05:869",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1288,7 +1288,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:06:035",
+            "timestamp": "00:05:869",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1307,7 +1307,7 @@
                 4.79,
                 5.02
             ],
-            "timestamp": "00:06:035",
+            "timestamp": "00:05:869",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -1321,12 +1321,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:06:035",
+            "timestamp": "00:05:869",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1345,7 +1345,7 @@
                 7.38,
                 6.41
             ],
-            "timestamp": "00:06:035",
+            "timestamp": "00:05:869",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -1366,7 +1366,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:06:262",
+            "timestamp": "00:06:109",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -1385,7 +1385,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:06:262",
+            "timestamp": "00:06:109",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1404,7 +1404,7 @@
                 5.04,
                 4.97
             ],
-            "timestamp": "00:06:262",
+            "timestamp": "00:06:109",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1418,12 +1418,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:06:262",
+            "timestamp": "00:06:109",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1442,7 +1442,7 @@
                 7.36,
                 6.47
             ],
-            "timestamp": "00:06:262",
+            "timestamp": "00:06:109",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -1463,7 +1463,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:06:487",
+            "timestamp": "00:06:349",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -1482,7 +1482,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:06:487",
+            "timestamp": "00:06:349",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1501,7 +1501,7 @@
                 5.3,
                 4.88
             ],
-            "timestamp": "00:06:487",
+            "timestamp": "00:06:349",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1515,12 +1515,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:06:487",
+            "timestamp": "00:06:349",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1539,7 +1539,7 @@
                 7.34,
                 6.53
             ],
-            "timestamp": "00:06:487",
+            "timestamp": "00:06:349",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -1560,7 +1560,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:06:715",
+            "timestamp": "00:06:587",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1579,7 +1579,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:06:715",
+            "timestamp": "00:06:587",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1598,7 +1598,7 @@
                 5.55,
                 4.77
             ],
-            "timestamp": "00:06:715",
+            "timestamp": "00:06:587",
             "confidence": 0.93,
             "camera_id": 0,
             "action": "standing",
@@ -1612,12 +1612,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:06:715",
+            "timestamp": "00:06:587",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "lying",
@@ -1636,7 +1636,7 @@
                 7.33,
                 6.59
             ],
-            "timestamp": "00:06:715",
+            "timestamp": "00:06:587",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -1657,7 +1657,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:06:945",
+            "timestamp": "00:06:826",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1676,7 +1676,7 @@
                 4.54,
                 8.55
             ],
-            "timestamp": "00:06:945",
+            "timestamp": "00:06:826",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1695,7 +1695,7 @@
                 5.77,
                 4.7
             ],
-            "timestamp": "00:06:945",
+            "timestamp": "00:06:826",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -1709,12 +1709,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:06:945",
+            "timestamp": "00:06:826",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -1733,7 +1733,7 @@
                 7.31,
                 6.66
             ],
-            "timestamp": "00:06:945",
+            "timestamp": "00:06:826",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -1754,7 +1754,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:07:176",
+            "timestamp": "00:07:066",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1773,7 +1773,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:07:176",
+            "timestamp": "00:07:066",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1792,7 +1792,7 @@
                 6.04,
                 4.64
             ],
-            "timestamp": "00:07:176",
+            "timestamp": "00:07:066",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1806,12 +1806,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:07:176",
+            "timestamp": "00:07:066",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -1830,7 +1830,7 @@
                 7.29,
                 6.72
             ],
-            "timestamp": "00:07:176",
+            "timestamp": "00:07:066",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "unknown",
@@ -1851,7 +1851,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:07:412",
+            "timestamp": "00:07:305",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1870,7 +1870,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:07:412",
+            "timestamp": "00:07:305",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1889,7 +1889,7 @@
                 6.27,
                 4.54
             ],
-            "timestamp": "00:07:412",
+            "timestamp": "00:07:305",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1903,12 +1903,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.44,
                 5.89
             ],
-            "timestamp": "00:07:412",
+            "timestamp": "00:07:305",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -1927,7 +1927,7 @@
                 7.28,
                 6.8
             ],
-            "timestamp": "00:07:412",
+            "timestamp": "00:07:305",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -1948,7 +1948,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:07:648",
+            "timestamp": "00:07:541",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -1967,7 +1967,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:07:648",
+            "timestamp": "00:07:541",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -1986,7 +1986,7 @@
                 6.54,
                 4.42
             ],
-            "timestamp": "00:07:648",
+            "timestamp": "00:07:541",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2000,12 +2000,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:07:648",
+            "timestamp": "00:07:541",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -2024,7 +2024,7 @@
                 7.26,
                 6.88
             ],
-            "timestamp": "00:07:648",
+            "timestamp": "00:07:541",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -2045,7 +2045,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:07:885",
+            "timestamp": "00:07:779",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2064,7 +2064,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:07:885",
+            "timestamp": "00:07:779",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2083,7 +2083,7 @@
                 6.77,
                 4.37
             ],
-            "timestamp": "00:07:885",
+            "timestamp": "00:07:779",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2097,12 +2097,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:07:885",
+            "timestamp": "00:07:779",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -2121,7 +2121,7 @@
                 7.25,
                 6.95
             ],
-            "timestamp": "00:07:885",
+            "timestamp": "00:07:779",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "unknown",
@@ -2142,7 +2142,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:08:122",
+            "timestamp": "00:08:177",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2161,7 +2161,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:08:122",
+            "timestamp": "00:08:177",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2180,7 +2180,7 @@
                 6.99,
                 4.3
             ],
-            "timestamp": "00:08:122",
+            "timestamp": "00:08:177",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2194,12 +2194,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:08:122",
+            "timestamp": "00:08:177",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -2218,7 +2218,7 @@
                 7.23,
                 7.02
             ],
-            "timestamp": "00:08:122",
+            "timestamp": "00:08:177",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -2239,7 +2239,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:08:661",
+            "timestamp": "00:08:503",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2258,7 +2258,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:08:661",
+            "timestamp": "00:08:503",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2277,7 +2277,7 @@
                 7.21,
                 4.23
             ],
-            "timestamp": "00:08:661",
+            "timestamp": "00:08:503",
             "confidence": 0.9,
             "camera_id": 0,
             "action": "standing",
@@ -2291,12 +2291,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:08:661",
+            "timestamp": "00:08:503",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -2315,7 +2315,7 @@
                 7.2,
                 7.11
             ],
-            "timestamp": "00:08:661",
+            "timestamp": "00:08:503",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "unknown",
@@ -2336,7 +2336,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:08:913",
+            "timestamp": "00:08:746",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2355,7 +2355,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:08:913",
+            "timestamp": "00:08:746",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2374,7 +2374,7 @@
                 7.43,
                 4.18
             ],
-            "timestamp": "00:08:913",
+            "timestamp": "00:08:746",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2388,12 +2388,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:08:913",
+            "timestamp": "00:08:746",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -2412,7 +2412,7 @@
                 7.18,
                 7.18
             ],
-            "timestamp": "00:08:913",
+            "timestamp": "00:08:746",
             "confidence": 0.72,
             "camera_id": 0,
             "action": "unknown",
@@ -2433,7 +2433,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:09:148",
+            "timestamp": "00:08:985",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2452,7 +2452,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:09:148",
+            "timestamp": "00:08:985",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2471,7 +2471,7 @@
                 7.64,
                 4.09
             ],
-            "timestamp": "00:09:148",
+            "timestamp": "00:08:985",
             "confidence": 0.9,
             "camera_id": 0,
             "action": "standing",
@@ -2485,12 +2485,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:09:148",
+            "timestamp": "00:08:985",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "lying",
@@ -2509,7 +2509,7 @@
                 7.16,
                 7.26
             ],
-            "timestamp": "00:09:148",
+            "timestamp": "00:08:985",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -2530,7 +2530,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:09:383",
+            "timestamp": "00:09:223",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2549,7 +2549,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:09:383",
+            "timestamp": "00:09:223",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2568,7 +2568,7 @@
                 7.85,
                 4.04
             ],
-            "timestamp": "00:09:383",
+            "timestamp": "00:09:223",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2582,12 +2582,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:09:383",
+            "timestamp": "00:09:223",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "lying",
@@ -2606,7 +2606,7 @@
                 7.14,
                 7.34
             ],
-            "timestamp": "00:09:383",
+            "timestamp": "00:09:223",
             "confidence": 0.9,
             "camera_id": 0,
             "action": "unknown",
@@ -2627,7 +2627,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:09:618",
+            "timestamp": "00:09:461",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2646,7 +2646,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:09:618",
+            "timestamp": "00:09:461",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2665,7 +2665,7 @@
                 8.04,
                 3.98
             ],
-            "timestamp": "00:09:618",
+            "timestamp": "00:09:461",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -2679,12 +2679,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:09:618",
+            "timestamp": "00:09:461",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "lying",
@@ -2703,7 +2703,7 @@
                 7.12,
                 7.42
             ],
-            "timestamp": "00:09:618",
+            "timestamp": "00:09:461",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "unknown",
@@ -2724,7 +2724,7 @@
                 8.0,
                 6.9
             ],
-            "timestamp": "00:09:855",
+            "timestamp": "00:09:700",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2743,7 +2743,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:09:855",
+            "timestamp": "00:09:700",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2762,10 +2762,10 @@
                 8.23,
                 3.91
             ],
-            "timestamp": "00:09:855",
+            "timestamp": "00:09:700",
             "confidence": 0.89,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5391,
                 0.175,
@@ -2776,12 +2776,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:09:855",
+            "timestamp": "00:09:700",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -2800,7 +2800,7 @@
                 7.1,
                 7.49
             ],
-            "timestamp": "00:09:855",
+            "timestamp": "00:09:700",
             "confidence": 0.84,
             "camera_id": 0,
             "action": "unknown",
@@ -2821,7 +2821,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:10:102",
+            "timestamp": "00:09:940",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2840,7 +2840,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:10:102",
+            "timestamp": "00:09:940",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2859,10 +2859,10 @@
                 8.41,
                 3.86
             ],
-            "timestamp": "00:10:102",
+            "timestamp": "00:09:940",
             "confidence": 0.92,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5484,
                 0.175,
@@ -2873,12 +2873,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:10:102",
+            "timestamp": "00:09:940",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "lying",
@@ -2897,7 +2897,7 @@
                 7.08,
                 7.57
             ],
-            "timestamp": "00:10:102",
+            "timestamp": "00:09:940",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -2918,7 +2918,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:10:338",
+            "timestamp": "00:10:181",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -2937,7 +2937,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:10:338",
+            "timestamp": "00:10:181",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -2956,10 +2956,10 @@
                 8.56,
                 3.8
             ],
-            "timestamp": "00:10:338",
+            "timestamp": "00:10:181",
             "confidence": 0.9,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.557,
                 0.175,
@@ -2970,12 +2970,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:10:338",
+            "timestamp": "00:10:181",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -2994,7 +2994,7 @@
                 7.05,
                 7.66
             ],
-            "timestamp": "00:10:338",
+            "timestamp": "00:10:181",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -3015,7 +3015,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:10:573",
+            "timestamp": "00:10:432",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -3034,7 +3034,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:10:573",
+            "timestamp": "00:10:432",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3053,10 +3053,10 @@
                 8.74,
                 3.75
             ],
-            "timestamp": "00:10:573",
+            "timestamp": "00:10:432",
             "confidence": 0.91,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5672,
                 0.175,
@@ -3067,12 +3067,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:10:573",
+            "timestamp": "00:10:432",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3091,7 +3091,7 @@
                 7.03,
                 7.74
             ],
-            "timestamp": "00:10:573",
+            "timestamp": "00:10:432",
             "confidence": 0.79,
             "camera_id": 0,
             "action": "unknown",
@@ -3112,7 +3112,7 @@
                 7.99,
                 6.91
             ],
-            "timestamp": "00:10:812",
+            "timestamp": "00:10:673",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -3131,7 +3131,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:10:812",
+            "timestamp": "00:10:673",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3150,10 +3150,10 @@
                 8.9,
                 3.67
             ],
-            "timestamp": "00:10:812",
+            "timestamp": "00:10:673",
             "confidence": 0.92,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5766,
                 0.175,
@@ -3164,12 +3164,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:10:812",
+            "timestamp": "00:10:673",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3188,7 +3188,7 @@
                 7.0,
                 7.82
             ],
-            "timestamp": "00:10:812",
+            "timestamp": "00:10:673",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -3209,7 +3209,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:11:050",
+            "timestamp": "00:10:913",
             "confidence": 0.88,
             "camera_id": 0,
             "action": "standing",
@@ -3228,7 +3228,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:11:050",
+            "timestamp": "00:10:913",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3247,10 +3247,10 @@
                 9.08,
                 3.48
             ],
-            "timestamp": "00:11:050",
+            "timestamp": "00:10:913",
             "confidence": 0.88,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5859,
                 0.175,
@@ -3261,12 +3261,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:11:050",
+            "timestamp": "00:10:913",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3285,7 +3285,7 @@
                 6.98,
                 7.9
             ],
-            "timestamp": "00:11:050",
+            "timestamp": "00:10:913",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -3306,7 +3306,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:11:289",
+            "timestamp": "00:11:152",
             "confidence": 0.89,
             "camera_id": 0,
             "action": "standing",
@@ -3325,7 +3325,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:11:289",
+            "timestamp": "00:11:152",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3344,10 +3344,10 @@
                 9.27,
                 3.34
             ],
-            "timestamp": "00:11:289",
+            "timestamp": "00:11:152",
             "confidence": 0.86,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.5969,
                 0.175,
@@ -3358,12 +3358,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.46,
                 5.89
             ],
-            "timestamp": "00:11:289",
+            "timestamp": "00:11:152",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3382,7 +3382,7 @@
                 6.96,
                 7.97
             ],
-            "timestamp": "00:11:289",
+            "timestamp": "00:11:152",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -3403,7 +3403,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:11:527",
+            "timestamp": "00:11:394",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
@@ -3422,7 +3422,7 @@
                 4.51,
                 8.56
             ],
-            "timestamp": "00:11:527",
+            "timestamp": "00:11:394",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3441,10 +3441,10 @@
                 9.37,
                 3.36
             ],
-            "timestamp": "00:11:527",
+            "timestamp": "00:11:394",
             "confidence": 0.9,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6039,
                 0.175,
@@ -3455,12 +3455,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:11:527",
+            "timestamp": "00:11:394",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3479,7 +3479,7 @@
                 6.94,
                 8.04
             ],
-            "timestamp": "00:11:527",
+            "timestamp": "00:11:394",
             "confidence": 0.75,
             "camera_id": 0,
             "action": "unknown",
@@ -3500,7 +3500,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:11:765",
+            "timestamp": "00:11:635",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -3519,7 +3519,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:11:765",
+            "timestamp": "00:11:635",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3538,10 +3538,10 @@
                 9.47,
                 3.43
             ],
-            "timestamp": "00:11:765",
+            "timestamp": "00:11:635",
             "confidence": 0.9,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6102,
                 0.175,
@@ -3552,12 +3552,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:11:765",
+            "timestamp": "00:11:635",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3576,7 +3576,7 @@
                 6.91,
                 8.12
             ],
-            "timestamp": "00:11:765",
+            "timestamp": "00:11:635",
             "confidence": 0.68,
             "camera_id": 0,
             "action": "unknown",
@@ -3597,7 +3597,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:12:003",
+            "timestamp": "00:11:873",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -3616,7 +3616,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:12:003",
+            "timestamp": "00:11:873",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3635,10 +3635,10 @@
                 9.57,
                 3.44
             ],
-            "timestamp": "00:12:003",
+            "timestamp": "00:11:873",
             "confidence": 0.91,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6172,
                 0.175,
@@ -3649,12 +3649,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:12:003",
+            "timestamp": "00:11:873",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -3673,7 +3673,7 @@
                 6.89,
                 8.18
             ],
-            "timestamp": "00:12:003",
+            "timestamp": "00:11:873",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -3694,7 +3694,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:12:242",
+            "timestamp": "00:12:113",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -3713,7 +3713,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:12:242",
+            "timestamp": "00:12:113",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3732,10 +3732,10 @@
                 9.67,
                 3.42
             ],
-            "timestamp": "00:12:242",
+            "timestamp": "00:12:113",
             "confidence": 0.91,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.625,
                 0.175,
@@ -3746,12 +3746,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:12:242",
+            "timestamp": "00:12:113",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3770,7 +3770,7 @@
                 6.87,
                 8.24
             ],
-            "timestamp": "00:12:242",
+            "timestamp": "00:12:113",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "unknown",
@@ -3791,7 +3791,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:12:482",
+            "timestamp": "00:12:352",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -3810,7 +3810,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:12:482",
+            "timestamp": "00:12:352",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3829,10 +3829,10 @@
                 9.76,
                 3.41
             ],
-            "timestamp": "00:12:482",
+            "timestamp": "00:12:352",
             "confidence": 0.87,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6312,
                 0.175,
@@ -3843,12 +3843,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:12:482",
+            "timestamp": "00:12:352",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3867,7 +3867,7 @@
                 6.84,
                 8.3
             ],
-            "timestamp": "00:12:482",
+            "timestamp": "00:12:352",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -3888,7 +3888,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:12:719",
+            "timestamp": "00:12:593",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -3907,7 +3907,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:12:719",
+            "timestamp": "00:12:593",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -3926,10 +3926,10 @@
                 9.85,
                 3.38
             ],
-            "timestamp": "00:12:719",
+            "timestamp": "00:12:593",
             "confidence": 0.9,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6375,
                 0.175,
@@ -3940,12 +3940,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:12:719",
+            "timestamp": "00:12:593",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -3964,7 +3964,7 @@
                 6.82,
                 8.37
             ],
-            "timestamp": "00:12:719",
+            "timestamp": "00:12:593",
             "confidence": 0.83,
             "camera_id": 0,
             "action": "unknown",
@@ -3985,7 +3985,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:12:955",
+            "timestamp": "00:12:833",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4004,7 +4004,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:12:955",
+            "timestamp": "00:12:833",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4023,10 +4023,10 @@
                 9.94,
                 3.35
             ],
-            "timestamp": "00:12:955",
+            "timestamp": "00:12:833",
             "confidence": 0.91,
             "camera_id": 0,
-            "action": "sitting",
+            "action": "standing",
             "bbox_xyxy": [
                 0.6438,
                 0.175,
@@ -4037,12 +4037,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:12:955",
+            "timestamp": "00:12:833",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -4061,7 +4061,7 @@
                 6.8,
                 8.42
             ],
-            "timestamp": "00:12:955",
+            "timestamp": "00:12:833",
             "confidence": 0.81,
             "camera_id": 0,
             "action": "unknown",
@@ -4082,7 +4082,7 @@
                 7.99,
                 6.92
             ],
-            "timestamp": "00:13:193",
+            "timestamp": "00:13:070",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4101,7 +4101,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:13:193",
+            "timestamp": "00:13:070",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4115,12 +4115,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:13:193",
+            "timestamp": "00:13:070",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -4139,7 +4139,7 @@
                 6.78,
                 8.47
             ],
-            "timestamp": "00:13:193",
+            "timestamp": "00:13:070",
             "confidence": 0.85,
             "camera_id": 0,
             "action": "unknown",
@@ -4160,7 +4160,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:13:432",
+            "timestamp": "00:13:311",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4179,7 +4179,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:13:432",
+            "timestamp": "00:13:311",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4193,12 +4193,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:13:432",
+            "timestamp": "00:13:311",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
@@ -4217,7 +4217,7 @@
                 6.75,
                 8.52
             ],
-            "timestamp": "00:13:432",
+            "timestamp": "00:13:311",
             "confidence": 0.82,
             "camera_id": 0,
             "action": "unknown",
@@ -4238,7 +4238,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:13:671",
+            "timestamp": "00:13:552",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4257,7 +4257,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:13:671",
+            "timestamp": "00:13:552",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4271,12 +4271,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:13:671",
+            "timestamp": "00:13:552",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -4295,7 +4295,7 @@
                 6.73,
                 8.56
             ],
-            "timestamp": "00:13:671",
+            "timestamp": "00:13:552",
             "confidence": 0.78,
             "camera_id": 0,
             "action": "unknown",
@@ -4316,7 +4316,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:13:910",
+            "timestamp": "00:13:790",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4335,7 +4335,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:13:910",
+            "timestamp": "00:13:790",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4349,12 +4349,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:13:910",
+            "timestamp": "00:13:790",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -4373,7 +4373,7 @@
                 6.71,
                 8.6
             ],
-            "timestamp": "00:13:910",
+            "timestamp": "00:13:790",
             "confidence": 0.77,
             "camera_id": 0,
             "action": "unknown",
@@ -4394,7 +4394,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:14:146",
+            "timestamp": "00:14:032",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4413,7 +4413,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:14:146",
+            "timestamp": "00:14:032",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4427,12 +4427,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:14:146",
+            "timestamp": "00:14:032",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -4451,7 +4451,7 @@
                 6.69,
                 8.64
             ],
-            "timestamp": "00:14:146",
+            "timestamp": "00:14:032",
             "confidence": 0.8,
             "camera_id": 0,
             "action": "unknown",
@@ -4472,7 +4472,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:14:383",
+            "timestamp": "00:14:274",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4491,7 +4491,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:14:383",
+            "timestamp": "00:14:274",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4505,12 +4505,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:14:383",
+            "timestamp": "00:14:274",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -4531,7 +4531,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:14:620",
+            "timestamp": "00:14:513",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4550,7 +4550,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:14:620",
+            "timestamp": "00:14:513",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4564,12 +4564,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:14:620",
+            "timestamp": "00:14:513",
             "confidence": 0.87,
             "camera_id": 0,
             "action": "lying",
@@ -4590,7 +4590,7 @@
                 8.0,
                 6.91
             ],
-            "timestamp": "00:14:859",
+            "timestamp": "00:14:752",
             "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
@@ -4609,7 +4609,7 @@
                 4.52,
                 8.55
             ],
-            "timestamp": "00:14:859",
+            "timestamp": "00:14:752",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "sitting",
@@ -4623,12 +4623,12 @@
         {
             "tracking_id": 4,
             "object_type": "player",
-            "team": "Team 1",
+            "team": "Team 2",
             "pitch_position": [
                 6.45,
                 5.89
             ],
-            "timestamp": "00:14:859",
+            "timestamp": "00:14:752",
             "confidence": 0.86,
             "camera_id": 0,
             "action": "lying",
