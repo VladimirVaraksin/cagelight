@@ -1,13 +1,15 @@
-from camera_utils import setup_camera, release_sources
-from object_detection import save_objects, player_model, ball_model
+from app import start_dashboard, update_dashboard
+from object_detection import save_objects, player_model, ball_model, player_actions
 from db_save_player import create_player_table, insert_many_players
-from utils import annotate_frame
+from camera_utils import setup_camera, release_sources
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning
 import time
 import cv2
 import os
 import json
 import argparse
-
+import threading
+import webbrowser
 
 def main(lcl_args=None):
     dauer_spiel = 5400
@@ -52,6 +54,23 @@ def main(lcl_args=None):
     width = int(camera.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
+    # Start the Flask dashboard in a background thread
+    threading.Thread(target=start_dashboard, daemon=True).start()
+    time.sleep(1)
+    webbrowser.open("http://localhost:5000")
+
+    os.makedirs(save_folder, exist_ok=True)
+    data = []
+
+    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
+    if not camera.isOpened():
+        print("Video could not be opened.")
+        return
+
+    fps = camera.get(cv2.CAP_PROP_FPS)
+    width = int(camera.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(camera.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
     out = cv2.VideoWriter(
         os.path.join(save_folder, 'output_video.mp4'),
         cv2.VideoWriter_fourcc(*'mp4v'),
@@ -60,25 +79,25 @@ def main(lcl_args=None):
     )
 
     halbzeit_gedruckt = False
-    create_player_table()
-
-    # Test for debugging using a video file
-    #camera = cv2.VideoCapture("videos/test.mp4")
-    camera = cv2.VideoCapture("videos/test_video_blender.mp4")
+    start_time = time.time()
+    # test for debugging using a video file
+    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
 
     while True:
         ret, frame = camera.read()
+        pitch_frame = draw_pitch(SoccerPitchConfiguration())
+
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
 
-        elapsed = time.time() - start_time
-        if not halbzeit_gedruckt and elapsed >= dauer_spiel / 2:
+        match_time = time.time() - start_time
+        if not halbzeit_gedruckt and match_time >= dauer_spiel / 2:
             print("Halbzeitpause...")
             halbzeit_gedruckt = True
             time.sleep(halbzeit_dauer)
 
-        if elapsed >= dauer_spiel + halbzeit_dauer:
+        if match_time >= dauer_spiel + halbzeit_dauer:
             print("Spiel beendet.")
             break
 
@@ -91,29 +110,41 @@ def main(lcl_args=None):
             tracker='bytetrack/bytetrack_ball.yaml', classes=[32]
         )
 
-        match_time = time.time() - start_time
         frame_data = save_objects([*players, *ball], frame, match_time, kameranummer)
-
         frame = annotate_frame(frame, frame_data)
+        pitch_frame = create_pitch_frame(pitch_frame, frame_data)
 
         if frame_data:
             data.append(frame_data)
 
+        warnings = injury_warning(player_actions, match_time, threshold=5)
+        warning_lines = []
+
+        for w in warnings:
+            msg = f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds."
+            print(msg)
+            warning_lines.append(msg)
+
+        update_dashboard(pitch_frame, warning_lines)
+
         out.write(frame)
         cv2.imshow('Frame', frame)
+        cv2.imshow('Pitch', pitch_frame)
+
+        time.sleep(0.001)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    release_sources((camera, out))
+    camera.release()
+    out.release()
     cv2.destroyAllWindows()
+    # Save the collected data to the database
+    # print("\nSaving collected data to database...This may take a while.\n")
+    #insert_many_players(data)
 
-    print("\nSaving collected data to database...This may take a while.\n")
-    insert_many_players(data)
-
-    with open(os.path.join(save_folder, 'live_output.json1'), 'w') as jf:
+    with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Konfiguriere die Spielaufnahme.")
@@ -126,28 +157,18 @@ if __name__ == "__main__":
     args = parser.parse_args()
     main(args)
 
-
-
-
-
-
-
-
-
-
+# the formal code for the main.py script
 """
-# main.py
 # This script is used to record a soccer match, detect players and the ball using YOLOv8, and save the data to a database or a local file.
 from camera_utils import setup_camera, release_sources
-from object_detection import save_objects, player_model, ball_model
+from object_detection import save_objects, player_model, ball_model, player_actions
 from db_save_player import create_player_table, insert_many_players
-from utils import annotate_frame
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning
 import time
 import cv2
 import os
 import json
 import argparse
-
 
 def main(lcl_args=None):
     dauer_spiel = 5400
@@ -204,13 +225,13 @@ def main(lcl_args=None):
     #create_player_table()
 
     #test for debugging using a video file
-    #camera = cv2.VideoCapture("videos/test.mp4")
-    camera = cv2.VideoCapture("videos/test_video_blender.mp4")
+    camera = cv2.VideoCapture("videos/action_test_blender.mp4")
 
     while True:
         ret, frame = camera.read()
+        pitch_frame = draw_pitch(SoccerPitchConfiguration())
         # read a frame for debugging purposes
-        #frame = cv2.imread('images/multiple_people.png')
+        #frame = cv2.imread('images/action_test.jpg')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -227,11 +248,12 @@ def main(lcl_args=None):
 
         players = player_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv8
+            tracker='bytetrack/bytetrack.yaml', classes=[0] # person class is 0 in YOLOv11
         )
+
         ball = ball_model.track(
             source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv8
+            tracker='bytetrack/bytetrack_ball.yaml', classes=[32] #sports ball class is 32 in YOLOv11
         )
         # save the detected players and ball positions for debugging purposes
         match_time = time.time() - start_time
@@ -239,15 +261,26 @@ def main(lcl_args=None):
 
         #optionally annotate the frame with the detected objects
         frame = annotate_frame(frame, frame_data)  # Annotate the frame with the entry
-
+        pitch_frame = create_pitch_frame(pitch_frame, frame_data)
         if frame_data:
             data.append(frame_data)
+
+
 
         #cv2.imwrite("output/blender_test.jpg", frame)
         out.write(frame)
         # Display the frame for debugging purposes
         cv2.imshow('Frame', frame)
+        cv2.imshow('Pitch', pitch_frame)
+        # cv2.waitKey(0)
 
+        # injury prevention
+        warnings = injury_warning(player_actions, match_time)
+
+        #print the warnings to the console for debugging purposes
+        if warnings:
+            for warning in warnings:
+                print(f"Warning: Player {warning[0]} has been {warning[1]} for {warning[2]:.2f} seconds.")
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -277,8 +310,8 @@ if __name__ == "__main__":
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)") # Argument für die Startverzögerung in Sekunden
     args = parser.parse_args()
     main(args)
-
 """
+
 
 
 

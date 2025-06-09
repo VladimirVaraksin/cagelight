@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Match Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1e1e1e;
+      color: white;
+      font-family: Arial;
+      display: flex;
+      height: 100vh;
+    }
+    .pitch {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pitch img {
+      width: 100%;
+      height: auto;
+      border: 3px solid #00bfff;
+    }
+    .warnings {
+      flex: 1;
+      padding: 1rem;
+      background: #333;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="pitch">
+    <img id="pitch-img" src="" alt="Live Pitch" />
+  </div>
+  <div class="warnings">
+    <h2>Injury Warnings</h2>
+    <ul id="warning-list"></ul>
+  </div>
+
+  <script>
+    async function update() {
+      const res = await fetch("/data");
+      const data = await res.json();
+
+      if (data.frame) {
+        document.getElementById("pitch-img").src = "data:image/jpeg;base64," + data.frame;
+      }
+
+      const warningList = document.getElementById("warning-list");
+      warningList.innerHTML = "";
+      data.warnings.forEach(w => {
+        const li = document.createElement("li");
+        li.textContent = w;
+        warningList.appendChild(li);
+      });
+    }
+
+    setInterval(update, 100);
+  </script>
+</body>
+</html>

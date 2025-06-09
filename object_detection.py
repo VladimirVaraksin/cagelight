@@ -1,16 +1,18 @@
 # this script processes YOLO detection results and returns structured data for each object (player or ball)
 from ultralytics import YOLO
-from utils import TeamAssigner, ViewTransformer, classify_action
+from utils import TeamAssigner, ViewTransformer, PoseClassifier
 import numpy as np
 
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
+pose_classifier = PoseClassifier()
 
-MODEL_PATH = 'models/yolov8n.pt'
+MODEL_PATH = 'models/yolov11n.pt'
 player_model = YOLO(MODEL_PATH)
 ball_model = YOLO(MODEL_PATH)
 
 class_names = list(player_model.names.values())
+player_actions = {}
 
 def save_objects(results, frame, timestamp, camera_id=0):
     """
@@ -36,6 +38,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             point = np.array([(x1 + x2) / 2, y2], dtype=np.float32)
             # Compute the pitch coordinates using the view transformer
             pitch_point = view_transformer.transform_point(point)
+
             # Skip detections outside the defined field area
             if pitch_point is None:
                 continue
@@ -57,20 +60,31 @@ def save_objects(results, frame, timestamp, camera_id=0):
 
             # Only continue if the object is of interest and has a valid tracking ID
             if label in {"player", "ball"} and tracking_id != -1:
-                entry_action = "unknown"  # Initialize action as unknown
-                if label == "player":
-                    player_color = team_assigner.get_player_color(frame, bbox)
-                    team = team_assigner.assign_team(player_color)
-                    # Action classification
-                    action = classify_action(frame, bbox)
-                    if action:
-                        entry_action = action
-                else:
-                    team = "none"
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
                 # print pitch coordinates for debugging
                 # print(pitch_x, pitch_y)
+                entry_action = "unknown"  # Initialize action as unknown
+                if label == "player":
+                    # Assign team based on player color
+                    team = team_assigner.get_player_team(tracking_id)
+                    if team is None:
+                        # If the player is not assigned to a team, get the player color and assign a team
+                        player_color = team_assigner.get_player_color(frame, bbox)
+                        team = team_assigner.assign_team(player_color, tracking_id)
+                    # Action classification
+                    entry_action = pose_classifier.classify_pose(frame, bbox)
+                    # Store the action for the player
+                    if entry_action == "lying" or entry_action == "sitting":
+                        if tracking_id not in player_actions or player_actions[tracking_id][0] != entry_action:
+                            # Update the action if it has changed
+                            player_actions[tracking_id] = (entry_action, timestamp)
+                    else:
+                        if tracking_id in player_actions:
+                            del player_actions[tracking_id]  # Remove if action is not lying or sitting
+                else:
+                    team = "none"
+
 
                 # Format timestamp as MM:SS:MS
                 minutes = int(timestamp // 60)
