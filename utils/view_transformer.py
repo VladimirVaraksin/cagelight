@@ -29,7 +29,7 @@ class ViewTransformer:
         self.target_vertices = np.array([
             [0, 0],  # Top-left in real world
             [court_length / 2, 0],  # Top-middle
-            [court_length / 2, court_width / 2],  # Bottom-middle
+            [court_length / 2, court_width],  # Bottom-middle
             [0, court_width]  # Bottom-left
         ], dtype=np.float32)
 
