@@ -5,18 +5,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:03:924",
+            "timestamp": "00:01:847",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:01:847",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:01:847",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:01:847",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:01:847",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -26,18 +102,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:05:120",
+            "timestamp": "00:02:938",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:02:938",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:02:938",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:02:938",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:02:938",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -47,18 +199,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:05:405",
+            "timestamp": "00:03:190",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:03:190",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:03:190",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:03:190",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:03:190",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -68,18 +296,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:05:667",
+            "timestamp": "00:03:440",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:03:440",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:03:440",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:03:440",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:03:440",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -89,18 +393,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:05:941",
+            "timestamp": "00:03:686",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:03:686",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:03:686",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:03:686",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:03:686",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -110,18 +490,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:06:203",
+            "timestamp": "00:03:933",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:03:933",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:03:933",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:03:933",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:03:933",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -131,18 +587,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:06:460",
+            "timestamp": "00:04:176",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:04:176",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:04:176",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:04:176",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:04:176",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -152,18 +684,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:06:718",
+            "timestamp": "00:04:415",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:04:415",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:04:415",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:04:415",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:04:415",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -173,18 +781,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:06:977",
+            "timestamp": "00:04:652",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:04:652",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:04:652",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:04:652",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:04:652",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -194,18 +878,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:07:236",
+            "timestamp": "00:04:888",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:04:888",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:04:888",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:04:888",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:04:888",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -215,18 +975,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:07:492",
+            "timestamp": "00:05:125",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:05:125",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:05:125",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:05:125",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:05:125",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -236,18 +1072,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:07:754",
+            "timestamp": "00:05:362",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:05:362",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:05:362",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:05:362",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:05:362",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -257,18 +1169,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:08:009",
+            "timestamp": "00:05:607",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:05:607",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:05:607",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:05:607",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:05:607",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -278,18 +1266,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:08:267",
+            "timestamp": "00:05:844",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:05:844",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:05:844",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:05:844",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:05:844",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -299,18 +1363,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:08:531",
+            "timestamp": "00:06:080",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:06:080",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:06:080",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:06:080",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:06:080",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -320,18 +1460,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:08:788",
+            "timestamp": "00:06:317",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:06:317",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:06:317",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:06:317",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:06:317",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -341,18 +1557,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:09:046",
+            "timestamp": "00:06:554",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:06:554",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:06:554",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:06:554",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:06:554",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -362,18 +1654,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:09:306",
+            "timestamp": "00:06:791",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:06:791",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:06:791",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:06:791",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:06:791",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -383,18 +1751,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:09:566",
+            "timestamp": "00:07:028",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:07:028",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:07:028",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:07:028",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:07:028",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -404,18 +1848,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:09:821",
+            "timestamp": "00:07:266",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:07:266",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:07:266",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:07:266",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:07:266",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -425,18 +1945,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:10:078",
+            "timestamp": "00:07:502",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:07:502",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:07:502",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:07:502",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:07:502",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -446,18 +2042,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:10:604",
+            "timestamp": "00:07:740",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:07:740",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:07:740",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:07:740",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:07:740",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -467,18 +2139,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:10:861",
+            "timestamp": "00:08:099",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:08:099",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:08:099",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:08:099",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:08:099",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -488,18 +2236,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:11:120",
+            "timestamp": "00:08:442",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:08:442",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:08:442",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:08:442",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:08:442",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -509,18 +2333,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:11:383",
+            "timestamp": "00:08:681",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:08:681",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:08:681",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:08:681",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:08:681",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -530,18 +2430,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:11:643",
+            "timestamp": "00:08:922",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:08:922",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:08:922",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:08:922",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:08:922",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -551,18 +2527,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:11:900",
+            "timestamp": "00:09:158",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:09:158",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:09:158",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:09:158",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:09:158",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -572,18 +2624,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:12:156",
+            "timestamp": "00:09:396",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:09:396",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:09:396",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:09:396",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:09:396",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -593,18 +2721,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:12:416",
+            "timestamp": "00:09:632",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:09:632",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:09:632",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:09:632",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:09:632",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -614,18 +2818,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:12:676",
+            "timestamp": "00:09:871",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:09:871",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:09:871",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:09:871",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:09:871",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -635,18 +2915,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:12:934",
+            "timestamp": "00:10:110",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:10:110",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:10:110",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:10:110",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:10:110",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -656,18 +3012,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:13:194",
+            "timestamp": "00:10:350",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:10:350",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:10:350",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:10:350",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:10:350",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -677,18 +3109,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:13:453",
+            "timestamp": "00:10:589",
+            "confidence": 0.92,
+            "camera_id": 0,
+            "action": "standing",
+            "bbox_xyxy": [
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
+            ]
+        },
+        {
+            "tracking_id": 2,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                6.66,
+                11.51
+            ],
+            "timestamp": "00:10:589",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:10:589",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:10:589",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:10:589",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ],
@@ -698,39 +3206,94 @@
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                1.68,
+                6.67
             ],
-            "timestamp": "00:13:712",
-            "confidence": 0.91,
+            "timestamp": "00:10:826",
+            "confidence": 0.92,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.3438,
+                0.1764,
+                0.4109,
+                0.3736
             ]
-        }
-    ],
-    [
+        },
         {
-            "tracking_id": 1,
+            "tracking_id": 2,
             "object_type": "player",
             "team": "Team 1",
             "pitch_position": [
-                4.95,
-                6.61
+                6.66,
+                11.51
             ],
-            "timestamp": "00:13:971",
+            "timestamp": "00:10:826",
             "confidence": 0.91,
             "camera_id": 0,
             "action": "standing",
             "bbox_xyxy": [
-                0.4766,
-                0.2014,
-                0.5227,
-                0.3708
+                0.5531,
+                0.3569,
+                0.6633,
+                0.6972
+            ]
+        },
+        {
+            "tracking_id": 3,
+            "object_type": "player",
+            "team": "Team 1",
+            "pitch_position": [
+                2.92,
+                11.07
+            ],
+            "timestamp": "00:10:826",
+            "confidence": 0.91,
+            "camera_id": 0,
+            "action": "sitting",
+            "bbox_xyxy": [
+                0.2844,
+                0.4375,
+                0.4711,
+                0.65
+            ]
+        },
+        {
+            "tracking_id": 4,
+            "object_type": "player",
+            "team": "Team 2",
+            "pitch_position": [
+                4.76,
+                8.72
+            ],
+            "timestamp": "00:10:826",
+            "confidence": 0.85,
+            "camera_id": 0,
+            "action": "lying",
+            "bbox_xyxy": [
+                0.4047,
+                0.3861,
+                0.5773,
+                0.4708
+            ]
+        },
+        {
+            "tracking_id": 0,
+            "object_type": "ball",
+            "team": "none",
+            "pitch_position": [
+                5.96,
+                9.6
+            ],
+            "timestamp": "00:10:826",
+            "confidence": 0.78,
+            "camera_id": 0,
+            "action": "unknown",
+            "bbox_xyxy": [
+                0.5391,
+                0.4889,
+                0.5609,
+                0.5264
             ]
         }
     ]

@@ -74,7 +74,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
                 # print pitch coordinates for debugging
-                print(pitch_x, pitch_y)
+                #print(pitch_x, pitch_y)
 
                 # Format timestamp as MM:SS:MS
                 minutes = int(timestamp // 60)

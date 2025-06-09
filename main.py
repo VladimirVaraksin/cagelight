@@ -70,7 +70,7 @@ def main(lcl_args=None):
     while True:
         ret, frame = camera.read()
         # read a frame for debugging purposes
-        frame = cv2.imread('images/pitch_blender.png')
+        frame = cv2.imread('images/action_test0.jpg')
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break

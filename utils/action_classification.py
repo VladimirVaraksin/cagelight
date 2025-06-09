@@ -41,7 +41,7 @@ class PoseClassifier:
         """
         x1, y1, x2, y2 = map(int, bbox)
         image = frame[y1:y2, x1:x2]
-        image = cv2.resize(image, (640, 640))
+        #image = cv2.resize(image, (640, 640))
         results = self.model.predict(image, verbose=False)
 
         for result in results:
