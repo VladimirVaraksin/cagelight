@@ -10,13 +10,14 @@
       color: white;
       font-family: Arial;
       display: flex;
-      height: 100vh;
+      height: 100%;
     }
     .pitch {
       flex: 2;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
     }
     .pitch img {
       width: 100%;
@@ -34,29 +35,59 @@
 <body>
   <div class="pitch">
     <img id="pitch-img" src="" alt="Live Pitch" />
+    <img id="voronoi-img" src="" alt="Voronoi Diagram" />
   </div>
+  <!-- option 2
+  <div class="pitch">
+    <img id="voronoi-img" src="" alt="Voronoi Diagram" />
+  </div>
+  -->
   <div class="warnings">
     <h2>Injury Warnings</h2>
     <ul id="warning-list"></ul>
   </div>
 
   <script>
-    async function update() {
-      const res = await fetch("/data");
-      const data = await res.json();
+      async function update() {
+        try {
+          // Zuerst Status prüfen
+          const statusRes = await fetch("/status");
+          const statusData = await statusRes.json();
 
-      if (data.frame) {
-        document.getElementById("pitch-img").src = "data:image/jpeg;base64," + data.frame;
+          if (statusData.done) {
+            console.log("Programm beendet. Keine weiteren Updates.");
+            return;  // <-- Keine Abfrage von /data mehr!
+          }
+
+          // Nur wenn done=false, dann Daten holen
+          const res = await fetch("/data");
+          const data = await res.json();
+
+          if (!data) {
+            console.error("Keine Daten empfangen");
+            return;
+          }
+
+          if (data.frame) {
+            document.getElementById("pitch-img").src = "data:image/jpeg;base64," + data.frame;
+          }
+
+          if (data.voronoi) {
+            document.getElementById("voronoi-img").src = "data:image/jpeg;base64," + data.voronoi;
+          }
+
+          const warningList = document.getElementById("warning-list");
+          warningList.innerHTML = "";
+          data.warnings.forEach(w => {
+            const li = document.createElement("li");
+            li.textContent = w;
+            warningList.appendChild(li);
+          });
+
+        } catch (e) {
+          console.error("Fehler beim Update:", e);
+        }
       }
-
-      const warningList = document.getElementById("warning-list");
-      warningList.innerHTML = "";
-      data.warnings.forEach(w => {
-        const li = document.createElement("li");
-        li.textContent = w;
-        warningList.appendChild(li);
-      });
-    }
 
     setInterval(update, 100);
   </script>
