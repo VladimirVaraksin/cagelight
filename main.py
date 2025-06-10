@@ -75,15 +75,17 @@ def main(lcl_args=None):
 
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
-    time.sleep(2)
+    time.sleep(5) # Wait for the dashboard to start
     try:
         if platform.system() == "Darwin":  # macOS
-            webbrowser.get("safari").open("http://localhost:5000")
+            webbrowser.get("safari").open("http://localhost:5050")
         else:
-            webbrowser.open("http://localhost:5000")
+            webbrowser.open("http://localhost:5050")
     except:
-        webbrowser.open("http://localhost:5000")  # fallback for all systems
-    #webbrowser.open("http://localhost:5000")
+        webbrowser.open("http://localhost:5050")  # fallback for all systems
+
+
+
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)

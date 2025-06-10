@@ -9,6 +9,7 @@ console_lines = []
 
 @app.route("/")
 def index():
+    #print("Serving index.html")
     return render_template("index.html")
 
 @app.route("/data")
@@ -31,4 +32,4 @@ def update_dashboard(frame, warnings):
     console_lines = warnings.copy()
 
 def start_dashboard():
-    app.run(debug=False, port=5000)
+    app.run(debug=False, port=5050)
