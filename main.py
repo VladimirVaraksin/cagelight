@@ -13,6 +13,7 @@ import json
 import argparse
 import threading
 import webbrowser
+import numpy as np
 
 def main(lcl_args=None):
     dauer_spiel = 5400
@@ -82,20 +83,22 @@ def main(lcl_args=None):
     #     else:
     #         webbrowser.open("http://localhost:5050")
     # except:
-    #     webbrowser.open("http://localhost:5050")  # fallback for all systems
+    #     webbrowser.open("http://localhost:5050") # fallback for all systems
     webbrowser.open("http://localhost:5050")
 
 
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
-    update_dashboard(pitch_frame_base, voronoi_frame_base, [])
+
+    update_dashboard(np.zeros((pitch_frame_base.shape[0],pitch_frame_base.shape[1],3), dtype=np.uint8), pitch_frame_base, voronoi_frame_base, [], done_status=False)
 
     start_time = time.time()  # Startzeitpunkt der Aufnahme
     while True:
         ret, frame = video_stream.read()
         pitch_frame = pitch_frame_base.copy()
         voronoi_frame = voronoi_frame_base.copy()
+
 
         if not ret:
             print("Frame konnte nicht gelesen werden.")
@@ -135,7 +138,7 @@ def main(lcl_args=None):
             msg = f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds."
             warning_lines.append(msg)
 
-        update_dashboard(pitch_frame, voronoi_frame, warning_lines)
+        update_dashboard(frame, pitch_frame, voronoi_frame, warning_lines)
 
         #out.write(frame)
         # Display the frames
@@ -150,7 +153,7 @@ def main(lcl_args=None):
             break
 
     #release_sources((video_stream, out))
-    update_dashboard(None, None, [], done_status=True)
+    update_dashboard(None, None, None,[], done_status=True)
     video_stream.release()
     cv2.destroyAllWindows()
 
