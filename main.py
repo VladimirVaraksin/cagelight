@@ -8,6 +8,7 @@ from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchCon
 import time
 import cv2
 import os
+import platform
 import json
 import argparse
 import threading
@@ -26,7 +27,7 @@ def main(lcl_args=None):
     data = []
     # create directory for saving output locally if it doesn't exist
     os.makedirs(save_folder, exist_ok=True)
-    # create_player_table()  # Uncomment if you want to create the player table in the database
+    #create_player_table()  # Uncomment if you want to create the player table in the database
 
     if lcl_args is not None:
         dauer_spiel = lcl_args.spieldauer if lcl_args.spieldauer else dauer_spiel
@@ -66,6 +67,7 @@ def main(lcl_args=None):
     # )
 
     # test for debugging using a video file
+    #video_stream = cv2.VideoCapture("videos/test.mp4")
     video_stream = cv2.VideoCapture("videos/action_test_blender.mp4")
     if not video_stream.isOpened():
         print("Video could not be opened.")
@@ -74,7 +76,14 @@ def main(lcl_args=None):
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
     time.sleep(2)
-    webbrowser.open("http://localhost:5000")
+    try:
+        if platform.system() == "Darwin":  # macOS
+            webbrowser.get("safari").open("http://localhost:5000")
+        else:
+            webbrowser.open("http://localhost:5000")
+    except:
+        webbrowser.open("http://localhost:5000")  # fallback for all systems
+    #webbrowser.open("http://localhost:5000")
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
@@ -140,8 +149,8 @@ def main(lcl_args=None):
     #release_sources((video_stream, out))
     video_stream.release()
     cv2.destroyAllWindows()
-    # Save the collected data to the database
-    # print("\nSaving collected data to database...This may take a while.\n")
+    #Save the collected data to the database
+    #print("\nSaving collected data to database...This may take a while.\n")
     #insert_many_players(data)
 
     with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
