@@ -1,8 +1,14 @@
 # this script processes YOLO detection results and returns structured data for each object (player or ball)
 from ultralytics import YOLO
-from utils import TeamAssigner, ViewTransformer, PoseClassifier
+from utils import TeamAssigner, ViewTransformer, PoseClassifier, IDManager
 import numpy as np
+from collections import deque
+from datetime import timedelta
 
+# store last N frames of player data
+recent_entries = deque(maxlen=30)
+
+id_manager = IDManager(max_age_seconds=4)  # Initialize IDManager with a max age of 3 seconds
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
 pose_classifier = PoseClassifier()
@@ -27,7 +33,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
         Returns:
             A list of dictionaries, each containing tracking and object metadata.
         """
-
+    #print(recent_entries)
     data = []
     height, width = frame.shape[:2]
     for detections in results:
@@ -37,7 +43,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             # Compute the bottom-center point of the bounding box
             point = np.array([(x1 + x2) / 2, y2], dtype=np.float32)
             # Compute the pitch coordinates using the view transformer
-            pitch_point = view_transformer.transform_point(point, camera_id)
+            pitch_point = view_transformer.transform_point(point, camera_id=camera_id)
 
             # Skip detections outside the defined field area
             if pitch_point is None:
@@ -54,25 +60,36 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 label = "player"
             elif label == "sports ball":
                 label = "ball"
+
             # Get tracking ID (if available), else use -1
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
+
+            if label == "ball":
+                print(confidence)
+                tracking_id = 0  # Assign a fixed ID for the ball
+
 
             # Only continue if the object is of interest and has a valid tracking ID
             if label in {"player", "ball"} and tracking_id != -1:
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
+                # if x1 > 1280:
+                #     camera_id = 1
+                # else:
+                #     camera_id = 0
                 # print pitch coordinates for debugging
                 # print(pitch_x, pitch_y)
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
-                    # Assign team based on player color
+                    # # Assign team based on player color
                     team = team_assigner.get_player_team(tracking_id)
                     if team is None:
                         # If the player is not assigned to a team, get the player color and assign a team
                         player_color = team_assigner.get_player_color(frame, bbox)
                         team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
+                    #team = "Team 1"
                     entry_action = pose_classifier.classify_pose(frame, bbox)
                     # Store the action for the player
                     if entry_action == "lying" or entry_action == "sitting":
@@ -105,6 +122,20 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "bbox_xyxy": norm_bbox,
                 }
 
+                # assign persistent ID
+                persistent_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries)
+                #print(persistent_id, tracking_id)
+                entry["tracking_id"] = persistent_id
+
                 data.append(entry)
+
+                # store latest player entry (only one per persistent ID)
+                for i, past in enumerate(recent_entries):
+                    if past["tracking_id"] == persistent_id and past["object_type"] == "player":
+                        recent_entries[i] = entry
+                        break
+                else:
+                    recent_entries.append(entry)
+
 
     return data

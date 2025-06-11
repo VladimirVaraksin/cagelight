@@ -1,3 +1,4 @@
+import cv2
 import numpy as np
 from sklearn.cluster import KMeans
 
@@ -20,7 +21,18 @@ class TeamAssigner:
     def get_player_color(self, frame, bbox):
         x1, y1, x2, y2 = map(int, bbox)
         image = frame[y1:y2, x1:x2]
-        top_half = image[:image.shape[0] // 2]
+        width, height = x2 - x1, y2 - y1
+        ratio = height / width
+        if ratio < 1:
+            top_half = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        else:
+            start = int(height * 0.15)  # 15 % von oben
+            end = int(height * 0.50)  # 50 % von oben
+
+            start_width = int(width * 0.15)  # 15 % von links
+            end_width = int(width * 0.85)
+
+            top_half = image[start:end, start_width:end_width]
 
         kmeans = self.get_clustering_model(top_half)
         labels = kmeans.labels_.reshape(top_half.shape[:2])
@@ -31,7 +43,7 @@ class TeamAssigner:
 
         return kmeans.cluster_centers_[player_cluster]
 
-    def assign_team(self, player_color, tracking_id, threshold=60):
+    def assign_team(self, player_color, tracking_id, threshold=50):
         def color_distance(c1, c2):
             return np.linalg.norm(c1 - c2)
 

@@ -20,8 +20,8 @@ class ViewTransformer:
         # Pixel coordinates of the court corners in the input image
         self.pixel_vertices = np.array([
             [489, 149],  # Top-left corner in image
-            [794, 148],  # Top-middle/right
-            [1167, 659],  # Bottom-right
+            [790, 148],  # Top-middle/right
+            [1163, 659],  # Bottom-right
             [125, 658]  # Bottom-left
         ], dtype=np.float32)
 
@@ -31,6 +31,13 @@ class ViewTransformer:
             [court_length / 2, 0],  # Top-middle
             [court_length / 2, court_width],  # Bottom-middle
             [0, court_width]  # Bottom-left
+        ], dtype=np.float32)
+
+        self.pixel_vertices_2 = np.array([
+            [1770, 152],
+            [2060, 150],
+            [2420, 660],
+            [1408, 658],
         ], dtype=np.float32)
 
         # Corresponding real-world coordinates (in meters) for camera 2
@@ -47,12 +54,16 @@ class ViewTransformer:
             self.target_vertices
         )
 
+        # self.perspective_transformer_2 = cv2.getPerspectiveTransform(
+        #     self.pixel_vertices_2,
+        #     self.target_vertices_2
+        # )
         self.perspective_transformer_2 = cv2.getPerspectiveTransform(
             self.pixel_vertices,
             self.target_vertices_2
         )
 
-    def transform_point(self, point, camera=0):
+    def transform_point(self, point, camera_id=0):
         """
         Transforms a point from pixel coordinates to real-world coordinates.
 
@@ -65,22 +76,17 @@ class ViewTransformer:
         """
         # Convert to integer coordinates for point-in-polygon test
         p = (int(point[0]), int(point[1]))
-
-        # Check if the point lies within the defined court polygon
-        is_inside = cv2.pointPolygonTest(self.pixel_vertices, p, False) >= 0
-        if not is_inside:
-            return None  # Return None if point is outside
-
         # Reshape point to a required format for cv2.perspectiveTransform and convert to float32
         reshaped_point = point.reshape(-1, 1, 2).astype(np.float32)
+        is_inside = cv2.pointPolygonTest(self.pixel_vertices, p, False) >= 0
 
-        # Apply the perspective transformation
-        if camera == 0:
-            transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
-        elif camera == 1:
-            transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer_2)
+        if is_inside:
+            if camera_id == 0:
+                transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
+            else:
+                transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer_2)
+        # Check if the point lies within the defined court polygon
         else:
             return None
 
-        # Reshape result back to (1, 2) and return
         return transformed_point.reshape(-1, 2)

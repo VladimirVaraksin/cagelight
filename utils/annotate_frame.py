@@ -18,6 +18,7 @@ def annotate_frame(frame, entries):
         match_time = entry.get("timestamp", "00:00:000")
         # Denormalize bounding box coordinates to pixel values
         bbox = entry["bbox_xyxy"]
+
         x1 = int(bbox[0] * frame.shape[1])
         y1 = int(bbox[1] * frame.shape[0])
         x2 = int(bbox[2] * frame.shape[1])

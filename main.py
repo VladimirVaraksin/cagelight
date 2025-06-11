@@ -4,16 +4,16 @@ from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
 from camera_utils import setup_camera, release_sources
-from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, merge_and_clean_entries_kdtree
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, merge_frames
 import time
 import cv2
 import os
-#import platform
 import json
 import argparse
 import threading
 import webbrowser
 import numpy as np
+
 
 def main(lcl_args=None):
     dauer_spiel = 5400
@@ -23,7 +23,7 @@ def main(lcl_args=None):
     save_folder = 'output'
     kameranummer = 0
     start_after = 0
-    standard_resolution = ((1280, 720), (1920, 1080))
+    standard_resolution = ((1280, 720), None)
     halbzeit_gedruckt = False
     data = []
 
@@ -44,7 +44,7 @@ def main(lcl_args=None):
             return
 
     if resolution not in standard_resolution:
-        print("Ungültige Auflösung. Nur 1280x720 oder 1920x1080 erlaubt.")
+        print("Ungültige Auflösung. Aktuell nur 1280x720 erlaubt.")
         return
 
 
@@ -70,9 +70,8 @@ def main(lcl_args=None):
     # )
 
     # test for debugging using a video file
-    #video_stream = cv2.VideoCapture("videos/test.mp4")
-    video_stream = cv2.VideoCapture("videos/action_test_blender.mp4")
-    video_stream_2 = cv2.VideoCapture("videos/action_test_blender_2.mp4")
+    video_stream = cv2.VideoCapture("videos/cam_right.mp4")
+    video_stream_2 = cv2.VideoCapture("videos/cam_left.mp4")
     if not video_stream.isOpened() or not video_stream_2.isOpened():
         print("Video could not be opened.")
         return
@@ -81,13 +80,6 @@ def main(lcl_args=None):
     threading.Thread(target=start_dashboard, daemon=True).start()
     time.sleep(1) # Wait for the dashboard to start
 
-    # try:
-    #     if platform.system() == "Darwin":  # macOS
-    #         webbrowser.get("safari").open("http://localhost:5050")
-    #     else:
-    #         webbrowser.open("http://localhost:5050")
-    # except:
-    #     webbrowser.open("http://localhost:5050") # fallback for all systems
     webbrowser.open("http://localhost:5050")
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
@@ -106,6 +98,7 @@ def main(lcl_args=None):
             print("Frame konnte nicht gelesen werden.")
             break
 
+        merged_frame = merge_frames(frame, frame_2)
         match_time = time.time() - start_time
         if not halbzeit_gedruckt and match_time >= dauer_spiel / 2:
             print("Halbzeitpause...")
@@ -120,30 +113,24 @@ def main(lcl_args=None):
             source=frame, stream=True, verbose=False, persist=True,
             tracker='bytetrack/bytetrack.yaml', classes=[0]
         )
-        ball = ball_model.track(
-            source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack_ball.yaml', classes=[32]
-        )
-
         players_2 = player_model.track(
             source=frame_2, stream=True, verbose=False, persist=True,
             tracker='bytetrack/bytetrack.yaml', classes=[0]
         )
 
-        ball_2 = ball_model.track(
-            source=frame_2, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack_ball.yaml', classes=[32]
-        )
+        ball = ball_model.predict(source=frame, verbose=False, classes=[32], conf=0.45)
+        ball_2 = ball_model.predict(source=frame_2, verbose=False, classes=[32], conf=0.45)
 
         frame_data = save_objects([*players, *ball], frame, match_time, 0)
         frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
-        merged_data = merge_and_clean_entries_kdtree(frame_data, frame_data_2)
-        if merged_data:
-            data.append(merged_data)
+        frame_all = frame_data + frame_data_2
+
+        if frame_data or frame_data_2:
+            data.append(frame_all)
             frame = annotate_frame(frame, frame_data)
             frame_2 = annotate_frame(frame_2, frame_data_2)
-            pitch_frame = create_pitch_frame(pitch_frame, merged_data)
-            voronoi_frame = create_voronoi_frame(voronoi_frame, merged_data)
+            pitch_frame = create_pitch_frame(pitch_frame, frame_all)
+            voronoi_frame = create_voronoi_frame(voronoi_frame, frame_all)
 
 
 
@@ -156,14 +143,8 @@ def main(lcl_args=None):
 
         update_dashboard(frame, frame_2, pitch_frame, voronoi_frame, warning_lines)
 
-        # save the frame to the video file
-        #out.write(frame)
-
-        # Display the frames
-        #cv2.imshow('Frame', frame)
-        #cv2.imshow('Frame 2', frame_2)
-        #cv2.imshow('Pitch', pitch_frame)
-        #cv2.imshow('Voronoi', voronoi_frame)
+        # # save the frame to the video file
+        # #out.write(frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -190,3 +171,4 @@ if __name__ == "__main__":
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
     args = parser.parse_args()
     main(args)
+

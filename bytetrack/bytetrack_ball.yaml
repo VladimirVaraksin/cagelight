@@ -1,3 +1,4 @@
+# Bytetrack configuration for ball tracking
 tracker_type: bytetrack
 track_high_thresh: 0.45
 track_low_thresh: 0.35

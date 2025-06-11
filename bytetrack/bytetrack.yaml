@@ -1,3 +1,4 @@
+# Bytetrack configuration for player tracking
 tracker_type: bytetrack
 track_high_thresh: 0.45       # erhöht, um nur gute Detections zuzulassen
 track_low_thresh: 0.25      # höher, damit "schwache" Detections nicht übernommen werden

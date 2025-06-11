@@ -82,7 +82,7 @@ class PoseClassifier:
         threshold = 0.45  # adjust as needed
 
         predictions = self.model.predict(input_tensor)
-        print(predictions)
+        #print(predictions)
         confidence = np.max(predictions[0])
         predicted_index = np.argmax(predictions[0])
 
