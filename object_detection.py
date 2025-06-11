@@ -56,29 +56,20 @@ def save_objects(results, frame, timestamp, camera_id=0):
             label = class_names[cls] if cls < len(class_names) else "Unknown"
             confidence = round(float(box.conf[0]), 2)
 
-            if label == "person":
-                label = "player"
-            elif label == "sports ball":
-                label = "ball"
-
             # Get tracking ID (if available), else use -1
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
 
-            if label == "ball":
+            if label == "person":
+                label = "player"
+            elif label == "sports ball":
+                label = "ball"
                 tracking_id = 0  # Assign a fixed ID for the ball
-
 
             # Only continue if the object is of interest and has a valid tracking ID
             if label in {"player", "ball"} and tracking_id != -1:
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
-                # if x1 > 1280:
-                #     camera_id = 1
-                # else:
-                #     camera_id = 0
-                # print pitch coordinates for debugging
-                # print(pitch_x, pitch_y)
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
                     # # Assign team based on player color
