@@ -44,6 +44,8 @@ class PoseClassifier:
             return "unknown"
 
         #print(f"Predicted action: {action}, Ratio: {ratio:.2f}")
+        if action == "bending":
+            action = "standing"
 
         if ratio > self.standing_ratio_threshold:
             if action == "lying":
@@ -80,6 +82,7 @@ class PoseClassifier:
         threshold = 0.45  # adjust as needed
 
         predictions = self.model.predict(input_tensor)
+        print(predictions)
         confidence = np.max(predictions[0])
         predicted_index = np.argmax(predictions[0])
 

@@ -100,7 +100,6 @@ def main(lcl_args=None):
         pitch_frame = pitch_frame_base.copy()
         voronoi_frame = voronoi_frame_base.copy()
 
-
         if not ret:
             print("Frame konnte nicht gelesen werden.")
             break
@@ -143,7 +142,6 @@ def main(lcl_args=None):
 
         # save the frame to the video file
         #out.write(frame)
-
 
         # Display the frames
         #cv2.imshow('Frame', frame)
