@@ -4,7 +4,7 @@ from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
 from camera_utils import setup_camera, release_sources
-from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, merge_frames
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
 import time
 import cv2
 import os
@@ -82,12 +82,14 @@ def main(lcl_args=None):
 
     webbrowser.open("http://localhost:5050")
 
+    # initialize pitch and voronoi frames
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     demo_frame = np.zeros((pitch_frame_base.shape[0], pitch_frame_base.shape[1], 3), dtype=np.uint8)
-    update_dashboard(demo_frame, demo_frame, pitch_frame_base, voronoi_frame_base, [], done_status=False)
 
+    update_dashboard(demo_frame, demo_frame, pitch_frame_base, voronoi_frame_base, [])
     start_time = time.time()  # Startzeitpunkt der Aufnahme
+
     while True:
         ret, frame = video_stream.read()
         ret_2, frame_2 = video_stream_2.read()
@@ -98,7 +100,6 @@ def main(lcl_args=None):
             print("Frame konnte nicht gelesen werden.")
             break
 
-        merged_frame = merge_frames(frame, frame_2)
         match_time = time.time() - start_time
         if not halbzeit_gedruckt and match_time >= dauer_spiel / 2:
             print("Halbzeitpause...")
@@ -125,14 +126,14 @@ def main(lcl_args=None):
         frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
         frame_all = frame_data + frame_data_2
 
-        if frame_data or frame_data_2:
+        if frame_all:
             data.append(frame_all)
-            frame = annotate_frame(frame, frame_data)
-            frame_2 = annotate_frame(frame_2, frame_data_2)
+            if frame_data:
+                frame = annotate_frame(frame, frame_data)
+            if frame_data_2:
+                frame_2 = annotate_frame(frame_2, frame_data_2)
             pitch_frame = create_pitch_frame(pitch_frame, frame_all)
             voronoi_frame = create_voronoi_frame(voronoi_frame, frame_all)
-
-
 
         warnings = injury_warning(player_actions, match_time, threshold=5)
         warning_lines = []
@@ -150,7 +151,7 @@ def main(lcl_args=None):
             break
 
     #release_sources((video_stream, out))
-    update_dashboard(None, None, None,None,[], done_status=True)
+    update_dashboard(None, None, None,None,[])
     video_stream.release()
     cv2.destroyAllWindows()
 

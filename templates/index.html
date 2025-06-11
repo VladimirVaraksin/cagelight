@@ -52,16 +52,7 @@
   <script>
       async function update() {
         try {
-          // Zuerst Status prüfen
-          const statusRes = await fetch("/status");
-          const statusData = await statusRes.json();
-
-          if (statusData.done) {
-            console.log("Programm beendet. Keine weiteren Updates.");
-            return;  // <-- Keine Abfrage von /data mehr!
-          }
-
-          // Nur wenn done=false, dann Daten holen
+          // Daten holen
           const res = await fetch("/data");
           const data = await res.json();
 

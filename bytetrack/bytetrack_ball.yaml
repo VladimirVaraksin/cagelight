@@ -1,8 +1,0 @@
-# Bytetrack configuration for ball tracking
-tracker_type: bytetrack
-track_high_thresh: 0.45
-track_low_thresh: 0.35
-new_track_thresh: 0.5
-track_buffer: 60
-match_thresh: 0.7
-fuse_score: True

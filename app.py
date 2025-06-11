@@ -9,12 +9,6 @@ latest_frame_2 = None
 latest_pitch = None
 latest_voronoi = None
 console_lines = []
-done = False
-
-@app.route("/status")
-def status():
-    return jsonify({"done": done})
-
 
 @app.route("/")
 def index():
@@ -55,13 +49,9 @@ def get_data():
         "warnings": console_lines[-100:]
     })
 
-def update_dashboard(frame, frame_2, pitch, voronoi, warnings, done_status=False):
-    if done_status:
-        global done
-        done = True
-        return
-
+def update_dashboard(frame, frame_2, pitch, voronoi, warnings):
     global latest_pitch, console_lines, latest_voronoi, latest_frame, latest_frame_2
+
     if frame is not None:
         latest_frame = frame.copy()
     if pitch is not None:
