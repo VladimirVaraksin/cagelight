@@ -1,9 +1,10 @@
 # this script is used to record a soccer match, detect players and the ball using YOLOv11, and save the data to a database or a local file.
 # CageLight project
+from typing import Optional
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
-from camera_utils import setup_camera, release_sources
+from camera_utils import release_sources, setup_cam_streams
 from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
 import time
 import cv2
@@ -13,67 +14,111 @@ import argparse
 import threading
 import webbrowser
 import numpy as np
+import logging
+logging.basicConfig(level=logging.INFO)
 
+# Constants for game configuration
+DURATION_GAME = 5400
+FPS_DEFAULT = 30
+HALF_TIME_DURATION = 900
+RESOLUTION_DEFAULT = (1280, 720)
+SAVE_FOLDER = 'output'
+CAMERA_NUMBER_DEFAULT = 0
+START_AFTER_DEFAULT = 0
+STANDARD_RESOLUTION = ((1280, 720), None)
+BALL_CLASS_ID = 32
+WARNING_THRESHOLD = 5
+PERSON_CLASS_ID = 0
+CONFIDENCE_THRESHOLD_BALL = 0.45
+data = []
 
-def main(lcl_args=None):
-    dauer_spiel = 5400
-    fps = 30
-    halbzeit_dauer = 900
-    resolution = (1280, 720)
-    save_folder = 'output'
-    kameranummer = 0
-    start_after = 0
-    standard_resolution = ((1280, 720), None)
-    halbzeit_gedruckt = False
-    data = []
+class GameConfig:
+    def __init__(self, lcl_args=None):
+        self.duration_game = lcl_args.spieldauer if lcl_args and lcl_args.spieldauer else DURATION_GAME
+        self.half_time_duration = lcl_args.halbzeitdauer if lcl_args and lcl_args.halbzeitdauer else HALF_TIME_DURATION
+        self.fps = lcl_args.fps if lcl_args and lcl_args.fps else FPS_DEFAULT
+        self.resolution = tuple(lcl_args.resolution) if lcl_args and lcl_args.resolution else RESOLUTION_DEFAULT
+        self.camera_number = lcl_args.kameranummer if lcl_args and lcl_args.kameranummer else CAMERA_NUMBER_DEFAULT
+        self.start_after = lcl_args.start_after if lcl_args and lcl_args.start_after else START_AFTER_DEFAULT
 
-    os.makedirs(save_folder, exist_ok=True) # create a directory for saving output locally if it doesn't exist
-    #create_player_table()  # Uncomment if you want to create the player table in the database
-
-    if lcl_args is not None:
-        dauer_spiel = lcl_args.spieldauer if lcl_args.spieldauer else dauer_spiel
-        halbzeit_dauer = lcl_args.halbzeitdauer if lcl_args.halbzeitdauer else halbzeit_dauer
-        fps = lcl_args.fps if lcl_args.fps else fps
-        resolution = tuple(lcl_args.resolution) if lcl_args.resolution else resolution
-        kameranummer = lcl_args.kameranummer if lcl_args.kameranummer else kameranummer
-        start_after = lcl_args.start_after if lcl_args.start_after else start_after
-
-    for arg in (dauer_spiel, halbzeit_dauer, fps, kameranummer, start_after):
+def validate_inputs(config):
+    for arg in (config.duration_game, config.half_time_duration, config.fps, config.camera_number, config.start_after):
         if arg < 0:
-            print("Ungültige Eingabewerte. Alle Werte müssen >= 0 sein.")
-            return
+            raise ValueError("Ungültige Eingabewerte. Alle Werte müssen >= 0 sein.")
+    if config.resolution not in STANDARD_RESOLUTION:
+        raise ValueError("Ungültige Auflösung. Aktuell nur 1280x720 erlaubt.")
 
-    if resolution not in standard_resolution:
-        print("Ungültige Auflösung. Aktuell nur 1280x720 erlaubt.")
+def setup_video_streams(paths=None):
+    video_steams = []
+    for path in paths:
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"Video file {path} does not exist.")
+    for path in paths:
+        video_stream = cv2.VideoCapture(path)
+        if not video_stream.isOpened():
+            raise RuntimeError(f"Video {path} could not be opened.")
+        video_steams.append(video_stream)
+    return video_steams
+
+
+def process_frames(frame = None, frame_2 = None, match_time = 0.0):
+    frame_data, frame_data_2 = [], []
+    if frame is not None:
+        players = player_model.track(source=frame, stream=True, verbose=False, persist=True,
+                                     tracker='bytetrack/bytetrack.yaml', classes=[PERSON_CLASS_ID])
+        ball = ball_model.predict(source=frame, verbose=False, classes=[BALL_CLASS_ID], conf=CONFIDENCE_THRESHOLD_BALL)
+        frame_data = save_objects([*players, *ball], frame, match_time, 0)
+
+    if frame_2 is not None:
+        players_2 = player_model.track(source=frame_2, stream=True, verbose=False, persist=True,
+                                       tracker='bytetrack/bytetrack.yaml', classes=[PERSON_CLASS_ID])
+        ball_2 = ball_model.predict(source=frame_2, verbose=False, classes=[BALL_CLASS_ID], conf=CONFIDENCE_THRESHOLD_BALL)
+        frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
+
+    return frame_data, frame_data_2
+
+
+def update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame, voronoi_frame, frame_all, match_time):
+    if frame_all:
+        data.append(frame_all)
+        if frame_data:
+            frame = annotate_frame(frame, frame_data)
+        if frame_data_2:
+            frame_2 = annotate_frame(frame_2, frame_data_2)
+        pitch_frame = create_pitch_frame(pitch_frame, frame_all)
+        voronoi_frame = create_voronoi_frame(voronoi_frame, frame_all)
+
+    warnings = injury_warning(player_actions, match_time, threshold=5)
+    warning_lines = [f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds." for w in warnings]
+
+    update_dashboard(frame, frame_2, pitch_frame, voronoi_frame, warning_lines)
+
+
+
+def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
+    config = GameConfig(lcl_args)
+    try:
+        validate_inputs(config)
+    except ValueError as e:
+        logging.error(e)
         return
+    halbzeit_gedruckt = False
 
+    os.makedirs(SAVE_FOLDER, exist_ok=True) # create a directory for saving output locally if it doesn't exist
+    #create_player_table()  # Uncomment if you want to create the player table in the database
+    time.sleep(config.start_after)
 
-    print("Starting after {} seconds...".format(start_after))
-    time.sleep(start_after)
-
-    # uncomment the following lines to use a camera instead of a video file
-    # video_stream = setup_camera(0, resolution[0], resolution[1])
-    #
-    # if not video_stream:
-    #     print(f"Kamera mit Index 0 konnte nicht geöffnet werden.")
+    # video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
+    # if not video_streams:
+    #     logging.error("Kamera konnte nicht geöffnet werden.")
     #     return
-    #
-    # fps = video_stream.get(cv2.CAP_PROP_FPS)
-    # width = int(video_stream.get(cv2.CAP_PROP_FRAME_WIDTH))
-    # height = int(video_stream.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    #
-    # out = cv2.VideoWriter(
-    #     os.path.join(save_folder, 'output_video.mp4'),
-    #     cv2.VideoWriter_fourcc(*'mp4v'),
-    #     fps,
-    #     (width, height)
-    # )
 
     # test for debugging using a video file
-    video_stream = cv2.VideoCapture("videos/cam_right.mp4")
-    video_stream_2 = cv2.VideoCapture("videos/cam_left.mp4")
-    if not video_stream.isOpened() or not video_stream_2.isOpened():
-        print("Video could not be opened.")
+    try:
+        video_stream, video_stream_2 = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
+    except (FileNotFoundError, RuntimeError) as e:
+        logging.error(e)
+        print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
         return
 
     # Start the Flask dashboard in a background thread
@@ -93,73 +138,38 @@ def main(lcl_args=None):
     while True:
         ret, frame = video_stream.read()
         ret_2, frame_2 = video_stream_2.read()
-        pitch_frame = pitch_frame_base.copy()
-        voronoi_frame = voronoi_frame_base.copy()
 
         if not ret or not ret_2:
-            print("Frame konnte nicht gelesen werden.")
+            logging.error("Frame konnte nicht gelesen werden.")
             break
 
         match_time = time.time() - start_time
-        if not halbzeit_gedruckt and match_time >= dauer_spiel / 2:
-            print("Halbzeitpause...")
+        if not halbzeit_gedruckt and match_time >= config.duration_game / 2:
+            logging.info("Halbzeitpause...")
             halbzeit_gedruckt = True
-            time.sleep(halbzeit_dauer)
+            time.sleep(config.half_time_duration)
 
-        if match_time >= dauer_spiel + halbzeit_dauer:
-            print("Spiel beendet.")
+        if match_time >= config.duration_game + config.half_time_duration:
+            logging.info("Spiel beendet.")
             break
 
-        players = player_model.track(
-            source=frame, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack.yaml', classes=[0]
-        )
-        players_2 = player_model.track(
-            source=frame_2, stream=True, verbose=False, persist=True,
-            tracker='bytetrack/bytetrack.yaml', classes=[0]
-        )
+        frame_data, frame_data_2 = process_frames(frame, frame_2, match_time)
+        update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame_base.copy(),
+                                    voronoi_frame_base.copy(), frame_data + frame_data_2, match_time)
 
-        ball = ball_model.predict(source=frame, verbose=False, classes=[32], conf=0.45)
-        ball_2 = ball_model.predict(source=frame_2, verbose=False, classes=[32], conf=0.45)
+        # Save the frames
+       # for video_writer in video_writers:
+       #      video_writer.write(frame)
+       #      video_writer.write(frame_2)
 
-        frame_data = save_objects([*players, *ball], frame, match_time, 0)
-        frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
-        frame_all = frame_data + frame_data_2
+    release_sources((video_stream, video_stream_2))  # Release the video streams
+    # Close all video writers
+    #release_sources(video_writers+video_streams)
 
-        if frame_all:
-            data.append(frame_all)
-            if frame_data:
-                frame = annotate_frame(frame, frame_data)
-            if frame_data_2:
-                frame_2 = annotate_frame(frame_2, frame_data_2)
-            pitch_frame = create_pitch_frame(pitch_frame, frame_all)
-            voronoi_frame = create_voronoi_frame(voronoi_frame, frame_all)
-
-        warnings = injury_warning(player_actions, match_time, threshold=5)
-        warning_lines = []
-
-        for w in warnings:
-            msg = f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds."
-            warning_lines.append(msg)
-
-        update_dashboard(frame, frame_2, pitch_frame, voronoi_frame, warning_lines)
-
-        # # save the frame to the video file
-        # #out.write(frame)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    #release_sources((video_stream, out))
-    update_dashboard(None, None, None,None,[])
-    video_stream.release()
-    cv2.destroyAllWindows()
-
-    #Save the collected data to the database
-    #print("\nSaving collected data to database...This may take a while.\n")
-    #insert_many_players(data)
-
-    with open(os.path.join(save_folder, 'live_output.json'), 'w') as jf:
+    logging.info("\nSaving collected data to database...This may take a while.\n")
+    #insert_many_players(data) #Save the collected data to the database
+    # Save the collected data to a local file
+    with open(os.path.join(SAVE_FOLDER, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
 
 if __name__ == "__main__":
@@ -172,4 +182,3 @@ if __name__ == "__main__":
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
     args = parser.parse_args()
     main(args)
-

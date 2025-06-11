@@ -28,6 +28,48 @@ def release_sources(cameras):
     for cam in cameras:
         cam.release()
 
+def setup_cam_streams(camera_indices, resolution, save_folder):
+    """
+    Set up multiple video streams from cameras and define video writers.
+
+    Parameters:
+    - camera_indices: List of camera indices to open.
+    - resolution: Tuple specifying the resolution (width, height).
+    - save_folder: Folder where the output videos will be saved.
+
+    Returns:
+    - video_streams: List of opened video streams.
+    - video_writers: List of VideoWriter objects for each stream.
+    """
+    video_streams = []
+    video_writers = []
+
+    for index in camera_indices:
+        # Open the video stream
+        video_stream = setup_camera(index, resolution[0], resolution[1])
+        if not video_stream.isOpened():
+            print(f"Kamera mit Index {index} konnte nicht geöffnet werden.")
+            return None, None  # Return None if any camera fails to open
+
+        # Get the FPS, width, and height
+        fps = video_stream.get(cv2.CAP_PROP_FPS)
+        width = int(video_stream.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(video_stream.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+        # Define the VideoWriter for the current stream
+        output_file = os.path.join(save_folder, f'output_video_{index}.mp4')
+        out = cv2.VideoWriter(
+            output_file,
+            cv2.VideoWriter_fourcc(*'mp4v'),
+            fps,
+            (width, height)
+        )
+
+        # Append the video stream and writer to the lists
+        video_streams.append(video_stream)
+        video_writers.append(out)
+
+    return video_streams, video_writers
 
 if __name__ == "__main__":
     # Example usage

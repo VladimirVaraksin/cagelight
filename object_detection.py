@@ -66,7 +66,6 @@ def save_objects(results, frame, timestamp, camera_id=0):
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
 
             if label == "ball":
-                print(confidence)
                 tracking_id = 0  # Assign a fixed ID for the ball
 
 
