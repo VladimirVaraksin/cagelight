@@ -25,12 +25,20 @@ class ViewTransformer:
             [125, 658]  # Bottom-left
         ], dtype=np.float32)
 
-        # Corresponding real-world coordinates (in meters)
+        # Corresponding real-world coordinates (in meters) for camera 1
         self.target_vertices = np.array([
             [0, 0],  # Top-left in the real world
             [court_length / 2, 0],  # Top-middle
             [court_length / 2, court_width],  # Bottom-middle
             [0, court_width]  # Bottom-left
+        ], dtype=np.float32)
+
+        # Corresponding real-world coordinates (in meters) for camera 2
+        self.target_vertices_2 = np.array([
+            [court_length, court_width],  # Top-left in the real world
+            [court_length / 2, court_width],  # Top-middle
+            [court_length / 2, 0],  # Bottom-middle
+            [court_length, 0]  # Bottom-left
         ], dtype=np.float32)
 
         # Compute the perspective transformation matrix
@@ -39,7 +47,12 @@ class ViewTransformer:
             self.target_vertices
         )
 
-    def transform_point(self, point):
+        self.perspective_transformer_2 = cv2.getPerspectiveTransform(
+            self.pixel_vertices,
+            self.target_vertices_2
+        )
+
+    def transform_point(self, point, camera=0):
         """
         Transforms a point from pixel coordinates to real-world coordinates.
 
@@ -62,7 +75,12 @@ class ViewTransformer:
         reshaped_point = point.reshape(-1, 1, 2).astype(np.float32)
 
         # Apply the perspective transformation
-        transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
+        if camera == 0:
+            transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
+        elif camera == 1:
+            transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer_2)
+        else:
+            return None
 
         # Reshape result back to (1, 2) and return
         return transformed_point.reshape(-1, 2)

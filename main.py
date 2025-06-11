@@ -4,7 +4,7 @@ from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions
 #from db_save_player import create_player_table, insert_many_players
 from camera_utils import setup_camera, release_sources
-from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, merge_and_clean_entries_kdtree
 import time
 import cv2
 import os
@@ -72,7 +72,8 @@ def main(lcl_args=None):
     # test for debugging using a video file
     #video_stream = cv2.VideoCapture("videos/test.mp4")
     video_stream = cv2.VideoCapture("videos/action_test_blender.mp4")
-    if not video_stream.isOpened():
+    video_stream_2 = cv2.VideoCapture("videos/action_test_blender_2.mp4")
+    if not video_stream.isOpened() or not video_stream_2.isOpened():
         print("Video could not be opened.")
         return
 
@@ -91,16 +92,17 @@ def main(lcl_args=None):
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
-
-    update_dashboard(np.zeros((pitch_frame_base.shape[0],pitch_frame_base.shape[1],3), dtype=np.uint8), pitch_frame_base, voronoi_frame_base, [], done_status=False)
+    demo_frame = np.zeros((pitch_frame_base.shape[0], pitch_frame_base.shape[1], 3), dtype=np.uint8)
+    update_dashboard(demo_frame, demo_frame, pitch_frame_base, voronoi_frame_base, [], done_status=False)
 
     start_time = time.time()  # Startzeitpunkt der Aufnahme
     while True:
         ret, frame = video_stream.read()
+        ret_2, frame_2 = video_stream_2.read()
         pitch_frame = pitch_frame_base.copy()
         voronoi_frame = voronoi_frame_base.copy()
 
-        if not ret:
+        if not ret or not ret_2:
             print("Frame konnte nicht gelesen werden.")
             break
 
@@ -123,13 +125,27 @@ def main(lcl_args=None):
             tracker='bytetrack/bytetrack_ball.yaml', classes=[32]
         )
 
-        frame_data = save_objects([*players, *ball], frame, match_time, kameranummer)
+        players_2 = player_model.track(
+            source=frame_2, stream=True, verbose=False, persist=True,
+            tracker='bytetrack/bytetrack.yaml', classes=[0]
+        )
 
-        if frame_data:
-            data.append(frame_data)
+        ball_2 = ball_model.track(
+            source=frame_2, stream=True, verbose=False, persist=True,
+            tracker='bytetrack/bytetrack_ball.yaml', classes=[32]
+        )
+
+        frame_data = save_objects([*players, *ball], frame, match_time, 0)
+        frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
+        merged_data = merge_and_clean_entries_kdtree(frame_data, frame_data_2)
+        if merged_data:
+            data.append(merged_data)
             frame = annotate_frame(frame, frame_data)
-            pitch_frame = create_pitch_frame(pitch_frame, frame_data)
-            voronoi_frame = create_voronoi_frame(voronoi_frame, frame_data)
+            frame_2 = annotate_frame(frame_2, frame_data_2)
+            pitch_frame = create_pitch_frame(pitch_frame, merged_data)
+            voronoi_frame = create_voronoi_frame(voronoi_frame, merged_data)
+
+
 
         warnings = injury_warning(player_actions, match_time, threshold=5)
         warning_lines = []
@@ -138,13 +154,14 @@ def main(lcl_args=None):
             msg = f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds."
             warning_lines.append(msg)
 
-        update_dashboard(frame, pitch_frame, voronoi_frame, warning_lines)
+        update_dashboard(frame, frame_2, pitch_frame, voronoi_frame, warning_lines)
 
         # save the frame to the video file
         #out.write(frame)
 
         # Display the frames
         #cv2.imshow('Frame', frame)
+        #cv2.imshow('Frame 2', frame_2)
         #cv2.imshow('Pitch', pitch_frame)
         #cv2.imshow('Voronoi', voronoi_frame)
 
@@ -152,7 +169,7 @@ def main(lcl_args=None):
             break
 
     #release_sources((video_stream, out))
-    update_dashboard(None, None, None,[], done_status=True)
+    update_dashboard(None, None, None,None,[], done_status=True)
     video_stream.release()
     cv2.destroyAllWindows()
 

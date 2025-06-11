@@ -37,7 +37,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             # Compute the bottom-center point of the bounding box
             point = np.array([(x1 + x2) / 2, y2], dtype=np.float32)
             # Compute the pitch coordinates using the view transformer
-            pitch_point = view_transformer.transform_point(point)
+            pitch_point = view_transformer.transform_point(point, camera_id)
 
             # Skip detections outside the defined field area
             if pitch_point is None:

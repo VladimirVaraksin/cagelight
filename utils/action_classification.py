@@ -8,7 +8,7 @@ mp_selfie_segmentation = mp.solutions.selfie_segmentation
 segment = mp_selfie_segmentation.SelfieSegmentation(model_selection=1)
 
 class PoseClassifier:
-    def __init__(self, lying_ratio_threshold=0.5, standing_ratio_threshold=1.3):
+    def __init__(self, lying_ratio_threshold=0.5, standing_ratio_threshold=1.2):
         """
         :param lying_ratio_threshold: Ratio below which a person is considered lying.
         :param standing_ratio_threshold: Ratio above which a person is considered standing.

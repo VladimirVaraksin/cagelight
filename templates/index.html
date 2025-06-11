@@ -34,7 +34,8 @@
 </head>
 <body>
   <div class="pitch">
-    <img id="frame-img" src="" alt="Voronoi Diagram" />
+    <img id="frame-img" src="" alt="Frame 1" />
+    <img id="frame-img-2" src="" alt="Frame 2" />
     <img id="pitch-img" src="" alt="Live Pitch" />
     <img id="voronoi-img" src="" alt="Voronoi Diagram" />
   </div>
@@ -72,6 +73,10 @@
           if (data.frame) {
             document.getElementById("frame-img").src = "data:image/jpeg;base64," + data.frame;
           }
+          if (data.frame2) {
+            document.getElementById("frame-img-2").src = "data:image/jpeg;base64," + data.frame2;
+          }
+
           if (data.pitch) {
             document.getElementById("pitch-img").src = "data:image/jpeg;base64," + data.pitch;
           }
