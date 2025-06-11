@@ -1,6 +1,11 @@
 # this file contains functions for action classification
-from ultralytics import YOLO
 import cv2
+import mediapipe as mp
+import numpy as np
+import tensorflow as tf
+
+mp_selfie_segmentation = mp.solutions.selfie_segmentation
+segment = mp_selfie_segmentation.SelfieSegmentation(model_selection=1)
 
 class PoseClassifier:
     def __init__(self, lying_ratio_threshold=0.5, standing_ratio_threshold=1.3):
@@ -9,9 +14,10 @@ class PoseClassifier:
         :param standing_ratio_threshold: Ratio above which a person is considered standing.
         """
         self.lying_ratio_threshold = lying_ratio_threshold
+        self.image_size = (224, 224)
+        self.model = tf.keras.models.load_model("models/pose_model.keras")
+        self.classnames = ['bending', 'lying', 'sitting', 'standing']
         self.standing_ratio_threshold = standing_ratio_threshold
-        self.model = YOLO('models/best.pt')
-        self.classnames = self.model.names
 
 
     def classify_pose(self, frame, bbox):
@@ -31,37 +37,61 @@ class PoseClassifier:
 
         if ratio < self.lying_ratio_threshold:
             return "lying"
-        elif ratio > self.standing_ratio_threshold:
-            action = self._predict_action(frame, (x1, y1, x2, y2))
-            if not action:
-                # action = self._predict_action(frame, (x1, y1, x2, y2), rotate=True)
-                # if action == "fall":
-                    return "lying"
-            return "standing"
-        else:
-            return "sitting"
 
-    def _predict_action(self, frame, bbox, rotate=False):
+        action = self._predict_action(frame, bbox)
+
+        if action is None:
+            return "unknown"
+
+        #print(f"Predicted action: {action}, Ratio: {ratio:.2f}")
+
+        if ratio > self.standing_ratio_threshold:
+            if action == "lying":
+                return "lying"
+            else:
+                return "standing"
+        return action
+
+
+
+    def _predict_action(self, frame, bbox):
         """
-        Predicts the action for a cropped person region.
-        :param frame: Full frame (numpy array)
-        :param bbox: Tuple (x1, y1, x2, y2)
-        :param rotate: Whether to rotate the cropped image
-        :return: Predicted label or None
+        Predicts the action (pose) for a cropped person region using a silhouette and trained model.
         """
         x1, y1, x2, y2 = bbox
         image = frame[y1:y2, x1:x2]
-        if rotate:
-            image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
-        image = cv2.resize(image, (640, 640))
+        image = cv2.resize(image, self.image_size)
 
-        results = self.model.predict(image, verbose=False, conf = 0.25)
-        for result in results:
-            for box in result.boxes:
-                cls_id = int(box.cls[0])
-                #print(self.classnames.get(cls_id, "Unknown"), bbox, box.conf[0])
-                return self.classnames.get(cls_id, "Unknown")
-        return None
+        img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        # Get segmentation mask
+        results = segment.process(img_rgb)
+        mask = results.segmentation_mask
+
+        # Create silhouette: person = black, background = white
+        silhouette = np.ones_like(image, dtype=np.uint8) * 255  # white background
+        silhouette[mask > 0.5] = (0, 0, 0)  # black person
+
+        # Resize and preprocess for the model
+        silhouette_resized = cv2.resize(silhouette, self.image_size)
+        silhouette_array = silhouette_resized.astype(np.float32) / 255.0  # normalize
+        input_tensor = np.expand_dims(silhouette_array, axis=0)  # add batch dim
+        #cv2.imshow("Silhouette", silhouette_resized)  # Debugging line to show the silhouette
+        threshold = 0.45  # adjust as needed
+
+        predictions = self.model.predict(input_tensor)
+        confidence = np.max(predictions[0])
+        predicted_index = np.argmax(predictions[0])
+
+        if confidence < threshold:
+            return None
+
+        predicted_label = self.classnames[predicted_index]
+        return predicted_label
+
+
+
+
 
     @staticmethod
     def _sanitize_bbox(bbox):
@@ -69,37 +99,3 @@ class PoseClassifier:
         Ensures bounding box values are integers.
         """
         return tuple(map(int, bbox))
-
-import math
-
-
-def compute_real_object_size(object_size_px, image_size_px, view_angle_deg, distance_to_object_m=None):
-    """
-    Berechnet das Verhältnis r und ggf. die reale Größe des Objekts.
-
-    Parameter:
-    - object_size_px: Größe des Objekts im Bild (Pixel)
-    - image_size_px: Gesamte Bildgröße entlang der relevanten Achse (Pixel)
-    - view_angle_deg: Kamera-Sichtwinkel entlang dieser Achse (Grad)
-    - distance_to_object_m: (optional) Abstand zum Objekt in Metern
-
-    Rückgabe:
-    - r: Tangens des halben Winkels, unter dem das Objekt erscheint
-    - real_size_m: (optional) reale Objektgröße in Metern (wenn Abstand bekannt)
-    """
-
-    # Verhältnis des Objekts zur Gesamtbildgröße
-    r = object_size_px / image_size_px
-
-    # Umrechnung des Sichtwinkels von Grad in Bogenmaß
-    half_angle_rad = math.radians(view_angle_deg / 2)
-
-    # r entspricht nun tan (halber Winkel unter dem das Objekt erscheint)
-    r *= math.tan(half_angle_rad)
-
-    # Wenn Abstand bekannt ist, reale Größe berechnen
-    real_size_m = None
-    if distance_to_object_m is not None:
-        real_size_m = 2 * r * distance_to_object_m
-
-    return real_size_m

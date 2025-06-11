@@ -27,7 +27,7 @@ class ViewTransformer:
 
         # Corresponding real-world coordinates (in meters)
         self.target_vertices = np.array([
-            [0, 0],  # Top-left in real world
+            [0, 0],  # Top-left in the real world
             [court_length / 2, 0],  # Top-middle
             [court_length / 2, court_width],  # Bottom-middle
             [0, court_width]  # Bottom-left
@@ -58,7 +58,7 @@ class ViewTransformer:
         if not is_inside:
             return None  # Return None if point is outside
 
-        # Reshape point to required format for cv2.perspectiveTransform and convert to float32
+        # Reshape point to a required format for cv2.perspectiveTransform and convert to float32
         reshaped_point = point.reshape(-1, 1, 2).astype(np.float32)
 
         # Apply the perspective transformation

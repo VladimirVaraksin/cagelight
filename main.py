@@ -26,8 +26,8 @@ def main(lcl_args=None):
     standard_resolution = ((1280, 720), (1920, 1080))
     halbzeit_gedruckt = False
     data = []
-    # create directory for saving output locally if it doesn't exist
-    os.makedirs(save_folder, exist_ok=True)
+
+    os.makedirs(save_folder, exist_ok=True) # create a directory for saving output locally if it doesn't exist
     #create_player_table()  # Uncomment if you want to create the player table in the database
 
     if lcl_args is not None:
@@ -47,6 +47,8 @@ def main(lcl_args=None):
         print("Ungültige Auflösung. Nur 1280x720 oder 1920x1080 erlaubt.")
         return
 
+
+    print("Starting after {} seconds...".format(start_after))
     time.sleep(start_after)
 
     # uncomment the following lines to use a camera instead of a video file
@@ -77,6 +79,7 @@ def main(lcl_args=None):
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
     time.sleep(1) # Wait for the dashboard to start
+
     # try:
     #     if platform.system() == "Darwin":  # macOS
     #         webbrowser.get("safari").open("http://localhost:5050")
@@ -85,8 +88,6 @@ def main(lcl_args=None):
     # except:
     #     webbrowser.open("http://localhost:5050") # fallback for all systems
     webbrowser.open("http://localhost:5050")
-
-
 
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
     voronoi_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
@@ -140,14 +141,14 @@ def main(lcl_args=None):
 
         update_dashboard(frame, pitch_frame, voronoi_frame, warning_lines)
 
+        # save the frame to the video file
         #out.write(frame)
+
+
         # Display the frames
         #cv2.imshow('Frame', frame)
         #cv2.imshow('Pitch', pitch_frame)
         #cv2.imshow('Voronoi', voronoi_frame)
-
-        #time.sleep(0.001)
-        #break
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
