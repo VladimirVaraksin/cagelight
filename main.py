@@ -2,7 +2,7 @@
 # CageLight project
 from typing import Optional
 from app import start_dashboard, update_dashboard
-from object_detection import save_objects, player_model, ball_model, player_actions
+from object_detection import save_objects, player_model, ball_model, player_actions, player_model_2, ball_model_2
 #from db_save_player import create_player_table, insert_many_players
 from camera_utils import release_sources, setup_cam_streams
 from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
@@ -15,7 +15,6 @@ import threading
 import webbrowser
 import numpy as np
 import logging
-logging.basicConfig(level=logging.INFO)
 
 # Constants for game configuration
 DURATION_GAME = 5400
@@ -70,15 +69,19 @@ def process_frames(frame = None, frame_2 = None, match_time = 0.0):
         frame_data = save_objects([*players, *ball], frame, match_time, 0)
 
     if frame_2 is not None:
-        players_2 = player_model.track(source=frame_2, stream=True, verbose=False, persist=True,
+        players_2 = player_model_2.track(source=frame_2, stream=True, verbose=False, persist=True,
                                        tracker='bytetrack/bytetrack.yaml', classes=[PERSON_CLASS_ID])
-        ball_2 = ball_model.predict(source=frame_2, verbose=False, classes=[BALL_CLASS_ID], conf=CONFIDENCE_THRESHOLD_BALL)
+        # res = player_model.predict(frame_2)
+        # cv2.imshow("", res[0].plot())
+        # cv2.waitKey(0)
+        ball_2 = ball_model_2.predict(source=frame_2, verbose=False, classes=[BALL_CLASS_ID], conf=CONFIDENCE_THRESHOLD_BALL)
         frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
 
     return frame_data, frame_data_2
 
 
-def update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame, voronoi_frame, frame_all, match_time):
+def update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame, voronoi_frame, match_time):
+    frame_all = frame_data + frame_data_2
     if frame_all:
         data.append(frame_all)
         if frame_data:
@@ -103,12 +106,13 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
         logging.error(e)
         return
     halbzeit_gedruckt = False
+    logging.basicConfig(level=logging.INFO)
 
     os.makedirs(SAVE_FOLDER, exist_ok=True) # create a directory for saving output locally if it doesn't exist
     #create_player_table()  # Uncomment if you want to create the player table in the database
     time.sleep(config.start_after)
 
-    # video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
+    #video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
     # if not video_streams:
     #     logging.error("Kamera konnte nicht geöffnet werden.")
     #     return
@@ -154,13 +158,12 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
             break
 
         frame_data, frame_data_2 = process_frames(frame, frame_2, match_time)
-        update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame_base.copy(),
-                                    voronoi_frame_base.copy(), frame_data + frame_data_2, match_time)
+        update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame_base.copy(), voronoi_frame_base.copy(), match_time)
+        # frames = (frame, frame_2)
+        # # Save the frames
+        # for video_writer, v_frame in zip(video_writers, frames):
+        #         video_writer.write(v_frame)
 
-        # Save the frames
-       # for video_writer in video_writers:
-       #      video_writer.write(frame)
-       #      video_writer.write(frame_2)
 
     release_sources((video_stream, video_stream_2))  # Release the video streams
     # Close all video writers

@@ -19,17 +19,17 @@ class ViewTransformer:
 
         # Pixel coordinates of the court corners in the input image
         self.pixel_vertices = np.array([
-            [489, 149],  # Top-left corner in image
-            [790, 148],  # Top-middle/right
-            [1163, 659],  # Bottom-right
-            [125, 658]  # Bottom-left
+            [490, 150],
+            [822, 149],
+            [1266, 658],
+            [126, 659],
         ], dtype=np.float32)
 
         # Corresponding real-world coordinates (in meters) for camera 1
         self.target_vertices = np.array([
             [0, 0],  # Top-left in the real world
-            [court_length / 2, 0],  # Top-middle
-            [court_length / 2, court_width],  # Bottom-middle
+            [court_length / 2 + 1, 0],  # Top-middle
+            [court_length / 2 + 1, court_width],  # Bottom-middle
             [0, court_width]  # Bottom-left
         ], dtype=np.float32)
 

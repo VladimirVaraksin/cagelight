@@ -14,7 +14,7 @@ class IDManager:
     def _euclidean_distance(self, pos1, pos2):
         return ((pos1[0] - pos2[0])**2 + (pos1[1] - pos2[1])**2)**0.5
 
-    def _try_reidentify(self, new_entry, recent_entries, max_position_dist=2):
+    def _try_reidentify(self, new_entry, recent_entries, max_position_dist=1.2):
         #print(self.id_map)
         if not recent_entries:
             return None  # Kein Re-ID im ersten Frame möglich
@@ -43,8 +43,9 @@ class IDManager:
 
         return best_match["tracking_id"] if best_match else None
 
-    def get_persistent_id(self, yolo_id, entry, recent_entries):
+    def get_persistent_id(self, yolo_id, entry, recent_entries, first_frame=False):
         current_time = self._parse_timestamp(entry["timestamp"])
+        reid_id = None
 
         # Vergessenslogik: alte YOLO-IDs entfernen
         self._cleanup_old_ids(current_time)
@@ -58,7 +59,9 @@ class IDManager:
             return self.id_map[yolo_id][0]
 
         # Re-ID nur für Spieler
-        reid_id = self._try_reidentify(entry, recent_entries)
+        if not first_frame:
+            # Versuche, den Spieler zu re-identifizieren
+            reid_id = self._try_reidentify(entry, recent_entries)
 
         if reid_id is not None:
             persistent_id = reid_id

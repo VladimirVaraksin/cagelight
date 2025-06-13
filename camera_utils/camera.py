@@ -47,7 +47,7 @@ def setup_cam_streams(camera_indices, resolution, save_folder):
     for index in camera_indices:
         # Open the video stream
         video_stream = setup_camera(index, resolution[0], resolution[1])
-        if not video_stream.isOpened():
+        if not video_stream:
             print(f"Kamera mit Index {index} konnte nicht geöffnet werden.")
             return None, None  # Return None if any camera fails to open
 

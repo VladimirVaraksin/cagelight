@@ -8,19 +8,23 @@ from datetime import timedelta
 # store last N frames of player data
 recent_entries = deque(maxlen=30)
 
-id_manager = IDManager(max_age_seconds=4)  # Initialize IDManager with a max age of 3 seconds
+id_manager = IDManager(max_age_seconds=2)  # Initialize IDManager with a max age of 3 seconds
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
 pose_classifier = PoseClassifier()
 
 MODEL_PATH = 'models/yolov11n.pt'
 player_model = YOLO(MODEL_PATH)
+player_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera if needed
+ball_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera if needed
 ball_model = YOLO(MODEL_PATH)
 
 class_names = list(player_model.names.values())
 player_actions = {}
+FIRST_FRAME = True  # Flag to indicate if it's the first frame
 
 def save_objects(results, frame, timestamp, camera_id=0):
+    global FIRST_FRAME, player_actions, recent_entries
     """
         Processes YOLO detection results and returns structured data for each object (player or ball).
 
@@ -59,7 +63,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             # Get tracking ID (if available), else use -1
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
-
+            tracking_id = camera_id * 10 + tracking_id  # Ensure unique ID across cameras
             if label == "person":
                 label = "player"
             elif label == "sports ball":
@@ -111,10 +115,11 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "action": entry_action,
                     "bbox_xyxy": norm_bbox,
                 }
+                print(entry)
 
                 # assign persistent ID
-                persistent_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries)
-                #print(persistent_id, tracking_id)
+                persistent_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries, first_frame=FIRST_FRAME)
+                print(persistent_id, entry)
                 entry["tracking_id"] = persistent_id
 
                 data.append(entry)
@@ -128,4 +133,5 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     recent_entries.append(entry)
 
 
+    FIRST_FRAME = False  # Set the flag to False after processing the first frame
     return data
