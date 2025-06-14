@@ -17,12 +17,12 @@ import numpy as np
 import logging
 
 # Constants for game configuration
-DURATION_GAME = 30 #5400
+DURATION_GAME = 5400
 FPS_DEFAULT = 30
-HALF_TIME_DURATION = 5 #900
+HALF_TIME_DURATION = 900
 RESOLUTION_DEFAULT = (1280, 720)
 SAVE_FOLDER = 'output'
-CAMERA_NUMBER_DEFAULT = 0
+CAM_IDS_DEFAULT = (0,)  # Default camera IDs for left and right cameras
 START_AFTER_DEFAULT = 0
 STANDARD_RESOLUTION = ((1280, 720), None)
 BALL_CLASS_ID = 32
@@ -40,7 +40,7 @@ class GameConfig:
         self.half_time_duration = lcl_args.halbzeitdauer if lcl_args and lcl_args.halbzeitdauer else HALF_TIME_DURATION
         self.fps = lcl_args.fps if lcl_args and lcl_args.fps else FPS_DEFAULT
         self.resolution = tuple(lcl_args.resolution) if lcl_args and lcl_args.resolution else RESOLUTION_DEFAULT
-        self.camera_number = lcl_args.kameranummer if lcl_args and lcl_args.kameranummer else CAMERA_NUMBER_DEFAULT
+        self.cam_ids = lcl_args.cam_ids if lcl_args and lcl_args.cam_ids else CAM_IDS_DEFAULT
         self.start_after = lcl_args.start_after if lcl_args and lcl_args.start_after else START_AFTER_DEFAULT
         self.team_colors = lcl_args.team_colors if lcl_args and lcl_args.team_colors else DEFAULT_TEAM_COLORS
         self.team_names = lcl_args.team_names if lcl_args and lcl_args.team_names else ["Team 1", "Team 2"]
@@ -50,9 +50,12 @@ class GameConfig:
 
 
 def validate_inputs(config):
-    for arg in (config.duration_game, config.half_time_duration, config.fps, config.camera_number, config.start_after):
+    for arg in (config.duration_game, config.half_time_duration, config.fps, config.start_after):
         if arg < 0:
             raise ValueError("Ungültige Eingabewerte. Alle Werte müssen >= 0 sein.")
+    for cam_id in config.cam_ids:
+        if cam_id < 0:
+            raise ValueError("Ungültige Kamera-ID. Kamera-IDs müssen >= 0 sein.")
     if config.resolution not in STANDARD_RESOLUTION:
         raise ValueError("Ungültige Auflösung. Aktuell nur 1280x720 erlaubt.")
 
@@ -127,8 +130,8 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
             print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
             return
     else:
-        video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
-        if not video_streams or len(video_streams) < 2:
+        video_streams, video_writers = setup_cam_streams(config.cam_ids, RESOLUTION_DEFAULT, SAVE_FOLDER)
+        if not video_streams:
             logging.error("Kamera konnte nicht geöffnet werden.")
             return
 
@@ -154,10 +157,8 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
                 logging.error("Frame konnte nicht gelesen werden.")
                 break
             frames.append(frame)
-
         if len(frames) < 2:
-            logging.error("Nicht genügend Frames gelesen. Überprüfen Sie die Videoquellen.")
-            break
+            frames.append(None) # Append None if the second frame is not available
 
         match_time = time.time() - start_time
         if not halbzeit_gedruckt and match_time >= config.duration_game / 2:
@@ -194,7 +195,7 @@ if __name__ == "__main__":
     parser.add_argument("--halbzeitdauer", type=int, help="Halbzeitpause (Sekunden)")
     parser.add_argument("--fps", type=int, help="Bilder pro Sekunde")
     parser.add_argument("--resolution", type=int, nargs=2, metavar=('BREITE', 'HÖHE'))
-    parser.add_argument("--kameranummer", type=int, help="Kamera-ID (z.B. 0)")
+    parser.add_argument("--cam_ids", type=int, nargs=2, help="Kamera-ID (z.B. 0, 1)")
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
     parser.add_argument("--team_colors", type=str, nargs=2, help="Teamfarben in Hex-Format (z.B. #B2A48A #154460)")
     parser.add_argument("--team_names", type=str, nargs=2, help="Teamnamen (z.B. Team1 Team2)")
