@@ -3,7 +3,7 @@
 from typing import Optional
 from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions, player_model_2, ball_model_2
-#from db_save_player import create_player_table, insert_many_players
+from db_save_player import create_player_table, insert_many_players
 from camera_utils import release_sources, setup_cam_streams
 from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, TeamAssigner
 import time
@@ -17,9 +17,9 @@ import numpy as np
 import logging
 
 # Constants for game configuration
-DURATION_GAME = 5400
+DURATION_GAME = 30 #5400
 FPS_DEFAULT = 30
-HALF_TIME_DURATION = 900
+HALF_TIME_DURATION = 5 #900
 RESOLUTION_DEFAULT = (1280, 720)
 SAVE_FOLDER = 'output'
 CAMERA_NUMBER_DEFAULT = 0
@@ -31,6 +31,8 @@ PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.45
 data = []
 DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex format
+USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
+CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
 
 class GameConfig:
     def __init__(self, lcl_args=None):
@@ -42,6 +44,8 @@ class GameConfig:
         self.start_after = lcl_args.start_after if lcl_args and lcl_args.start_after else START_AFTER_DEFAULT
         self.team_colors = lcl_args.team_colors if lcl_args and lcl_args.team_colors else DEFAULT_TEAM_COLORS
         self.team_names = lcl_args.team_names if lcl_args and lcl_args.team_names else ["Team 1", "Team 2"]
+        self.create_player_table = lcl_args.create_player_table if lcl_args and lcl_args.create_player_table is not None else CREATE_PLAYER_TABLE
+        self.use_video = lcl_args.use_video if lcl_args and lcl_args.use_video is not None else USE_VIDEO
         TeamAssigner.team_colors = {name: color for name, color in zip(self.team_names, self.team_colors)}
 
 
@@ -76,9 +80,6 @@ def process_frames(frame = None, frame_2 = None, match_time = 0.0):
     if frame_2 is not None:
         players_2 = player_model_2.track(source=frame_2, stream=True, verbose=False, persist=True,
                                        tracker='bytetrack/bytetrack.yaml', classes=[PERSON_CLASS_ID])
-        # res = player_model.predict(frame_2)
-        # cv2.imshow("", res[0].plot())
-        # cv2.waitKey(0)
         ball_2 = ball_model_2.predict(source=frame_2, verbose=False, classes=[BALL_CLASS_ID], conf=CONFIDENCE_THRESHOLD_BALL)
         frame_data_2 = save_objects([*players_2, *ball_2], frame_2, match_time, 1)
 
@@ -96,7 +97,7 @@ def update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_
         pitch_frame = create_pitch_frame(pitch_frame, frame_all)
         voronoi_frame = create_voronoi_frame(voronoi_frame, frame_all)
 
-    warnings = injury_warning(player_actions, match_time, threshold=5)
+    warnings = injury_warning(player_actions, match_time, threshold=10)
     warning_lines = [f"Warning: Player {w[0]} has been {w[1]} for {w[2]:.2f} seconds." for w in warnings]
 
     update_dashboard(frame, frame_2, pitch_frame, voronoi_frame, warning_lines)
@@ -105,37 +106,37 @@ def update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_
 
 def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
     config = GameConfig(lcl_args)
+    logging.basicConfig(level=logging.INFO)
     try:
         validate_inputs(config)
     except ValueError as e:
         logging.error(e)
         return
     halbzeit_gedruckt = False
-    logging.basicConfig(level=logging.INFO)
 
     os.makedirs(SAVE_FOLDER, exist_ok=True) # create a directory for saving output locally if it doesn't exist
-    #create_player_table()  # Uncomment if you want to create the player table in the database
+    if config.create_player_table:
+        create_player_table()  # Uncomment if you want to create the player table in the database
     time.sleep(config.start_after)
 
-    #video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
-    # if not video_streams:
-    #     logging.error("Kamera konnte nicht geöffnet werden.")
-    #     return
-
-    # test for debugging using a video file
-    try:
-        video_stream, video_stream_2 = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
-        #video_stream = setup_video_streams(paths=["videos/cam_right.mp4"])
-    except (FileNotFoundError, RuntimeError) as e:
-        logging.error(e)
-        print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
-        return
+    if config.use_video: # test for debugging using a video file
+        try:
+            video_streams = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
+        except (FileNotFoundError, RuntimeError) as e:
+            logging.error(e)
+            print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
+            return
+    else:
+        video_streams, video_writers = setup_cam_streams((0, 1), RESOLUTION_DEFAULT, SAVE_FOLDER)
+        if not video_streams or len(video_streams) < 2:
+            logging.error("Kamera konnte nicht geöffnet werden.")
+            return
 
     # Start the Flask dashboard in a background thread
     threading.Thread(target=start_dashboard, daemon=True).start()
     time.sleep(1) # Wait for the dashboard to start
 
-    webbrowser.open("http://localhost:5050")
+    webbrowser.open("http://localhost:5050") # Open the dashboard in the default web browser
 
     # initialize pitch and voronoi frames
     pitch_frame_base = draw_pitch(SoccerPitchConfiguration(), scale=0.5)
@@ -146,14 +147,17 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
     start_time = time.time()  # Startzeitpunkt der Aufnahme
 
     while True:
-        ret, frame = video_stream.read()
+        frames = []
+        for video_stream in video_streams:
+            ret, frame = video_stream.read()
+            if not ret:
+                logging.error("Frame konnte nicht gelesen werden.")
+                break
+            frames.append(frame)
 
-        ret_2, frame_2 = video_stream_2.read()
-
-        if not ret or not ret_2:
-            logging.error("Frame konnte nicht gelesen werden.")
+        if len(frames) < 2:
+            logging.error("Nicht genügend Frames gelesen. Überprüfen Sie die Videoquellen.")
             break
-        #frame_2 = None
 
         match_time = time.time() - start_time
         if not halbzeit_gedruckt and match_time >= config.duration_game / 2:
@@ -165,20 +169,21 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
             logging.info("Spiel beendet.")
             break
 
-        frame_data, frame_data_2 = process_frames(frame, frame_2, match_time)
-        update_frames_and_dashboard(frame, frame_2, frame_data, frame_data_2, pitch_frame_base.copy(), voronoi_frame_base.copy(), match_time)
-        # frames = (frame, frame_2)
-        # # Save the frames
-        # for video_writer, v_frame in zip(video_writers, frames):
-        #         video_writer.write(v_frame)
+        frame_data, frame_data_2 = process_frames(frames[0], frames[1], match_time)
+        update_frames_and_dashboard(frames[0], frames[1], frame_data, frame_data_2, pitch_frame_base.copy(), voronoi_frame_base.copy(), match_time)
+        # Save the frames
+        if not config.use_video:
+            for video_writer, v_frame in zip(video_writers, frames):
+                    video_writer.write(v_frame)
 
 
-    release_sources((video_stream, video_stream_2))  # Release the video streams
-    # Close all video writers
-    #release_sources(video_writers+video_streams)
+    if config.use_video:
+        release_sources(video_streams)  # Release the video streams
+    else:
+        release_sources(video_writers+video_streams)
+        logging.info("\nSaving collected data to database...This may take a while.\n")
+        insert_many_players(data)  # Save the collected data to the database
 
-    logging.info("\nSaving collected data to database...This may take a while.\n")
-    #insert_many_players(data) #Save the collected data to the database
     # Save the collected data to a local file
     with open(os.path.join(SAVE_FOLDER, 'live_output.json'), 'w') as jf:
         json.dump(data, jf, indent=4)
@@ -193,5 +198,7 @@ if __name__ == "__main__":
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
     parser.add_argument("--team_colors", type=str, nargs=2, help="Teamfarben in Hex-Format (z.B. #B2A48A #154460)")
     parser.add_argument("--team_names", type=str, nargs=2, help="Teamnamen (z.B. Team1 Team2)")
+    parser.add_argument("--create_player_table", type=bool, help="Erstelle die Spieler-Tabelle in der Datenbank (True/False)")
+    parser.add_argument("--use_video", type=bool, help="Verwende Videodateien für das Testen (True/False)")
     args = parser.parse_args()
     main(args)

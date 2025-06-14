@@ -79,7 +79,7 @@ class TeamAssigner:
 
         distances = {team: np.linalg.norm(player_color_rgb - hex_to_rgb(color))
                      for team, color in self.team_colors.items()}
-        print(distances)
+        #print(distances)
         closest_team = min(distances, key=distances.get)
 
         self.players[tracking_id] = closest_team

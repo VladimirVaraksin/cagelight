@@ -73,15 +73,20 @@ def setup_cam_streams(camera_indices, resolution, save_folder):
 
 if __name__ == "__main__":
     # Example usage
-    camera = setup_camera(0, 1280, 720)
-    if camera:
-        print("Camera setup successful.")
-        for i in range(200):  # Display test frames
-            ret, frame = camera.read()
-            if not ret:
-                print("Failed to grab frame.")
-                break
-            cv2.imshow("Camera Feed", frame)
+    cameras, video_writers = setup_cam_streams([0, 1], (1280, 720), "output_videos")
+    if cameras is None:
+        print("Fehler beim Öffnen der Kameras.")
     else:
-        print("Failed to set up camera.")
-    release_sources([camera])
+        print(f"{len(cameras)} Kameras erfolgreich geöffnet.")
+    while True:
+        for i, cam in enumerate(cameras):
+            ret, frame = cam.read()
+            if ret:
+                cv2.imshow(f'Camera {i}', frame)
+                #video_writers[i].write(frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    release_sources(cameras+video_writers)
+
+
+

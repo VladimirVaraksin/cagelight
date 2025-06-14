@@ -15,8 +15,8 @@ pose_classifier = PoseClassifier()
 
 MODEL_PATH = 'models/yolov11n.pt'
 player_model = YOLO(MODEL_PATH)
-player_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera if needed
-ball_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera if needed
+player_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
+ball_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
 ball_model = YOLO(MODEL_PATH)
 
 class_names = list(player_model.names.values())
