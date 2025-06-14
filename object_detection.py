@@ -6,7 +6,7 @@ from collections import deque
 from datetime import timedelta
 
 # store last N frames of player data
-recent_entries = deque(maxlen=30)
+recent_entries = deque(maxlen=100)
 
 id_manager = IDManager(max_age_seconds=3)  # Initialize IDManager with a max age of 3 seconds
 team_assigner = TeamAssigner()
@@ -118,11 +118,9 @@ def save_objects(results, frame, timestamp, camera_id=0):
                     "action": entry_action,
                     "bbox_xyxy": norm_bbox,
                 }
-                print(entry)
 
                 # assign persistent ID
                 persistent_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries, first_frame=FIRST_FRAME)
-                print(persistent_id, entry)
                 entry["tracking_id"] = persistent_id
 
                 data.append(entry)
