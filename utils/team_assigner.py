@@ -4,8 +4,8 @@ from sklearn.cluster import KMeans
 
 
 class TeamAssigner:
+    team_colors = None  # {"#B2A48A", "#154460"}  # {team_name: color}
     def __init__(self):
-        self.team_colors = {}  # {team_name: color}
         self.players = {}      # {tracking_id: team_name}
 
     @staticmethod
@@ -24,16 +24,21 @@ class TeamAssigner:
         width, height = x2 - x1, y2 - y1
         ratio = height / width
         if ratio < 1:
-            top_half = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            height, width = image.shape[:2]  # Update width and height after rotation
+        # Überprüfen, ob die Breite größer als 110 ist
+        if width > frame.shape[1]/6:
+            # Berechne die 20% der Breite und Höhe
+            crop_width = int(width * 0.35)
+            crop_height = int(height * 0.35)
+
+            # Zuschneiden des Bildes: 20% von allen Seiten
+            top_half = image[crop_height:height - crop_height, crop_width:width - crop_width]
         else:
-            start = int(height * 0.15)  # 15 % von oben
-            end = int(height * 0.50)  # 50 % von oben
+            top_half = image[:int(height * 0.5), :]  # Use the top half of the image
 
-            start_width = int(width * 0.15)  # 15 % von links
-            end_width = int(width * 0.85)
-
-            top_half = image[start:end, start_width:end_width]
-
+        # cv2.imshow("Top Half", top_half)
+        # cv2.waitKey(0)
         kmeans = self.get_clustering_model(top_half)
         labels = kmeans.labels_.reshape(top_half.shape[:2])
 
@@ -50,6 +55,7 @@ class TeamAssigner:
         if not self.team_colors:
             team = "Team 1"
             self.team_colors[team] = player_color
+            print(player_color)
 
         elif len(self.team_colors) == 1:
             team1_color = next(iter(self.team_colors.values()))
@@ -63,3 +69,18 @@ class TeamAssigner:
 
         self.players[tracking_id] = team
         return team
+
+    def assign_team_from_color(self, player_color, tracking_id):
+        def hex_to_rgb(hex_color):
+            hex_color = hex_color.lstrip('#')
+            return np.array([int(hex_color[i:i + 2], 16) for i in (0, 2, 4)])
+
+        player_color_rgb = player_color if isinstance(player_color, np.ndarray) else hex_to_rgb(player_color)
+
+        distances = {team: np.linalg.norm(player_color_rgb - hex_to_rgb(color))
+                     for team, color in self.team_colors.items()}
+        print(distances)
+        closest_team = min(distances, key=distances.get)
+
+        self.players[tracking_id] = closest_team
+        return closest_team

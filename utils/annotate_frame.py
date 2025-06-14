@@ -38,10 +38,13 @@ def annotate_frame(frame, entries):
         cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
 
         # Prepare annotation label
-        if entry["action"] != "unknown":
-            label_text = f'{entry["object_type"]} #{entry["tracking_id"]} ({entry["team"]}) {entry["action"]}'
+        if entry["object_type"] == "player":
+            if entry["action"] != "unknown":
+                label_text = f'{entry["object_type"]} #{entry["tracking_id"]} ({entry["team"]}) {entry["action"]}'
+            else:
+                label_text = f'{entry["object_type"]} #{entry["tracking_id"]} ({entry["team"]})'
         else:
-            label_text = f'{entry["object_type"]} #{entry["tracking_id"]} ({entry["team"]})'
+            label_text = f'{entry["object_type"]} #{entry["tracking_id"]}'
 
         # Draw label text above the box
         cv2.putText(frame, label_text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,

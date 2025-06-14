@@ -14,7 +14,7 @@ class IDManager:
     def _euclidean_distance(self, pos1, pos2):
         return ((pos1[0] - pos2[0])**2 + (pos1[1] - pos2[1])**2)**0.5
 
-    def _try_reidentify(self, new_entry, recent_entries, max_position_dist=1.2):
+    def _try_reidentify(self, new_entry, recent_entries, max_position_dist=2.5):
         #print(self.id_map)
         if not recent_entries:
             return None  # Kein Re-ID im ersten Frame möglich

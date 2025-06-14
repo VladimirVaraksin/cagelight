@@ -78,7 +78,9 @@ class PoseClassifier:
         silhouette_resized = cv2.resize(silhouette, self.image_size)
         silhouette_array = silhouette_resized.astype(np.float32) / 255.0  # normalize
         input_tensor = np.expand_dims(silhouette_array, axis=0)  # add batch dim
-        #cv2.imshow("Silhouette", silhouette_resized)  # Debugging line to show the silhouette
+
+        # cv2.imshow("Silhouette", silhouette_resized) # Debugging line to show the silhouette
+        # cv2.waitKey(0)
         threshold = 0.45  # adjust as needed
 
         predictions = self.model.predict(input_tensor)

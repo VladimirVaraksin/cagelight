@@ -66,6 +66,8 @@
           }
           if (data.frame2) {
             document.getElementById("frame-img-2").src = "data:image/jpeg;base64," + data.frame2;
+          } else {
+            document.getElementById("frame-img-2").style = "display: none;";
           }
 
           if (data.pitch) {

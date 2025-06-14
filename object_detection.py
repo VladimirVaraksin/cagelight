@@ -8,7 +8,7 @@ from datetime import timedelta
 # store last N frames of player data
 recent_entries = deque(maxlen=30)
 
-id_manager = IDManager(max_age_seconds=2)  # Initialize IDManager with a max age of 3 seconds
+id_manager = IDManager(max_age_seconds=3)  # Initialize IDManager with a max age of 3 seconds
 team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
 pose_classifier = PoseClassifier()
@@ -63,6 +63,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             # Get tracking ID (if available), else use -1
             box_id = getattr(box, 'id', None)
             tracking_id = int(box_id[0]) if isinstance(box_id, (list, np.ndarray)) else int(box_id) if box_id else -1
+            #if FIRST_FRAME:
             tracking_id = camera_id * 10 + tracking_id  # Ensure unique ID across cameras
             if label == "person":
                 label = "player"
@@ -78,10 +79,12 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 if label == "player":
                     # # Assign team based on player color
                     team = team_assigner.get_player_team(tracking_id)
-                    if team is None:
+                    if team is None and TeamAssigner.team_colors is None:
                         # If the player is not assigned to a team, get the player color and assign a team
                         player_color = team_assigner.get_player_color(frame, bbox)
                         team = team_assigner.assign_team(player_color, tracking_id)
+                    elif team is None:
+                        team = team_assigner.assign_team_from_color(team_assigner.get_player_color(frame, bbox), tracking_id)
                     # Action classification
                     #team = "Team 1"
                     entry_action = pose_classifier.classify_pose(frame, bbox)

@@ -5,7 +5,7 @@ from app import start_dashboard, update_dashboard
 from object_detection import save_objects, player_model, ball_model, player_actions, player_model_2, ball_model_2
 #from db_save_player import create_player_table, insert_many_players
 from camera_utils import release_sources, setup_cam_streams
-from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame
+from utils import annotate_frame, create_pitch_frame, draw_pitch, SoccerPitchConfiguration, injury_warning, create_voronoi_frame, TeamAssigner
 import time
 import cv2
 import os
@@ -30,6 +30,7 @@ WARNING_THRESHOLD = 5
 PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.45
 data = []
+DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex format
 
 class GameConfig:
     def __init__(self, lcl_args=None):
@@ -39,6 +40,10 @@ class GameConfig:
         self.resolution = tuple(lcl_args.resolution) if lcl_args and lcl_args.resolution else RESOLUTION_DEFAULT
         self.camera_number = lcl_args.kameranummer if lcl_args and lcl_args.kameranummer else CAMERA_NUMBER_DEFAULT
         self.start_after = lcl_args.start_after if lcl_args and lcl_args.start_after else START_AFTER_DEFAULT
+        self.team_colors = lcl_args.team_colors if lcl_args and lcl_args.team_colors else DEFAULT_TEAM_COLORS
+        self.team_names = lcl_args.team_names if lcl_args and lcl_args.team_names else ["Team 1", "Team 2"]
+        TeamAssigner.team_colors = {name: color for name, color in zip(self.team_names, self.team_colors)}
+
 
 def validate_inputs(config):
     for arg in (config.duration_game, config.half_time_duration, config.fps, config.camera_number, config.start_after):
@@ -120,6 +125,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
     # test for debugging using a video file
     try:
         video_stream, video_stream_2 = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
+        #video_stream = setup_video_streams(paths=["videos/cam_right.mp4"])
     except (FileNotFoundError, RuntimeError) as e:
         logging.error(e)
         print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
@@ -141,11 +147,13 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
 
     while True:
         ret, frame = video_stream.read()
+
         ret_2, frame_2 = video_stream_2.read()
 
         if not ret or not ret_2:
             logging.error("Frame konnte nicht gelesen werden.")
             break
+        #frame_2 = None
 
         match_time = time.time() - start_time
         if not halbzeit_gedruckt and match_time >= config.duration_game / 2:
@@ -183,5 +191,7 @@ if __name__ == "__main__":
     parser.add_argument("--resolution", type=int, nargs=2, metavar=('BREITE', 'HÖHE'))
     parser.add_argument("--kameranummer", type=int, help="Kamera-ID (z.B. 0)")
     parser.add_argument("--start_after", type=int, help="Startverzögerung (Sekunden)")
+    parser.add_argument("--team_colors", type=str, nargs=2, help="Teamfarben in Hex-Format (z.B. #B2A48A #154460)")
+    parser.add_argument("--team_names", type=str, nargs=2, help="Teamnamen (z.B. Team1 Team2)")
     args = parser.parse_args()
     main(args)
