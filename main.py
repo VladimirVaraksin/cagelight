@@ -22,7 +22,7 @@ FPS_DEFAULT = 30
 HALF_TIME_DURATION = 900
 RESOLUTION_DEFAULT = (1280, 720)
 SAVE_FOLDER = 'output'
-CAM_IDS_DEFAULT = (0,)  # Default camera IDs for left and right cameras
+CAM_IDS_DEFAULT = (0,)  # Default camera IDs
 START_AFTER_DEFAULT = 0
 STANDARD_RESOLUTION = ((1280, 720), None)
 BALL_CLASS_ID = 32
@@ -31,7 +31,7 @@ PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.45
 data = []
 DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex format
-USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
+USE_VIDEO = False  # Set to True to use video files for testing, False to use camera streams
 CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
 
 class GameConfig:
@@ -157,7 +157,10 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
                 logging.error("Frame konnte nicht gelesen werden.")
                 break
             frames.append(frame)
-        if len(frames) < 2:
+        if not frames:
+            logging.error("Keine Frames von den Videoquellen erhalten.")
+            break
+        elif len(frames) < 2:
             frames.append(None) # Append None if the second frame is not available
 
         match_time = time.time() - start_time
@@ -169,6 +172,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
         if match_time >= config.duration_game + config.half_time_duration:
             logging.info("Spiel beendet.")
             break
+
 
         frame_data, frame_data_2 = process_frames(frames[0], frames[1], match_time)
         update_frames_and_dashboard(frames[0], frames[1], frame_data, frame_data_2, pitch_frame_base.copy(), voronoi_frame_base.copy(), match_time)
