@@ -35,6 +35,7 @@ DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex forma
 USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
 CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
 
+# GameConfig Class for game configuration
 class GameConfig:
     def __init__(self, lcl_args=None):
         self.duration_game = lcl_args.spieldauer if lcl_args and lcl_args.spieldauer else DURATION_GAME
