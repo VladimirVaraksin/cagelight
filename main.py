@@ -31,7 +31,7 @@ PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.45
 data = []
 DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex format
-USE_VIDEO = False  # Set to True to use video files for testing, False to use camera streams
+USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
 CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
 
 class GameConfig:
