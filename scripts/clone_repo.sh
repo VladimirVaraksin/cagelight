@@ -7,4 +7,4 @@ source yolovenv/bin/activate
 # Install dependencies
 sudo apt update
 sudo apt install libpq-dev python3-dev
-pip install -r requirements.txt
+pip install -r requirements_with_versions.txt
