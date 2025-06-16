@@ -1,7 +1,7 @@
 #!/bin/bash
 #mit $ source start_skript.sh starten
 # Ins Verzeichnis ~/CageLight wechseln
-cd ~/CageLight || { echo "Verzeichnis nicht gefunden!"; exit 1; }
+cd ~/CageLight/AI--Realtime || { echo "Verzeichnis nicht gefunden!"; exit 1; }
 
 # Python-Virtual-Environment "yolovenv" aktivieren
 source yolovenv/bin/activate || { echo "Konnte yolovenv nicht aktivieren!"; exit 1; }

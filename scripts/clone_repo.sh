@@ -1,5 +1,10 @@
 cd ~ || exit
-cd CageLight || git clone https://github.com/VladimirVaraksin/cagelight.git
+mkdir CageLight
+cd CageLight || exit
+git clone https://github.com/THA-CageLight/AI--Realtime.git
 python3.10 -m venv yolovenv
 source yolovenv/bin/activate
+# Install dependencies
+sudo apt update
+sudo apt install libpq-dev python3-dev
 pip install -r requirements.txt
