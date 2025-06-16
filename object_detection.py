@@ -13,7 +13,8 @@ team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
 pose_classifier = PoseClassifier()
 
-MODEL_PATH = 'models/yolov11n.pt'
+MODEL_PATH = 'models/yolov11n.pt'  # Path to the YOLO model
+#MODEL_PATH = 'yolo11x.pt'  # Path to the YOLO model for COCO dataset
 player_model = YOLO(MODEL_PATH)
 player_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
 ball_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
