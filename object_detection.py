@@ -12,8 +12,7 @@ team_assigner = TeamAssigner()
 view_transformer = ViewTransformer()
 pose_classifier = PoseClassifier()
 
-MODEL_PATH = 'models/yolov11n.pt'  # Path to the YOLO model
-#MODEL_PATH = 'yolo11x.pt'  # Path to the YOLO model for COCO dataset
+MODEL_PATH = 'models/yolov11n.pt' # Path to the YOLO model
 player_model = YOLO(MODEL_PATH)
 player_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
 ball_model_2 = YOLO(MODEL_PATH)  # Duplicate model for second camera
@@ -93,7 +92,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             if label in {"player", "ball"} and tracking_id != -1:
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
-                print(tracking_id, timestamp, pitch_x, pitch_y)
+                #print(tracking_id, timestamp, pitch_x, pitch_y)
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
                     # Assign the team based on player color
