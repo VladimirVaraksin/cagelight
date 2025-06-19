@@ -102,7 +102,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
                             team = team_assigner.assign_team_from_color(team_assigner.get_player_color(frame, bbox),tracking_id)
                         else:
                             # If the player is not assigned to a team, get the player color and assign a team
-                            player_color = team_assigner.get_player_color(frame, bbox)
+                            player_color = team_assigner.get_player_color(frame, bbox, tracking_id)
                             team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
                     entry_action = pose_classifier.classify_pose(frame, bbox)
