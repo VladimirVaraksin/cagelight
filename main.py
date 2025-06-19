@@ -31,7 +31,6 @@ WARNING_THRESHOLD = 5
 PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.45
 data = []
-DEFAULT_TEAM_COLORS = ["#D0D2B5", "#00008B"]  # Default team colors in hex format
 USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
 CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
 
@@ -44,11 +43,11 @@ class GameConfig:
         self.resolution = tuple(lcl_args.resolution) if lcl_args and lcl_args.resolution else RESOLUTION_DEFAULT
         self.cam_ids = lcl_args.cam_ids if lcl_args and lcl_args.cam_ids else CAM_IDS_DEFAULT
         self.start_after = lcl_args.start_after if lcl_args and lcl_args.start_after else START_AFTER_DEFAULT
-        self.team_colors = lcl_args.team_colors if lcl_args and lcl_args.team_colors else DEFAULT_TEAM_COLORS
+        self.team_colors = lcl_args.team_colors if lcl_args and lcl_args.team_colors else TeamAssigner.default_colors
         self.team_names = lcl_args.team_names if lcl_args and lcl_args.team_names else ["Team 1", "Team 2"]
         self.create_player_table = lcl_args.create_player_table if lcl_args and lcl_args.create_player_table is not None else CREATE_PLAYER_TABLE
         self.use_video = lcl_args.use_video if lcl_args and lcl_args.use_video is not None else USE_VIDEO
-        TeamAssigner.team_colors = {name: color for name, color in zip(self.team_names, self.team_colors)}
+        TeamAssigner.team_colors = {name: color for name, color in zip(self.team_names, self.team_colors)} if self.team_colors else {}
 
 
 def validate_inputs(config):
@@ -127,6 +126,8 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
     if config.use_video: # test for debugging using a video file
         try:
             video_streams = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
+            #video_stream = cv2.VideoCapture("videos/injury.mp4")
+            #video_streams = [video_stream]
         except (FileNotFoundError, RuntimeError) as e:
             logging.error(e)
             print("Fehler beim Öffnen der Videodateien. Bitte überprüfen Sie die Pfade.")
@@ -182,6 +183,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
         if not config.use_video:
             for video_writer, v_frame in zip(video_writers, frames):
                     video_writer.write(v_frame)
+                    #pass
 
 
     if config.use_video:

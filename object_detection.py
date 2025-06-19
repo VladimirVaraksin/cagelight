@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from utils import TeamAssigner, ViewTransformer, PoseClassifier, IDManager
 import numpy as np
 from collections import deque
-from datetime import timedelta
+#from datetime import timedelta
 
 # store last N frames of player data
 recent_entries = deque(maxlen=100)
@@ -78,16 +78,17 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 pitch_x, pitch_y = pitch_point[0]
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
+                    #tracking_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries, first_frame=FIRST_FRAME)
                     # # Assign team based on player color
                     team = team_assigner.get_player_team(tracking_id)
-                    if team is None and TeamAssigner.team_colors is None:
-                        # If the player is not assigned to a team, get the player color and assign a team
-                        player_color = team_assigner.get_player_color(frame, bbox)
-                        team = team_assigner.assign_team(player_color, tracking_id)
-                    elif team is None:
-                        team = team_assigner.assign_team_from_color(team_assigner.get_player_color(frame, bbox), tracking_id)
+                    if team is None:
+                        if TeamAssigner.default_colors is not None:
+                            team = team_assigner.assign_team_from_color(team_assigner.get_player_color(frame, bbox),tracking_id)
+                        else:
+                            # If the player is not assigned to a team, get the player color and assign a team
+                            player_color = team_assigner.get_player_color(frame, bbox)
+                            team = team_assigner.assign_team(player_color, tracking_id)
                     # Action classification
-                    #team = "Team 1"
                     entry_action = pose_classifier.classify_pose(frame, bbox)
                     # Store the action for the player
                     if entry_action == "lying" or entry_action == "sitting":

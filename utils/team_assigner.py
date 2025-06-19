@@ -4,7 +4,8 @@ from sklearn.cluster import KMeans
 
 
 class TeamAssigner:
-    team_colors = None  # {"#B2A48A", "#154460"}  # {team_name: color}
+    team_colors = {}  # {team_name: color}
+    default_colors = None #["#D0D2B5", "#00008B"]  # Default team colors
     def __init__(self):
         self.players = {}      # {tracking_id: team_name}
 
@@ -59,10 +60,12 @@ class TeamAssigner:
 
         elif len(self.team_colors) == 1:
             team1_color = next(iter(self.team_colors.values()))
+            #print(color_distance(player_color, team1_color))
             team = "Team 2" if color_distance(player_color, team1_color) > threshold else "Team 1"
             self.team_colors.setdefault(team, player_color)
 
         else:
+            #print(self.team_colors)
             distances = {team: color_distance(player_color, color)
                          for team, color in self.team_colors.items()}
             team = min(distances, key=distances.get)
