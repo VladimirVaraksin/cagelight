@@ -16,6 +16,8 @@ def create_pitch_frame(pitch_frame, entries):
     """
     # Listen für beide Teams
     pitch_points_team1, pitch_points_team2, ball_points = get_team_arrays(entries, with_id=True)
+    # ensure we only take the first ball point if multiples are detected
+    ball_points = ball_points[0:1] if len(ball_points) > 0 else []
     #print(pitch_points_team1, pitch_points_team2)
 
     if len(pitch_points_team1) == 0 and len(pitch_points_team2) == 0:

@@ -41,6 +41,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
     #print(recent_entries)
     data = []
     height, width = frame.shape[:2]
+    ball_detected = False  # Flag to track if the ball is detected in the current frame
     for detections in results:
         for box in detections.boxes:
             # Extract bounding box coordinates (x1, y1, x2, y2)
@@ -74,6 +75,12 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 if label == "player":
                     continue
                 elif label == "ball":
+                    for entry in data:
+                        if entry["tracking_id"] == 0:
+                            ball_detected = True
+                            break
+                    if ball_detected:
+                        continue
                     # If the ball is not detected, we can still create an entry with a default position
                     for i, past in enumerate(recent_entries):
                         if past["tracking_id"] == 0:

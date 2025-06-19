@@ -183,7 +183,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
         if not config.use_video:
             for video_writer, v_frame in zip(video_writers, frames):
                     video_writer.write(v_frame)
-                    #pass
+
 
 
     if config.use_video:
