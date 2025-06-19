@@ -93,6 +93,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
             if label in {"player", "ball"} and tracking_id != -1:
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
+                print(tracking_id, timestamp, pitch_x, pitch_y)
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
                     # Assign the team based on player color
