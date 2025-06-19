@@ -51,8 +51,6 @@ def save_objects(results, frame, timestamp, camera_id=0):
             pitch_point = view_transformer.transform_point(point, camera_id=camera_id)
 
             # Skip detections outside the defined field area
-            if pitch_point is None:
-                continue
             # Normalize the bounding box with respect to frame size
             bbox = [x1, y1, x2, y2]
             norm_bbox = [round(b / dim, 4) for b, dim in zip(bbox, [width, height, width, height])]
@@ -72,14 +70,26 @@ def save_objects(results, frame, timestamp, camera_id=0):
                 label = "ball"
                 tracking_id = 0  # Assign a fixed ID for the ball
 
+            if pitch_point is None:
+                if label == "player":
+                    continue
+                elif label == "ball":
+                    # If the ball is not detected, we can still create an entry with a default position
+                    for i, past in enumerate(recent_entries):
+                        if past["tracking_id"] == 0:
+                            pitch_point = np.array(past["pitch_position"], dtype=np.float32).reshape(1, 2)
+                    if pitch_point is None:
+                        # If no past entry exists, use a default position
+                        pitch_point = np.array([0.0, 0.0], dtype=np.float32).reshape(1, 2)
+
+
             # Only continue if the object is of interest and has a valid tracking ID
             if label in {"player", "ball"} and tracking_id != -1:
                 # Extract pitch coordinates
                 pitch_x, pitch_y = pitch_point[0]
                 entry_action = "unknown"  # Initialize action as unknown
                 if label == "player":
-                    #tracking_id = id_manager.get_persistent_id(tracking_id, entry, recent_entries, first_frame=FIRST_FRAME)
-                    # # Assign team based on player color
+                    # Assign the team based on player color
                     team = team_assigner.get_player_team(tracking_id)
                     if team is None:
                         if TeamAssigner.default_colors is not None:
@@ -129,7 +139,7 @@ def save_objects(results, frame, timestamp, camera_id=0):
 
                 # store latest player entry (only one per persistent ID)
                 for i, past in enumerate(recent_entries):
-                    if past["tracking_id"] == persistent_id and past["object_type"] == "player":
+                    if past["tracking_id"] == persistent_id:
                         recent_entries[i] = entry
                         break
                 else:

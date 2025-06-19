@@ -30,6 +30,7 @@ class ViewTransformer:
         #     [1067, 1180],
         #     [0, 1204],
         # ], dtype=np.float32)
+
         # Corresponding real-world coordinates (in meters) for camera 1
         self.target_vertices = np.array([
             [0, 0],  # Top-left in the real world
@@ -71,7 +72,7 @@ class ViewTransformer:
         - point: A NumPy array of shape (1, 2), representing the (x, y) pixel coordinates.
 
         Returns:
-        - A NumPy array of shape (1, 2) with the transformed real-world coordinates,
+        - A NumPy array of the shape (1, 2) with the transformed real-world coordinates,
           or None if the point lies outside the defined court polygon.
         """
         # Convert to integer coordinates for point-in-polygon test
@@ -79,13 +80,12 @@ class ViewTransformer:
         # Reshape point to a required format for cv2.perspectiveTransform and convert to float32
         reshaped_point = point.reshape(-1, 1, 2).astype(np.float32)
         is_inside = cv2.pointPolygonTest(self.pixel_vertices, p, False) >= 0
-
+        # Check if the point lies within the defined court polygon
         if is_inside:
             if camera_id == 0:
                 transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer)
             else:
                 transformed_point = cv2.perspectiveTransform(reshaped_point, self.perspective_transformer_2)
-        # Check if the point lies within the defined court polygon
         else:
             return None
 

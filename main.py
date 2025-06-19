@@ -29,7 +29,7 @@ STANDARD_RESOLUTION = ((1280, 720), None)
 BALL_CLASS_ID = 32
 WARNING_THRESHOLD = 5
 PERSON_CLASS_ID = 0
-CONFIDENCE_THRESHOLD_BALL = 0.45
+CONFIDENCE_THRESHOLD_BALL = 0.4
 data = []
 USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
 CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
@@ -126,7 +126,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
     if config.use_video: # test for debugging using a video file
         try:
             video_streams = setup_video_streams(paths=["videos/cam_right.mp4", "videos/cam_left.mp4"])
-            #video_stream = cv2.VideoCapture("videos/injury.mp4")
+            #video_stream = cv2.VideoCapture("videos/black.mp4")
             #video_streams = [video_stream]
         except (FileNotFoundError, RuntimeError) as e:
             logging.error(e)
