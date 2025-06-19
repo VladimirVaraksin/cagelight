@@ -3,7 +3,6 @@ from ultralytics import YOLO
 from utils import TeamAssigner, ViewTransformer, PoseClassifier, IDManager
 import numpy as np
 from collections import deque
-#from datetime import timedelta
 
 # store last N frames of player data
 recent_entries = deque(maxlen=100)
