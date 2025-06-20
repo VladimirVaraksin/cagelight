@@ -53,3 +53,4 @@ echo "🧪 Verifying cuDNN version:"
 grep -A2 CUDNN_MAJOR /usr/local/cuda/include/cudnn_version.h
 
 echo "✅ Setup complete! Ready for TensorFlow 2.19."
+#
