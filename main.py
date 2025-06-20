@@ -32,7 +32,7 @@ PERSON_CLASS_ID = 0
 CONFIDENCE_THRESHOLD_BALL = 0.4
 data = []
 USE_VIDEO = True  # Set to True to use video files for testing, False to use camera streams
-CREATE_PLAYER_TABLE = False  # Set to True to create the player table in the database
+CREATE_PLAYER_TABLE = True #False  # Set to True to create the player table in the database
 
 # GameConfig Class for game configuration
 class GameConfig:
@@ -120,6 +120,7 @@ def main(lcl_args: Optional[argparse.Namespace] = None) -> None:
 
     os.makedirs(SAVE_FOLDER, exist_ok=True) # create a directory for saving output locally if it doesn't exist
     if config.create_player_table:
+        logging.info("Creating player table in the database...")
         create_player_table()  # Uncomment if you want to create the player table in the database
     time.sleep(config.start_after)
 

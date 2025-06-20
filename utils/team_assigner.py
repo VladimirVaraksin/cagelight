@@ -8,7 +8,7 @@ import numpy as np
 
 class TeamAssigner:
     team_colors = {}  # {team_name: color}
-    default_colors = None #["#D0D2B5", "#00008B"]  # Default team colors
+    default_colors = None #["#cfd7e3", "#a8947b"]  # Default team colors
     def __init__(self):
         self.players = {}      # {tracking_id: team_name}
 
@@ -60,7 +60,7 @@ class TeamAssigner:
         if not self.team_colors:
             team = "Team 1"
             self.team_colors[team] = player_color
-            print(player_color)
+            #print(player_color)
 
         elif len(self.team_colors) == 1:
             team1_color = next(iter(self.team_colors.values()))
